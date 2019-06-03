@@ -1,6 +1,6 @@
 package it.contrader.model;
 
-public class Piatti {
+public class Meal {
 
 	int Idpiatti;
 	int Kcal;
