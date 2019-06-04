@@ -1,5 +1,5 @@
 package it.contrader.dao;
 
-public class Parameters {
+public class ParametersDAO {
 
 }
