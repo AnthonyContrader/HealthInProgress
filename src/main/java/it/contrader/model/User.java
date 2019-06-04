@@ -1,58 +1,50 @@
 package it.contrader.model;
 
 public class User {
-	private int userId;
-	private String username;
-	private String usertype;
 
-	public User() {
+	int Iduser;
+	String Nome;
+	String Password;
+	String Tipo;
+
+	public User(int iduser, String nome, String password, String tipo) {
+		super();
+		Iduser = iduser;
+		Nome = nome;
+		Password = password;
+		Tipo = tipo;
 	}
 
-	public User(String username, String usertype) {
-		this.username = username;
-		this.usertype = usertype;
+	public int getIduser() {
+		return Iduser;
 	}
 
-	public int getUserId() {
-		return userId;
+	public void setIduser(int iduser) {
+		Iduser = iduser;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public String getNome() {
+		return Nome;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNome(String nome) {
+		Nome = nome;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getPassword() {
+		return Password;
 	}
 
-	public String getUsertype() {
-		return usertype;
+	public void setPassword(String password) {
+		Password = password;
 	}
 
-	public void setUsertype(String usertype) {
-		this.usertype = usertype;
+	public String getTipo() {
+		return Tipo;
 	}
 
-	@Override
-	public String toString() {
-		return this.getUserId() + "\t" + this.getUsername() + "\t" + this.getUsertype();
-	}
-
-	public boolean equals(User userCompare) {
-		if (!this.getUsername().equals(userCompare.getUsername())) {
-			return false;
-		}
-
-		if (!this.getUsertype().equals(userCompare.getUsertype())) {
-			return false;
-		}
-
-		return true;
-
+	public void setTipo(String tipo) {
+		Tipo = tipo;
 	}
 
 }

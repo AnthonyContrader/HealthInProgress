@@ -25,10 +25,15 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_user` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `user_type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `cognome` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `eta` int(2) COLLATE utf8_unicode_ci NOT NULL,
+  `sesso` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `altezza` float COLLATE utf8_unicode_ci NOT NULL,
+  `peso` float COLLATE utf8_unicode_ci NOT NULL,
+
+PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
