@@ -11,6 +11,7 @@ import it.contrader.controller.GestoreEccezioni;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Parameters;
 
+
 public class ParametersDAO {
 
 	private final String QUERY_ALL = "select * from parameters";
@@ -224,5 +225,8 @@ public class ParametersDAO {
 		return false;
 
 	}
+
+	
+	
 
 }
