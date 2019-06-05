@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import java.util.Vector;
-
 import it.contrader.controller.GestoreEccezioni;
 
 import it.contrader.main.ConnectionSingleton;
@@ -53,16 +51,17 @@ public class ParametersDAO {
 				String device = resultSet.getString("dispositivo");
 				double height = resultSet.getDouble("altezza");
 				double weight = resultSet.getDouble("peso");
-				int eta = resultSet.getInt("eta");
-				int polso = resultSet.getInt("polso");
+				int age = resultSet.getInt("eta");
+				int pulse = resultSet.getInt("polso");
 				int respiratoryR = resultSet.getInt("freqResp");
 				int bodyT = resultSet.getInt("tempCorp");
 				int bloodO = resultSet.getInt("ossSang");
 
-				parameters = new Parameters(parametersId, name, sex, device, height, weight, eta, polso, respiratoryR,bodyT, bloodO);
-				user.setIduser(userId);
+				parameters = new Parameters( name, sex, device, height, weight, age, pulse, respiratoryR,
+						bodyT, bloodO);
+				parameters.setIdParameter(parametersId);
 
-				usersList.add(user);
+				parametersList.add(parameters);
 
 			}
 
@@ -72,11 +71,11 @@ public class ParametersDAO {
 
 		}
 
-		return usersList;
+		return parametersList;
 
 	}
 
-	public boolean insertUser(User user) {
+	public boolean insertParameters(Parameters parameters) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -84,10 +83,16 @@ public class ParametersDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 
-			preparedStatement.setString(1, user.getNome());
-			preparedStatement.setString(2, user.getPassword());
-
-			preparedStatement.setString(3, user.getTipo());
+			preparedStatement.setString(1, parameters.getNome());
+			preparedStatement.setString(2, parameters.getSesso());
+			preparedStatement.setString(3, parameters.getDispositivo());
+			preparedStatement.setDouble(4, parameters.getAltezza());
+			preparedStatement.setDouble(5, parameters.getPeso());
+			preparedStatement.setInt(6, parameters.getEta());
+			preparedStatement.setInt(7, parameters.getPolso());
+			preparedStatement.setInt(8, parameters.getFreqResp());
+			preparedStatement.setInt(9, parameters.getTempCorp());
+			preparedStatement.setInt(10, parameters.getOssSang());
 
 			preparedStatement.execute();
 
@@ -103,7 +108,7 @@ public class ParametersDAO {
 
 	}
 
-	public User readUser(int userId) {
+	public Parameters readParameters(int idParameter) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -111,24 +116,32 @@ public class ParametersDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 
-			preparedStatement.setInt(1, userId);
+			preparedStatement.setInt(1, idParameter);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
 
-			String username, password, usertype;
+			String name, sex, device;
+			int age, pulse, respiratoryr, bodyt, bloodo;
+			double height, weight;
 
-			username = resultSet.getString("Nome");
-			password = resultSet.getString("Password");
+			name = resultSet.getString("nome");
+			sex = resultSet.getString("sesso");
+			device = resultSet.getString("dispositivo");
+			height = resultSet.getDouble("altezza");
+			weight = resultSet.getDouble("peso");
+			age = resultSet.getInt("eta");
+			pulse = resultSet.getInt("polso");
+			respiratoryr = resultSet.getInt("freqResp");
+			bodyt = resultSet.getInt("tempCorp");
+			bloodo = resultSet.getInt("ossSang");
+			Parameters parameters = new Parameters(name, sex, device, height, weight, age, pulse, respiratoryr, bodyt,
+					bloodo);
 
-			usertype = resultSet.getString("Tipo");
+			parameters.setIdParameter(resultSet.getInt("idParameters"));
 
-			User user = new User(userId, username, password, usertype);
-
-			user.setIduser(resultSet.getInt("Iduser"));
-
-			return user;
+			return parameters;
 
 		} catch (SQLException e) {
 
@@ -140,68 +153,53 @@ public class ParametersDAO {
 
 	}
 
-	public boolean updateUser(User userToUpdate) {
+	public boolean updateparameters(Parameters parametersToUpdate) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
 
-		if (userToUpdate.getIduser() == 0)
+		if (parametersToUpdate.getIdParameter() == 0) 
+
+			return false;
+		
+		// Update the user
+		try {
+
+		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+
+		preparedStatement.setString(1, parametersToUpdate.getNome());
+		preparedStatement.setString(2, parametersToUpdate.getSesso());
+
+		preparedStatement.setString(3, parametersToUpdate.getDispositivo());
+
+		preparedStatement.setDouble(4, parametersToUpdate.getAltezza());
+		preparedStatement.setDouble(4, parametersToUpdate.getPeso());
+		preparedStatement.setInt(4, parametersToUpdate.getEta());
+		preparedStatement.setInt(4, parametersToUpdate.getPolso());
+		preparedStatement.setInt(4, parametersToUpdate.getFreqResp());
+		preparedStatement.setInt(4, parametersToUpdate.getTempCorp());
+		preparedStatement.setInt(4, parametersToUpdate.getOssSang());
+		int a = preparedStatement.executeUpdate();
+
+		if (a > 0)
+
+			return true;
+
+		else
 
 			return false;
 
-		User userRead = readUser(userToUpdate.getIduser());
-
-		if (!userRead.equals(userToUpdate)) {
-
-			try {
-
-				// Fill the userToUpdate object
-
-				if (userToUpdate.getNome() == null || userToUpdate.getNome().equals("")) {
-
-					userToUpdate.setNome(userRead.getNome());
-
-				}
-
-				if (userToUpdate.getTipo() == null || userToUpdate.getTipo().equals("")) {
-
-					userToUpdate.setTipo(userRead.getTipo());
-
-				}
-
-				// Update the user
-
-				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-
-				preparedStatement.setString(1, userToUpdate.getNome());
-				preparedStatement.setString(2, userToUpdate.getPassword());
-
-				preparedStatement.setString(3, userToUpdate.getTipo());
-
-				preparedStatement.setInt(4, userToUpdate.getIduser());
-
-				int a = preparedStatement.executeUpdate();
-
-				if (a > 0)
-
-					return true;
-
-				else
-
-					return false;
-
-			} catch (SQLException e) {
-
-				return false;
-
-			}
-
-		}
+	} catch (SQLException e) {
 
 		return false;
 
 	}
+
+
+	}
+
+
 
 	public boolean deleteUser(Integer id) {
 

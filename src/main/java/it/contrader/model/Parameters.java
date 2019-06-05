@@ -16,7 +16,7 @@ public class Parameters {
 
 	
 
-	public Parameters(int idParameter, String nome, String sesso, String dispositivo, double altezza,
+	public Parameters(String nome, String sesso, String dispositivo, double altezza,
 			double peso, int eta, int polso, int freqResp, int tempCorp, int ossSang) {
 		super();
 		this.idParameter = idParameter;

@@ -10,7 +10,7 @@ public class User {
 	public User(int iduser, String nome, String password, String tipo) {
 		super();
 		Iduser = iduser;
-		Nome = Nome;
+		nome = Nome;
 		Password = password;
 		Tipo = tipo;
 	}
