@@ -1,39 +1,54 @@
 package it.contrader.dto;
 
 public class UserDTO {
-	private int userId;
-	private String username;
-	private String usertype;
+	private int idUser;
+	private String nome;
+	private String tipo;
+	private String password;
+
 
 	public UserDTO(String username, String usertype) {
-		this.username = username;
-		this.usertype = usertype;
+		this.nome = username;
+		this.tipo = usertype;
 	}
 	
 	public UserDTO() {} 
 	
 	public int getUserId() {
-		return userId;
+		return idUser;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
+		this.idUser = userId;
 	}
 
 	public String getUsername() {
-		return username;
+		return nome;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.nome = username;
 	}
 
 	public String getUsertype() {
-		return usertype;
+		return tipo;
 	}
 
 	public void setUsertype(String usertype) {
-		this.usertype = usertype;
+		this.tipo = usertype;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+
+
+
+
 
 }

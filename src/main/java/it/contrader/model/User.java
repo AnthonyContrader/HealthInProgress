@@ -6,7 +6,9 @@ public class User {
 	private String Nome;
 	private String Password;
 	private  String Tipo;
-
+	
+	public User() {}
+	
 	public User(int iduser, String nome, String password, String tipo) {
 		super();
 		Iduser = iduser;
