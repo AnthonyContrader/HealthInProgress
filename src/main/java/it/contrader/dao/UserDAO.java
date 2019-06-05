@@ -68,7 +68,7 @@ public class UserDAO {
 
 				String usertype = resultSet.getString("user_type");
 
-				user = new User(username, usertype);
+				user = new User(userId, username, usertype, usertype);
 
 				user.setUserId(userId);
 
