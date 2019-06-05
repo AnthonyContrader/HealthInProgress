@@ -2,15 +2,15 @@ package it.contrader.model;
 
 public class User {
 
-	int Iduser;
-	String Nome;
-	String Password;
-	String Tipo;
+	private int Iduser;
+	private String Nome;
+	private String Password;
+	private  String Tipo;
 
 	public User(int iduser, String nome, String password, String tipo) {
 		super();
 		Iduser = iduser;
-		Nome = nome;
+		Nome = Nome;
 		Password = password;
 		Tipo = tipo;
 	}
@@ -45,6 +45,11 @@ public class User {
 
 	public void setTipo(String tipo) {
 		Tipo = tipo;
+	}
+
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
