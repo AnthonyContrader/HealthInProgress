@@ -1,7 +1,5 @@
 package it.contrader.dao;
 
-
-
 import java.sql.*;
 
 import java.util.ArrayList;
@@ -10,41 +8,27 @@ import java.util.List;
 
 import java.util.Vector;
 
-
-
 import it.contrader.controller.GestoreEccezioni;
 
 import it.contrader.main.ConnectionSingleton;
 
 import it.contrader.model.User;
 
-
-
 public class UserDAO {
-
-
 
 	private final String QUERY_ALL = "select * from users";
 
-	private final String QUERY_INSERT = "insert into users (user_user, user_type) values (?,?)";
+	private final String QUERY_INSERT = "insert into users (Nome,Password,Tipo) values (?,?)";
 
-	private final String QUERY_READ = "select * from users where user_id=?";
+	private final String QUERY_READ = "select * from users where Iduser=?";
 
+	private final String QUERY_UPDATE = "UPDATE Nome=?,Password=?,Tipo=? WHERE Iduser=?";
 
-
-	private final String QUERY_UPDATE = "UPDATE users SET user_user=?, user_type=? WHERE user_id=?";
-
-	private final String QUERY_DELETE = "delete from user where user_id=?";
-
-
+	private final String QUERY_DELETE = "delete from user where Iduser=?";
 
 	public UserDAO() {
 
-
-
 	}
-
-
 
 	public List<User> getAllUser() {
 
@@ -62,15 +46,17 @@ public class UserDAO {
 
 			while (resultSet.next()) {
 
-				int userId = resultSet.getInt("user_id");
+				int userId = resultSet.getInt("Iduser");
 
-				String username = resultSet.getString("user_user");
+				String username = resultSet.getString("Nome");
 
-				String usertype = resultSet.getString("user_type");
+				String usertype = resultSet.getString("tipo");
 
-				user = new User(username, usertype);
+				String password = resultSet.getString("Password");
 
-				user.setUserId(userId);
+				user = new User(userId, username,usertype, password);
+
+				user.setIduser(userId);
 
 				usersList.add(user);
 
@@ -86,9 +72,7 @@ public class UserDAO {
 
 	}
 
-
-
-	public boolean insertUser(User user) {
+	public boolean insertUser(User user ) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -96,9 +80,10 @@ public class UserDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 
-			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(1, user.getNome());
+			preparedStatement.setString(2, user.getPassword());
 
-			preparedStatement.setString(3, user.getUsertype());
+			preparedStatement.setString(3, user.getTipo());
 
 			preparedStatement.execute();
 
@@ -112,11 +97,7 @@ public class UserDAO {
 
 		}
 
-
-
 	}
-
-
 
 	public User readUser(int userId) {
 
@@ -134,17 +115,14 @@ public class UserDAO {
 
 			String username, password, usertype;
 
+			username = resultSet.getString("Nome");
+			password = resultSet.getString("Password");
+			
+			usertype = resultSet.getString("Tipo");
 
+			User user = new User(userId,username,password, usertype);
 
-			username = resultSet.getString("user_user");
-
-			usertype = resultSet.getString("user_type");
-
-			User user = new User(username, usertype);
-
-			user.setUserId(resultSet.getInt("user_id"));
-
-
+			user.setIduser(resultSet.getInt("Iduser"));
 
 			return user;
 
@@ -156,27 +134,19 @@ public class UserDAO {
 
 		}
 
-
-
 	}
-
-
 
 	public boolean updateUser(User userToUpdate) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
-
-
 		// Check if id is present
 
-		if (userToUpdate.getUserId() == 0)
+		if (userToUpdate.getIduser() == 0)
 
 			return false;
 
-
-
-		User userRead = readUser(userToUpdate.getUserId());
+		User userRead = readUser(userToUpdate.getIduser());
 
 		if (!userRead.equals(userToUpdate)) {
 
@@ -184,33 +154,28 @@ public class UserDAO {
 
 				// Fill the userToUpdate object
 
-				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
+				if (userToUpdate.getNome() == null || userToUpdate.getNome().equals("")) {
 
-					userToUpdate.setUsername(userRead.getUsername());
-
-				}
-
-				
-
-				
-
-				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
-
-					userToUpdate.setUsertype(userRead.getUsertype());
+					userToUpdate.setNome(userRead.getNome());
 
 				}
 
-				
+				if (userToUpdate.getTipo() == null || userToUpdate.getTipo().equals("")) {
+
+					userToUpdate.setTipo(userRead.getTipo());
+
+				}
 
 				// Update the user
 
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 
-				preparedStatement.setString(1, userToUpdate.getUsername());
+				preparedStatement.setString(1, userToUpdate.getNome());
+				preparedStatement.setString(2, userToUpdate.getPassword());
 
-				preparedStatement.setString(3, userToUpdate.getUsertype());
+				preparedStatement.setString(3, userToUpdate.getTipo());
 
-				preparedStatement.setInt(4, userToUpdate.getUserId());
+				preparedStatement.setInt(4, userToUpdate.getIduser());
 
 				int a = preparedStatement.executeUpdate();
 
@@ -222,8 +187,6 @@ public class UserDAO {
 
 					return false;
 
-
-
 			} catch (SQLException e) {
 
 				return false;
@@ -232,15 +195,9 @@ public class UserDAO {
 
 		}
 
-
-
 		return false;
 
-		
-
 	}
-
-
 
 	public boolean deleteUser(Integer id) {
 

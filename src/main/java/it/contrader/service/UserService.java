@@ -3,16 +3,16 @@ package it.contrader.service;
 import java.util.List;
 
 import it.contrader.converter.ConverterUser;
-import it.contrader.dao.UserDAO;
+import it.contrader.dao.ParametersDAO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.User;
 
 public class UserService {
 
-	private UserDAO userDAO;
+	private ParametersDAO userDAO;
 
 	public UserService() {
-		this.userDAO = new UserDAO();
+		this.userDAO = new ParametersDAO();
 	}
 
 	public List<User> getAllUser() {

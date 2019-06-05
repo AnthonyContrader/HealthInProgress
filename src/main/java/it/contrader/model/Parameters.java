@@ -1,91 +1,181 @@
 package it.contrader.model;
 
 public class Parameters {
-	  int Idparameter;
-	  String Nome ;
-	  String sesso;
-	  String Dispositivo;
-	  int id_user;
-	  double altezza;
-	  double peso;
-	  int eta;
-	  int polso;
-	  int freq_resp;
-	  int temp_corp;
-	  int oss_sang;
-	  
-	public int getIdparameter() {
-		return Idparameter;
+	private int idParameter;
+	private String nome;
+	private String sesso;
+	private String dispositivo;
+    private int userId;
+	private double altezza;
+	private double peso;
+	private int eta;
+	private int polso;
+	private int freqResp;
+	private int tempCorp;
+	private int ossSang;
+
+	
+
+	public Parameters(int idParameter, String nome, String sesso, String dispositivo, double altezza,
+			double peso, int eta, int polso, int freqResp, int tempCorp, int ossSang) {
+		super();
+		this.idParameter = idParameter;
+		nome = nome;
+		this.sesso = sesso;
+		this.dispositivo = dispositivo;
+		this.userId = userId;
+		this.altezza = altezza;
+		this.peso = peso;
+		this.eta = eta;
+		this.polso = polso;
+		this.freqResp = freqResp;
+		this.tempCorp = tempCorp;
+		this.ossSang = ossSang;
 	}
-	public void setIdparameter(int idparameter) {
-		Idparameter = idparameter;
+
+
+
+	public int getIdParameter() {
+		return idParameter;
 	}
+
+
+
+	public void setIdParameter(int idParameter) {
+		this.idParameter = idParameter;
+	}
+
+
+
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
+
+
+
 	public void setNome(String nome) {
-		Nome = nome;
+		nome = nome;
 	}
+
+
+
 	public String getSesso() {
 		return sesso;
 	}
+
+
+
 	public void setSesso(String sesso) {
 		this.sesso = sesso;
 	}
+
+
+
 	public String getDispositivo() {
-		return Dispositivo;
+		return dispositivo;
 	}
+
+
+
 	public void setDispositivo(String dispositivo) {
-		Dispositivo = dispositivo;
+		this.dispositivo = dispositivo;
 	}
-	public int getId_user() {
-		return id_user;
+
+
+
+	public int getUserId() {
+		return userId;
 	}
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
+
+
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
+
+
+
 	public double getAltezza() {
 		return altezza;
 	}
+
+
+
 	public void setAltezza(double altezza) {
 		this.altezza = altezza;
 	}
+
+
+
 	public double getPeso() {
 		return peso;
 	}
+
+
+
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+
+
+
 	public int getEta() {
 		return eta;
 	}
+
+
+
 	public void setEta(int eta) {
 		this.eta = eta;
 	}
+
+
+
 	public int getPolso() {
 		return polso;
 	}
+
+
+
 	public void setPolso(int polso) {
 		this.polso = polso;
 	}
-	public int getFreq_resp() {
-		return freq_resp;
+
+
+
+	public int getFreqResp() {
+		return freqResp;
 	}
-	public void setFreq_resp(int freq_resp) {
-		this.freq_resp = freq_resp;
+
+
+
+	public void setFreqResp(int freqResp) {
+		this.freqResp = freqResp;
 	}
-	public int getTemp_corp() {
-		return temp_corp;
+
+
+
+	public int getTempCorp() {
+		return tempCorp;
 	}
-	public void setTemp_corp(int temp_corp) {
-		this.temp_corp = temp_corp;
+
+
+
+	public void setTempCorp(int tempCorp) {
+		this.tempCorp = tempCorp;
 	}
-	public int getOss_sang() {
-		return oss_sang;
+
+
+
+	public int getOssSang() {
+		return ossSang;
 	}
-	public void setOss_sang(int oss_sang) {
-		this.oss_sang = oss_sang;
+
+
+
+	public void setOssSang(int ossSang) {
+		this.ossSang = ossSang;
 	}
-	  
-	  
+
+
 }
