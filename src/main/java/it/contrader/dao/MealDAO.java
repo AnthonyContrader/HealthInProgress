@@ -66,7 +66,7 @@ public class MealDAO {
 
 	}
 
-	public boolean insertParameters(Meal meal) {
+	public boolean insertMeal(Meal meal) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
