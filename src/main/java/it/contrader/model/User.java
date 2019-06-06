@@ -12,7 +12,7 @@ public class User {
 	public User(int iduser, String nome, String password, String tipo) {
 		super();
 		Iduser = iduser;
-		nome = Nome;
+		Nome = nome;
 		Password = password;
 		Tipo = tipo;
 	}
@@ -53,5 +53,10 @@ public class User {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Override
+	public String toString() {
+	
+		return new String (this.Iduser + " " + this.Nome + " " + this.Tipo);
+	}
+	
 }

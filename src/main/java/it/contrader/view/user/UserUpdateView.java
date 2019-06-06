@@ -7,6 +7,7 @@ import it.contrader.controller.Request;
 import it.contrader.controller.UserController;
 import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.model.User;
 import it.contrader.view.View;
 
 public class UserUpdateView implements View {
@@ -25,7 +26,7 @@ public class UserUpdateView implements View {
 	@Override
 	public void showOptions() {
 		int userIdToUpdate;
-		String username, usertype;
+		String username = null, userType = null;
 
 		/*
 		 * List<User> users; Integer usersId; String password; users =
@@ -35,20 +36,21 @@ public class UserUpdateView implements View {
 		// System.out.println();
 		// users.forEach(us_type -> System.out.println(us_type.toString()));
 		// System.out.println();
-		UserDTO userDTO = new UserDTO();
+		UserDTO userDTO = new UserDTO(username, userType, null);
 
 		System.out.println("Digita l'Id dell'utente da modificare:");
 		try {
 			userIdToUpdate = Integer.parseInt(getInput());
 			if (userIdToUpdate != 0) {
-				userDTO.setUserId(userIdToUpdate);
+				userDTO.setUserId(userIdToUpdate);  
 
 				System.out.println("Digita la nuova username:");
 				username = getInput();
 				if (!username.equals(""))
 					userDTO.setUsername(username);
-
+				
 				usersController.updateUser(userDTO);
+				
 
 			}
 		} catch (Exception e) {

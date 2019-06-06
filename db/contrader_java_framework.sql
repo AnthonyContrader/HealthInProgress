@@ -1,8 +1,10 @@
+USE `healthinprogressconsole`;
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: localhost    Database: heathinprogress
 -- ------------------------------------------------------
 -- Server version	8.0.16
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -75,26 +77,6 @@ CREATE TABLE `piatti` (
 --
 
 LOCK TABLES `piatti` WRITE;
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `users` (
-  `Iduser` int(11) NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
-  `Tipo` varchar(45) NOT NULL,
-  PRIMARY KEY (`Iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `users` WRITE;
-
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` VALUES (1,'Via dei Matti 0',1),(2,'Via dalle Palle 2',2),(3,'Vicolo Corto 5',9),(4,'Parco della vittoria',10);
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 UNLOCK TABLES;
 

@@ -18,7 +18,7 @@ public class UserDAO {
 
 	private final String QUERY_ALL = "select * from users";
 
-	private final String QUERY_INSERT = "insert into users (Nome,Password,Tipo) values (?,?)";
+	private final String QUERY_INSERT = "insert into users (Nome,Password,Tipo) values (?,?,?)";
 
 	private final String QUERY_READ = "select * from users where Iduser=?";
 
@@ -82,6 +82,7 @@ public class UserDAO {
 
 			preparedStatement.setString(1, user.getNome());
 			preparedStatement.setString(2, user.getPassword());
+
 			preparedStatement.setString(3, user.getTipo());
 
 			preparedStatement.execute();

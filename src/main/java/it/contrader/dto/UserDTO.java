@@ -6,14 +6,15 @@ public class UserDTO {
 	private String tipo;
 	private String password;
 
-
-	public UserDTO(String username, String usertype) {
-		this.nome = username;
-		this.tipo = usertype;
+	public UserDTO(String nome, String tipo, String password) {
+		super();
+		this.nome = nome;
+		this.tipo = tipo;
+		this.password = password;
 	}
-	
-	public UserDTO() {} 
-	
+
+
+
 	public int getUserId() {
 		return idUser;
 	}

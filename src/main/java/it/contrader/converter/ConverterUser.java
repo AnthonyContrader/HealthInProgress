@@ -11,13 +11,17 @@ public class ConverterUser {
 	public static UserDTO toDTO(User user) {
 		UserDTO userDTO = null;
 		if (user != null) {
-			userDTO = new UserDTO();
+			userDTO = new UserDTO(user.getNome(), user.getTipo(), user.getPassword());
 			userDTO.setUserId(user.getIduser());;
 			userDTO.setUsername(user.getNome());
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getTipo());
 		}
 		return userDTO;
+		
+
+		
+		
 	}
 
 	public static User toEntity(UserDTO userDTO) {
