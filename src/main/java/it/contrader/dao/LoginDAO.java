@@ -10,7 +10,7 @@ import it.contrader.main.ConnectionSingleton;
 
 public class LoginDAO {
 
-    private final String QUERY_LOGIN = "select * from users where user_user = ?";
+    private final String QUERY_LOGIN = "select * from users where nome = ? and password = ?";
     
     /**
      * 
@@ -18,22 +18,22 @@ public class LoginDAO {
      * @param password
      * @return the type of user of null if nothing is found
      */
-    public String login (String username, String password) {
+    public String login (String nome, String password) {
 
         Connection connection = ConnectionSingleton.getInstance();
         try {
             PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
-            statement.setString(1, username);
-            
-            String userType=null;
+            statement.setString(1, nome);
+            statement.setString(2, password);
+            String tipo=null;
             ResultSet rs;
             if(statement.executeQuery().next()) {
             	rs = statement.executeQuery();
             	rs.next();
-            	userType = rs.getString("user_type");
+            	tipo = rs.getString("tipo");
             }
             
-            return userType;
+            return tipo;
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);

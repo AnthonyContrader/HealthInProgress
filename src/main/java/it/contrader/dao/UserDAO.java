@@ -54,7 +54,7 @@ public class UserDAO {
 
 				String password = resultSet.getString("Password");
 
-				user = new User(userId, username,usertype, password);
+				user = new User(userId, username, usertype, password);
 
 				user.setIduser(userId);
 
@@ -72,7 +72,7 @@ public class UserDAO {
 
 	}
 
-	public boolean insertUser(User user ) {
+	public boolean insertUser(User user) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -82,7 +82,6 @@ public class UserDAO {
 
 			preparedStatement.setString(1, user.getNome());
 			preparedStatement.setString(2, user.getPassword());
-
 			preparedStatement.setString(3, user.getTipo());
 
 			preparedStatement.execute();
@@ -117,10 +116,10 @@ public class UserDAO {
 
 			username = resultSet.getString("Nome");
 			password = resultSet.getString("Password");
-			
+
 			usertype = resultSet.getString("Tipo");
 
-			User user = new User(userId,username,password, usertype);
+			User user = new User(userId, username, password, usertype);
 
 			user.setIduser(resultSet.getInt("Iduser"));
 
