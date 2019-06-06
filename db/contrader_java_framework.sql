@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `contraderjava` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `contraderjava`;
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: contraderjava
+-- Host: localhost    Database: heathinprogress
 -- ------------------------------------------------------
--- Server version	8.0.15
+-- Server version	8.0.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,33 +16,38 @@ USE `contraderjava`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `parameters`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `parameters`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `cognome` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `eta` int(2) COLLATE utf8_unicode_ci NOT NULL,
-  `sesso` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `altezza` float COLLATE utf8_unicode_ci NOT NULL,
-  `peso` float COLLATE utf8_unicode_ci NOT NULL,
-
-PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
+CREATE TABLE `parameters` (
+  `Idparameter` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(45) NOT NULL,
+  `sesso` varchar(45) NOT NULL,
+  `Dispositivo` varchar(45) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `altezza` varchar(45) NOT NULL,
+  `peso` varchar(45) NOT NULL,
+  `eta` varchar(45) NOT NULL,
+  `polso` int(11) NOT NULL,
+  `freq_resp` int(11) NOT NULL,
+  `temp_corp` int(11) NOT NULL,
+  `oss_sang` int(11) NOT NULL,
+  PRIMARY KEY (`Idparameter`),
+  KEY `utente_idx` (`id_user`),
+  CONSTRAINT `utente` FOREIGN KEY (`id_user`) REFERENCES `users` (`Iduser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `parameters`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin'),(2,'user','user');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `parameters` WRITE;
+/*!40000 ALTER TABLE `parameters` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parameters` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +59,45 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-19 11:25:37
+DROP TABLE IF EXISTS `piatti`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `piatti` (
+  `Idpiatti` int(11) NOT NULL AUTO_INCREMENT,
+  `Kcal` int(11) NOT NULL,
+  `piatto` varchar(45) NOT NULL,
+  PRIMARY KEY (`Idpiatti`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `piatti`
+--
+
+LOCK TABLES `piatti` WRITE;
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `users` (
+  `Iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  `Tipo` varchar(45) NOT NULL,
+  PRIMARY KEY (`Iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `users` WRITE;
+
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` VALUES (1,'Via dei Matti 0',1),(2,'Via dalle Palle 2',2),(3,'Vicolo Corto 5',9),(4,'Parco della vittoria',10);
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+UNLOCK TABLES;
+
+
+
+-- Dump completed on 2019-06-04 14:31:33
