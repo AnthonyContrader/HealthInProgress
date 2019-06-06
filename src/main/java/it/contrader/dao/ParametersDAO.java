@@ -2,6 +2,7 @@ package it.contrader.dao;
 
 import java.sql.*;
 
+
 import java.util.ArrayList;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class ParametersDAO {
 
 	private final String QUERY_ALL = "select * from parameters";
 
-	private final String QUERY_INSERT = "insert into parameters (nome,sesso,dispositivo,altezza,peso,eta,polso,freqResp,tempCorp,ossSang) values (?,?,?,?)";
+	private final String QUERY_INSERT = "insert into parameters (nome,sesso,dispositivo,altezza,peso,eta,polso,freqResp,tempCorp,ossSang) values (?,?,?,?,?,?,?,?,?,?)";
 
 	private final String QUERY_READ = "select * from users where idParameters=?";
 
@@ -202,7 +203,7 @@ public class ParametersDAO {
 
 
 
-	public boolean deleteUser(Integer id) {
+	public boolean deleteParameters(Integer id) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 

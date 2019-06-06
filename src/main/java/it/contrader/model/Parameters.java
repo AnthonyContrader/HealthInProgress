@@ -13,14 +13,14 @@ public class Parameters {
 	private int freqResp;
 	private int tempCorp;
 	private int ossSang;
-
 	
-
+	public Parameters() {
+		
+	}
 	public Parameters(String nome, String sesso, String dispositivo, double altezza,
 			double peso, int eta, int polso, int freqResp, int tempCorp, int ossSang) {
-		super();
 		this.idParameter = idParameter;
-		nome = nome;
+		this.nome = nome;
 		this.sesso = sesso;
 		this.dispositivo = dispositivo;
 		this.userId = userId;
@@ -32,6 +32,24 @@ public class Parameters {
 		this.tempCorp = tempCorp;
 		this.ossSang = ossSang;
 	}
+
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Parameters [idParameter=" + idParameter + ", nome=" + nome + ", sesso=" + sesso + ", dispositivo="
+				+ dispositivo + ", userId=" + userId + ", altezza=" + altezza + ", peso=" + peso + ", eta=" + eta
+				+ ", polso=" + polso + ", freqResp=" + freqResp + ", tempCorp=" + tempCorp + ", ossSang=" + ossSang
+				+ "]";
+	}
+
+
+
+
 
 
 

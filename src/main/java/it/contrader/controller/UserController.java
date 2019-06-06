@@ -21,8 +21,8 @@ public class UserController implements Controller {
 		return this.usersService.getAllUser();
 	}
 
-	public UserDTO readUser(int userId) {
-		return this.usersService.readUser(userId);
+	public UserDTO readUser(int Iduser) {
+		return this.usersService.readUser(Iduser);
 	}
 
 	public boolean insertUser(UserDTO usersDTO) {
@@ -33,8 +33,8 @@ public class UserController implements Controller {
 		return this.usersService.updateUser(usersDTO);
 	}
 
-	public boolean deleteUser(Integer usersId) {
-		return this.usersService.deleteUser(usersId);
+	public boolean deleteUser(Integer Iduser) {
+		return this.usersService.deleteUser(Iduser);
 	}
 
 	@Override
