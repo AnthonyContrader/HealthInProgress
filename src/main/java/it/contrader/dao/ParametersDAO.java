@@ -27,7 +27,7 @@ public class ParametersDAO {
 
 	public ParametersDAO() {
 
-	}
+	 }
 
 	public List<Parameters> getAllParameters() {
 

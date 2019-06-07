@@ -22,9 +22,9 @@ public class UserDAO {
 
 	private final String QUERY_READ = "select * from users where Iduser=?";
 
-	private final String QUERY_UPDATE = "UPDATE Nome=?,Password=?,Tipo=? WHERE Iduser=?";
+	private final String QUERY_UPDATE = "UPDATE users set Nome=?,Password=?,Tipo=? WHERE Iduser=?";
 
-	private final String QUERY_DELETE = "delete from user where Iduser=?";
+	private final String QUERY_DELETE = "delete from users where Iduser=?";
 
 	public UserDAO() {
 

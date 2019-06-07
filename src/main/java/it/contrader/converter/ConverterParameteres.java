@@ -13,17 +13,15 @@ public class ConverterParameteres {
 		ParametersDTO parametersDTO = null;
 		if (parameters != null) {
 			parametersDTO = new ParametersDTO();
-			parametersDTO.setIdParameter(parameters.getIdParameter());;
-			parametersDTO.setNome(parameters.getNome());
-			parametersDTO.setSesso(parameters.getSesso());
-			parametersDTO.setDispositivo(parameters.getDispositivo());
+			parametersDTO.setIdParameter(parameters.getIdParameter());			
+			parametersDTO.setSesso(parameters.getSesso());		
 			parametersDTO.setAltezza(parameters.getAltezza());
 			parametersDTO.setPeso(parameters.getPeso());
 			parametersDTO.setEta(parameters.getEta());
 			parametersDTO.setPolso(parameters.getPolso());
 			parametersDTO.setFreqResp(parameters.getFreqResp());
 			parametersDTO.setTempCorp(parameters.getTempCorp());
-			parametersDTO.setOssSang(parameters.getOssSang());
+		
 		}
 		return parametersDTO;
 	}
@@ -33,16 +31,16 @@ public class ConverterParameteres {
 		if (parametersDTO != null) {
 			parameters = new Parameters();
 			parameters.setIdParameter(parametersDTO.getIdParameter());
-			parameters.setNome(parametersDTO.getNome());
+			
 			parameters.setSesso(parametersDTO.getSesso());
-			parameters.setDispositivo(parametersDTO.getDispositivo());
+			
 			parameters.setAltezza(parametersDTO.getAltezza());
 			parameters.setPeso(parametersDTO.getPeso());
 			parameters.setEta(parametersDTO.getEta());
-			parameters.setPolso(parametersDTO.getEta());
+			parameters.setPolso(parametersDTO.getPolso());
 			parameters.setFreqResp(parametersDTO.getFreqResp());
 			parameters.setTempCorp(parametersDTO.getTempCorp());
-			parameters.setOssSang(parametersDTO.getOssSang());
+			
 			
 		}
 		return parameters;

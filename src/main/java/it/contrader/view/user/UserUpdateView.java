@@ -26,29 +26,41 @@ public class UserUpdateView implements View {
 	@Override
 	public void showOptions() {
 		int userIdToUpdate;
-		String username = null, userType = null;
+		String username ,userType ,password ;
 
 		/*
-		 * List<User> users; Integer usersId; String password; users =
-		 * usersController.getAllUsers();
-		 */
-		System.out.println("\n----- Seleziona l'utente da modificate  -----\n");
-		// System.out.println();
-		// users.forEach(us_type -> System.out.println(us_type.toString()));
-		// System.out.println();
-		UserDTO userDTO = new UserDTO(username, userType, null);
+		 * List<User> users; Integer usersId; String password; users = usersController.getAllUser();
+		  */
+		//System.out.println("\n----- Seleziona l'utente da modificate  -----\n");
+		 //System.out.println();
+		 //users.forEach(us_type -> System.out.println(us_type.toString()));
+		 //System.out.println();
+		UserDTO userDTO = new UserDTO();
 
 		System.out.println("Digita l'Id dell'utente da modificare:");
 		try {
 			userIdToUpdate = Integer.parseInt(getInput());
 			if (userIdToUpdate != 0) {
-				userDTO.setUserId(userIdToUpdate);  
+				userDTO.setUserId(userIdToUpdate);
 
 				System.out.println("Digita la nuova username:");
 				username = getInput();
+				
 				if (!username.equals(""))
 					userDTO.setUsername(username);
+				System.out.println("Digita la nuova usertype:");
+				userType = getInput();
+				if (!userType.equals(""))
+					userDTO.setUsertype(userType);
+
+				System.out.println("Digita la nuova password:");
+				password = getInput();
+				if (!password.equals(""))
+					userDTO.setPassword(password);;
+
 				
+				
+		
 				usersController.updateUser(userDTO);
 				
 

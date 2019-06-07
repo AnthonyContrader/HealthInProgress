@@ -5,6 +5,13 @@ public class UserDTO {
 	private String nome;
 	private String tipo;
 	private String password;
+	
+
+	public UserDTO() {
+		super();
+	}
+
+
 
 	public UserDTO(String nome, String tipo, String password) {
 		super();
@@ -12,6 +19,8 @@ public class UserDTO {
 		this.tipo = tipo;
 		this.password = password;
 	}
+
+
 
 
 
@@ -47,49 +56,6 @@ public class UserDTO {
 		this.password = password;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idUser;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserDTO other = (UserDTO) obj;
-		if (idUser != other.idUser)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
-				return false;
-		} else if (!tipo.equals(other.tipo))
-			return false;
-		return true;
-	}
 	
-
-
-
-
 
 }
