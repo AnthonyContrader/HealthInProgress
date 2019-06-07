@@ -14,23 +14,27 @@ public class Parameters {
 	private int tempCorp;
 
 	
-	public Parameters() {
-		
-	}
-	public Parameters(String nome, String sesso, String dispositivo, double altezza,
-			double peso, int eta, int polso, int freqResp, int tempCorp, int ossSang) {
+	public Parameters(int idParameter,String sesso, double altezza, double peso, int eta, int polso, int freqResp,
+			int tempCorp) {
+		super();
 		this.idParameter = idParameter;
- 
 		this.sesso = sesso;
- 
-		this.userId = userId;
 		this.altezza = altezza;
 		this.peso = peso;
 		this.eta = eta;
 		this.polso = polso;
 		this.freqResp = freqResp;
 		this.tempCorp = tempCorp;
-	 
+	}
+
+
+
+
+
+
+
+	public Parameters() {
+		// TODO Auto-generated constructor stub
 	}
 
 

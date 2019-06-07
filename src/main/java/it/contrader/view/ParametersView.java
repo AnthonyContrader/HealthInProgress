@@ -1,6 +1,7 @@
 package it.contrader.view;
 
 import java.util.List;
+
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
@@ -27,7 +28,7 @@ public class ParametersView implements View {
 		
 		System.out.println("\n------ Gestione parametri -------\n");
 		
-		System.out.println("idparameters,sesso,altezza,peso,eta,polso,frequenzaRespiratoria,temperaturaCorporea");
+		System.out.println("idparameter,sesso,altezza,peso,eta,polso,frequenzaRespiratoria,temperaturaCorporea");
 		System.out.print("------------------------------------------------------");
 		List<Parameters> parameters = ParametersController.getAllParameters();
 		System.out.println();

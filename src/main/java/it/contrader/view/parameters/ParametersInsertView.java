@@ -6,7 +6,7 @@ import it.contrader.controller.Request;
 import it.contrader.controller.ParametersController;
 import it.contrader.dto.ParametersDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.view.View;
+import it.contrader.view.*;
 
 public class ParametersInsertView implements View {
 
@@ -23,32 +23,33 @@ public class ParametersInsertView implements View {
 
 	@Override
 	public void showOptions() {
-		String sesso= new String() ;
-		String altezza = new String() ;
-		String peso = new String() ;
-		String eta = new String() ;
-		String polso = new String() ;
-		String freqResp = new String() ;
-		String tempCorp = new String();
-		
+		String sesso;
+		double altezza;
+		double peso;
+		double eta;
+		double polso;
+		double freqResp;
+		double tempCorp;
+
 		System.out.println("Inserisci i campi dei parametri:");
 		System.out.println("Digita il sesso: ");
 		sesso = getInput();
 		System.out.println("Digita l'altezza: ");
-		altezza = getInput();
+		altezza =  Double.parseDouble(getInput());
 		System.out.println("Inserisci il peso");
-		peso = getInput();
+		peso = Double.parseDouble(getInput());
 		System.out.println("Inserisci il eta");
-		eta = getInput();
+		eta = Double.parseDouble(getInput());
 		System.out.println("Inserisci il polso");
-		 polso = getInput();
+		polso = Double.parseDouble(getInput());
 		System.out.println("Inserisci il freqResp");
-		freqResp = getInput();
+		freqResp =Double.parseDouble(getInput());
 		System.out.println("Inserisci il tempCorp");
-		tempCorp= getInput();
+		tempCorp = Double.parseDouble(getInput());
 
-		if (!sesso.equals("") && !altezza.equals("") && !peso.equals("")&&!eta.equals("")&&!polso.equals("")&&!freqResp.equals("")&&!tempCorp.equals("")) {
-			parametersController.insertParameters(new ParametersDTO(sesso,altezza,peso,eta,polso,freqResp,tempCorp));
+		if (!sesso.equals("") && altezza!=0 && peso !=0 && eta !=0 && polso !=0 && freqResp !=0 && tempCorp !=0) 
+		{
+			parametersController.insertParameters(new ParametersDTO());
 		}
 	}
 
@@ -63,7 +64,7 @@ public class ParametersInsertView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Parameters", "doControl", request);
 	}
 
 }
