@@ -1,7 +1,6 @@
 package it.contrader.view.meal;
 
 import java.util.Scanner;
-
 import it.contrader.controller.MealController;
 import it.contrader.controller.Request;
 import it.contrader.dto.MealDTO;
@@ -24,17 +23,20 @@ public class MealInsertView implements View {
 
 	@Override
 	public void showOptions() {
-		String kcal= new String() ;
+		int kcal ;
 		String piatto = new String() ;
 	
 
 		System.out.println("Inserisci i campi del piatto:");
 		System.out.println("Digita il num kcal : ");
-		kcal = getInput();
+		kcal = Integer.parseInt(getInput());
 		System.out.println("Digita il nome de piatto: ");
 		piatto = getInput();
-		if (!kcal.equals("") && !piatto.equals("")) {
-			mealController.insertMeal(new MealDTO (kcal,piatto));
+		
+		
+		
+		if (kcal !=0 && !piatto.equals("")) {
+			mealController.insertMeal(new MealDTO (kcal, piatto));
 	    
 		}
 	}
@@ -50,7 +52,7 @@ public class MealInsertView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Meal", "doControl", request);
 	}
 
 }

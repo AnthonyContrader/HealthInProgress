@@ -2,11 +2,13 @@ package it.contrader.view.parameters;
 
 import java.util.Scanner;
 
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Parameter;
+
 import it.contrader.controller.Request;
 import it.contrader.controller.ParametersController;
 import it.contrader.dto.ParametersDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.view.*;
+import it.contrader.view.View;
 
 public class ParametersInsertView implements View {
 
@@ -23,14 +25,11 @@ public class ParametersInsertView implements View {
 
 	@Override
 	public void showOptions() {
-		String sesso;
-		double altezza;
+		String sesso= new String();
+		double altezza ;
 		double peso;
-		double eta;
-		double polso;
-		double freqResp;
-		double tempCorp;
-
+		int eta,polso,freqResp,tempCorp;
+		
 		System.out.println("Inserisci i campi dei parametri:");
 		System.out.println("Digita il sesso: ");
 		sesso = getInput();
@@ -39,17 +38,17 @@ public class ParametersInsertView implements View {
 		System.out.println("Inserisci il peso");
 		peso = Double.parseDouble(getInput());
 		System.out.println("Inserisci il eta");
-		eta = Double.parseDouble(getInput());
-		System.out.println("Inserisci il polso");
-		polso = Double.parseDouble(getInput());
+		eta = Integer.parseInt(getInput());		
+				System.out.println("Inserisci il polso");
+		polso = Integer.parseInt(getInput());
 		System.out.println("Inserisci il freqResp");
-		freqResp =Double.parseDouble(getInput());
+		freqResp =Integer.parseInt(getInput());
 		System.out.println("Inserisci il tempCorp");
-		tempCorp = Double.parseDouble(getInput());
+		tempCorp = Integer.parseInt(getInput());
 
 		if (!sesso.equals("") && altezza!=0 && peso !=0 && eta !=0 && polso !=0 && freqResp !=0 && tempCorp !=0) 
 		{
-			parametersController.insertParameters(new ParametersDTO());
+			parametersController.insertParameters(new ParametersDTO(sesso,altezza,peso,eta,polso,freqResp,tempCorp));
 		}
 	}
 
@@ -58,7 +57,6 @@ public class ParametersInsertView implements View {
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextLine().trim();
 	}
-
 	@Override
 	public void submit() {
 		request = new Request();

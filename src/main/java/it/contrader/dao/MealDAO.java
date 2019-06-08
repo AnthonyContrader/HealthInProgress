@@ -16,7 +16,7 @@ public class MealDAO {
 
 	private final String QUERY_ALL = "select * from Meal";
 
-	private final String QUERY_INSERT = "insert into Meal (Kcal,piatto) values (?,?)";
+	private final String QUERY_INSERT = "insert into meal (Kcal,piatto) values (?,?)";
 
 	private final String QUERY_READ = "select * from Meal where Idpiatti=?";
 

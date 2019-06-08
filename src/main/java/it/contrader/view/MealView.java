@@ -1,23 +1,20 @@
 package it.contrader.view;
 
 import java.util.List;
-
-
 import java.util.Scanner;
-
 import it.contrader.controller.Request;
-import it.contrader.controller.ParametersController;
+import it.contrader.controller.MealController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.Parameters;
+import it.contrader.model.Meal;
 
-public class ParametersView implements View {
+public class MealView implements View {
 
-	private ParametersController parametersController;
+	private MealController mealController;
 	private Request request;
 	private String choice;
 	
-	public ParametersView() {
-		this.parametersController = new ParametersController();
+	public MealView() {
+		this.mealController = new MealController();
 	}
 
 	@Override
@@ -27,13 +24,13 @@ public class ParametersView implements View {
 	@Override
 	public void showOptions() {
 		
-		System.out.println("\n------ Gestione utenti -------\n");
+		System.out.println("\n------ Gestione Piatti -------\n");
 		
-		System.out.println("ID\tSesso\tAltezza\tEta\tPolso\tFreqResp\tTempCorp");
+		System.out.println("ID\tPiatto\tKcal");
 		System.out.print("------------------------------------------------------");
-		List<Parameters> parameters = parametersController.getAllParameters();
+		List<Meal> meal = mealController.getAllMeal();
 		System.out.println();
-		parameters.forEach(parameter -> System.out.println(parameters.toString()));
+		meal.forEach(Meal -> System.out.println(meal.toString()));
 		System.out.println();
 		
 		System.out.println("Scegli l'operazione da effettuare:");
@@ -56,7 +53,7 @@ public class ParametersView implements View {
 
 	@Override
 	public void submit() {
-		    MainDispatcher.getInstance().callAction("Parameters", "doControl", this.request);
+		    MainDispatcher.getInstance().callAction("Meal", "doControl", this.request);
 	}
 
 }

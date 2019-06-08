@@ -2,10 +2,7 @@ package it.contrader.model;
 
 public class Parameters {
 	private int idParameter;
-	
 	private String sesso;
-	
-    private int userId;
 	private double altezza;
 	private double peso;
 	private int eta;
@@ -43,12 +40,7 @@ public class Parameters {
 
 
 
-	@Override
-	public String toString() {
-		return "Parameters [idParameter=" + idParameter +  ", sesso=" + sesso + ", dispositivo="
-			+ ", altezza=" + altezza + ", peso=" + peso + ", eta=" + eta
-				+ ", polso=" + polso + ", freqResp=" + freqResp + ", tempCorp=" + tempCorp + "ù]";
-	}
+	
 
 
 
@@ -62,6 +54,10 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setIdParameter(int idParameter) {
 		this.idParameter = idParameter;
 	}
@@ -72,15 +68,13 @@ public class Parameters {
 
 
 
-	public void setNome(String nome) {
-		nome = nome;
-	}
-
-
-
 	public String getSesso() {
 		return sesso;
 	}
+
+
+
+
 
 
 
@@ -91,15 +85,6 @@ public class Parameters {
 
 
 
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 
 
@@ -109,9 +94,17 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setAltezza(double altezza) {
 		this.altezza = altezza;
 	}
+
+
+
+
 
 
 
@@ -121,9 +114,17 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+
+
+
+
 
 
 
@@ -133,9 +134,17 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setEta(int eta) {
 		this.eta = eta;
 	}
+
+
+
+
 
 
 
@@ -145,9 +154,17 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setPolso(int polso) {
 		this.polso = polso;
 	}
+
+
+
+
 
 
 
@@ -157,9 +174,17 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setFreqResp(int freqResp) {
 		this.freqResp = freqResp;
 	}
+
+
+
+
 
 
 
@@ -169,13 +194,21 @@ public class Parameters {
 
 
 
+
+
+
+
 	public void setTempCorp(int tempCorp) {
 		this.tempCorp = tempCorp;
 	}
 
 
 
-	
+	@Override
+	public String toString() {
+		return new String (this.idParameter + " " + this.sesso + " "+ this.altezza + " "+ this.peso + " "+ this.eta + " "+ this.polso + " "+ this.freqResp + " "+ this.tempCorp + " " );
+	}
+
 
 
 }

@@ -7,7 +7,7 @@ import it.contrader.dto.MealDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
 import it.contrader.service.MealService;
-import it.contrader.dao.*;
+
 
 
 public class MealController implements Controller {
@@ -20,7 +20,7 @@ public class MealController implements Controller {
 		this.mealService= new MealService();
 	}
 
-	public List<Meal> getAllClient() {
+	public List<Meal> getAllMeal() {
 		return this.mealService.getAllMeal();
 	}
 	
@@ -38,7 +38,7 @@ public class MealController implements Controller {
 
 	}
 
-	public boolean deleteClient(Integer Idpiatti) {
+	public boolean deleteMeal(Integer Idpiatti) {
 		return this.mealService.deleteMeal(Idpiatti);
 
 	}
@@ -49,20 +49,20 @@ public class MealController implements Controller {
 		String choice = (String) request.get("choice");
 
 		if (mode == "menu") {
-			MainDispatcher.getInstance().callView("Client", null);
+			MainDispatcher.getInstance().callView("Meal", null);
 		} else {
 			switch (choice.toUpperCase()) {
 			case "L":
-				MainDispatcher.getInstance().callView(sub_package + "ClientRead", null);
+				MainDispatcher.getInstance().callView(sub_package + "MealRead", null);
 				break;
 			case "I":
-				MainDispatcher.getInstance().callView(sub_package + "ClientInsert", null);
+				MainDispatcher.getInstance().callView(sub_package + "MealInsert", null);
 				break;
 			case "M":
-				MainDispatcher.getInstance().callView(sub_package + "ClientUpdate", null);
+				MainDispatcher.getInstance().callView(sub_package + "MealUpdate", null);
 				break;
 			case "C":
-				MainDispatcher.getInstance().callView(sub_package + "ClientDelete", null);
+				MainDispatcher.getInstance().callView(sub_package + "Meal", null);
 			case "E":
 				MainDispatcher.getInstance().callView("Login", null);
 				break;

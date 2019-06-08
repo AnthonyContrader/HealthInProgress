@@ -43,5 +43,9 @@ public String getPiatto() {
 public void setPiatto(String piatto) {
 	this.piatto = piatto;
 }
+@Override
+public String toString() {
 
+	return new String (this.Idpiatti + " " + this.Kcal + " " + this.piatto);
+}
 }

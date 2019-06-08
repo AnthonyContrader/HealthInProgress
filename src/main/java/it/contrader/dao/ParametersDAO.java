@@ -5,11 +5,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Vector;
 
 import it.contrader.controller.GestoreEccezioni;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Parameters;
+import it.contrader.model.User;
 
 public class ParametersDAO {
 
@@ -19,9 +21,9 @@ public class ParametersDAO {
 
 	private final String QUERY_READ = "select * from parameters where idParameter=?";
 
-	private final String QUERY_UPDATE = "UPDATE nome=?,sesso=?,dispositivo=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp,ossSang=?,=?, WHERE idParameter=?";
+	private final String QUERY_UPDATE = "UPDATE parameters set sesso=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp,=?, WHERE idParameter=?";
 
-	private final String QUERY_DELETE = "delete from user where idParameter=?";
+	private final String QUERY_DELETE = "delete from parameters where idParameter=?";
 
 	public ParametersDAO() {
 
@@ -43,10 +45,8 @@ public class ParametersDAO {
 
 			while (resultSet.next()) {
 
-				int parametersId = resultSet.getInt("idparameter");
-
+				int parametersId = resultSet.getInt("idParameter");
 				String sex = resultSet.getString("sesso");
-
 				double height = resultSet.getDouble("altezza");
 				double weight = resultSet.getDouble("peso");
 				int age = resultSet.getInt("eta");
@@ -119,6 +119,7 @@ public class ParametersDAO {
 			int idparameter;
 			int age, pulse, respiratoryr, bodyt;
 			double height, weight;
+			
 			idparameter = resultSet.getInt("idParameter");
 			sex = resultSet.getString("sesso");
 			height = resultSet.getDouble("altezza");
@@ -130,7 +131,7 @@ public class ParametersDAO {
 
 			Parameters parameters = new Parameters(idparameter, sex, height, weight, age, pulse, respiratoryr, bodyt);
 
-			parameters.setIdParameter(resultSet.getInt("idParameters"));
+			parameters.setIdParameter(resultSet.getInt("idParameter"));
 
 			return parameters;
 
@@ -144,7 +145,7 @@ public class ParametersDAO {
 
 	}
 
-	public boolean updateparameters(Parameters parametersToUpdate) {
+	public boolean updateParameters(Parameters parametersToUpdate) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -154,36 +155,38 @@ public class ParametersDAO {
 
 			return false;
 
-		// Update the user
-		try {
 
-			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+			try {
 
-			preparedStatement.setString(2, parametersToUpdate.getSesso());
+				// Fill the userToUpdate object
 
-			preparedStatement.setDouble(4, parametersToUpdate.getAltezza());
-			preparedStatement.setDouble(4, parametersToUpdate.getPeso());
-			preparedStatement.setInt(4, parametersToUpdate.getEta());
-			preparedStatement.setInt(4, parametersToUpdate.getPolso());
-			preparedStatement.setInt(4, parametersToUpdate.getFreqResp());
-			preparedStatement.setInt(4, parametersToUpdate.getTempCorp());
 
-			int a = preparedStatement.executeUpdate();
+				// Update the user
 
-			if (a > 0)
+				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 
-				return true;
+				preparedStatement.setString(1, parametersToUpdate.getSesso());
+				preparedStatement.setDouble(2, parametersToUpdate.getAltezza());
 
-			else
+				preparedStatement.setDouble(3, parametersToUpdate.getPeso());
 
+				preparedStatement.setInt(4, parametersToUpdate.getEta());
+				preparedStatement.setInt(5, parametersToUpdate.getPolso());
+				preparedStatement.setInt(6, parametersToUpdate.getFreqResp());
+				preparedStatement.setInt(7, parametersToUpdate.getTempCorp());
+
+				int a = preparedStatement.executeUpdate();
+				if (a > 0)
+					return true;
+				else
+					return false;
+
+			} catch (SQLException e) {
 				return false;
+			}
+		
 
-		} catch (SQLException e) {
-
-			return false;
-
-		}
-
+		
 	}
 
 	public boolean deleteParameters(Integer id) {

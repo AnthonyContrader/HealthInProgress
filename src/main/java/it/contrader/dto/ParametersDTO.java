@@ -1,14 +1,13 @@
 package it.contrader.dto;
 
+
 public class ParametersDTO {
 
 	private int idParameter;
-
 	private String sesso;
-
 	private double altezza;
 	private double peso;
-	private int eta;
+	private  int eta;
 	private int polso;
 	private int freqResp;
 	private int tempCorp;
@@ -18,12 +17,11 @@ public class ParametersDTO {
 	public ParametersDTO() {
 		super();
 	}
-	public ParametersDTO(int idParameter, String sesso, String dispositivo, double altezza, double peso, int eta,
+	public ParametersDTO( String sesso, double altezza, double peso, int eta,
 			int polso, int freqResp, int tempCorp) {
 		super();
 		this.idParameter = idParameter;
 		this.sesso = sesso;
-
 		this.altezza = altezza;
 		this.peso = peso;
 		this.eta = eta;

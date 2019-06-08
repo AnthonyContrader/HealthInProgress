@@ -1,10 +1,8 @@
 package it.contrader.service;
 
 import java.util.List;
-
 import it.contrader.converter.ConverterParameteres;
 import it.contrader.dao.ParametersDAO;
-import it.contrader.dao.UserDAO;
 import it.contrader.dto.ParametersDTO;
 import it.contrader.model.Parameters;
 
@@ -24,16 +22,16 @@ public class ParametersService {
 		return this.parametersDAO.insertParameters(ConverterParameteres.toEntity(parametersDTO));
 	}
 	
-	public ParametersDTO readParameters(int idParameters) {
-		return ConverterParameteres.toDTO(this.parametersDAO.readParameters(idParameters));
+	public ParametersDTO readParameters(int idParameter) {
+		return ConverterParameteres.toDTO(this.parametersDAO.readParameters(idParameter));
 	}
 	
 	public boolean updateParameters(ParametersDTO parametersDTO) {
-		return this.parametersDAO.updateparameters(ConverterParameteres.toEntity(parametersDTO));
+		return this.parametersDAO.updateParameters(ConverterParameteres.toEntity(parametersDTO));
 	}
 	
-	public boolean deleteParameters(int idParameters) {
-		return this.parametersDAO.deleteParameters(idParameters);
+	public boolean deleteParameters(int idParameter) {
+		return this.parametersDAO.deleteParameters(idParameter);
 	}
 	
 	

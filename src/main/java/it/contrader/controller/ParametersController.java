@@ -2,6 +2,7 @@ package it.contrader.controller;
 
 import java.util.List;
 
+import it.contrader.converter.ConverterUser;
 import it.contrader.dto.ParametersDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
@@ -18,17 +19,18 @@ public class ParametersController implements Controller {
 		this.parametersService = new ParametersService();
 	}
 
-	public List<Parameters> getAllParameters() {
+	public  List<Parameters> getAllParameters() {
 		return this.parametersService.getAllParameters();
 	}
 
-	public ParametersDTO readParameters(int idParameters) {
-		return this.parametersService.readParameters(idParameters);
+	public ParametersDTO readParameters(int idParameter) {
+		return this.parametersService.readParameters(idParameter);
 	}
 
-	public boolean insertParameters(ParametersDTO parametersDTO) {
-		return this.parametersService.insertParameters(parametersDTO);
-	}
+
+		public boolean insertParameters(ParametersDTO parametersDTO) {
+			return this.parametersService.insertParameters(parametersDTO);
+		}
 
 	public boolean updateParameters(ParametersDTO parametersDTO) {
 		return this.parametersService.updateParameters(parametersDTO);
@@ -68,5 +70,7 @@ public class ParametersController implements Controller {
 			}
 		}
 	}
+
+	
 
 }

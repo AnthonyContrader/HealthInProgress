@@ -9,10 +9,10 @@ public class MealDTO {
 	public MealDTO() {
 		super();
 	}
-	public MealDTO(int idpiatti, int kcal, String piatto) {
+	public MealDTO( int kcal, String piatto) {
 		super();
-		Idpiatti = idpiatti;
-		Kcal = kcal;
+		
+		this.Kcal = kcal;
 		this.piatto = piatto;
 	}
 	public int getIdpiatti() {

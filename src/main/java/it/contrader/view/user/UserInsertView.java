@@ -1,7 +1,6 @@
 package it.contrader.view.user;
 
 import java.util.Scanner;
-
 import it.contrader.controller.Request;
 import it.contrader.controller.UserController;
 import it.contrader.dto.UserDTO;

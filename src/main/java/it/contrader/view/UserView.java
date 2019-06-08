@@ -2,6 +2,7 @@ package it.contrader.view;
 
 import java.util.List;
 
+
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
