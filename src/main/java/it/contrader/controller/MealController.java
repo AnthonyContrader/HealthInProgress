@@ -3,9 +3,11 @@ package it.contrader.controller;
 
 import java.util.List;
 
+import it.contrader.dto.MealDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
 import it.contrader.service.MealService;
+import it.contrader.dao.*;
 
 
 public class MealController implements Controller {
@@ -27,8 +29,8 @@ public class MealController implements Controller {
 		return this.mealService.readMeal(MealId);
 	}
 	
-	public boolean insertMeal(Meal meal) {
-		return this.mealService.insertMeal(meal);
+	public boolean insertMeal(Meal mealDTO) {
+		return this.mealService.insertMeal(mealDTO);
 	}
 
 	public boolean updateMeal(Meal meal) {
@@ -69,6 +71,11 @@ public class MealController implements Controller {
 				break;
 			}
 		}
+	}
+
+	public void insertMeal(MealDTO mealDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -28,13 +28,6 @@ public class UserUpdateView implements View {
 		int userIdToUpdate;
 		String username ,userType ,password ;
 
-		/*
-		 * List<User> users; Integer usersId; String password; users = usersController.getAllUser();
-		  */
-		//System.out.println("\n----- Seleziona l'utente da modificate  -----\n");
-		 //System.out.println();
-		 //users.forEach(us_type -> System.out.println(us_type.toString()));
-		 //System.out.println();
 		UserDTO userDTO = new UserDTO();
 
 		System.out.println("Digita l'Id dell'utente da modificare:");

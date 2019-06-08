@@ -5,8 +5,7 @@ public class MealDTO {
 	int Idpiatti;
 	int Kcal;
 	String piatto;
-	
-	
+
 	public MealDTO() {
 		super();
 	}
