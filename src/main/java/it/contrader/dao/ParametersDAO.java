@@ -86,8 +86,8 @@ public class ParametersDAO {
 			preparedStatement.setInt(5, parameters.getPolso());
 			preparedStatement.setInt(6, parameters.getFreqResp());
 			preparedStatement.setInt(7, parameters.getTempCorp());
-
-			preparedStatement.execute();
+			preparedStatement.setInt(8, parameters.getIdParameter());
+			
 
 			return true;
 

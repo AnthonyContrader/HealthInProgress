@@ -98,7 +98,7 @@ public class ParametersUpdateView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Parameters", "doControl", request);
 	}
 
 }

@@ -35,6 +35,7 @@ public class ParametersReadView implements View {
 			ParametersDTO parametersDB = parametersController.readParameters(parametersIdToRead);
 
 			System.out.println("Id: " + parametersDB.getIdParameter());
+			System.out.println("sesso: " + parametersDB.getSesso());
 			System.out.println("Altezza: " + parametersDB.getAltezza());
 			System.out.println("Peso: " + parametersDB.getPeso());
 			System.out.println("Eta: " + parametersDB.getEta());

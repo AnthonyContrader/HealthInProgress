@@ -23,7 +23,7 @@ public class MealDAO {
 
 	private final String QUERY_READ = "select * from meal where idpiatti=?";
 
-	private final String QUERY_UPDATE = "UPDATE meal set piatto=?,kcal=?  WHERE idpiatti=?";
+	private final String QUERY_UPDATE = "UPDATE meal SET piatto=?,kcal=?  WHERE idpiatti=?";
 
 	private final String QUERY_DELETE = "delete from meal where idpiatti=?";
 
@@ -167,7 +167,7 @@ public class MealDAO {
 
 					preparedStatement.setString(1, mealToUpdate.getPiatto());
 					preparedStatement.setInt(2, mealToUpdate.getKcal());
-
+					preparedStatement.setInt(3, mealToUpdate.getIdpiatti());
 
 					int a = preparedStatement.executeUpdate();
 
