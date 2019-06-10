@@ -14,6 +14,7 @@ import it.contrader.controller.GestoreEccezioni;
 import it.contrader.main.ConnectionSingleton;
 
 import it.contrader.model.Meal;
+import it.contrader.model.User;
 
 public class MealDAO {
 
@@ -43,18 +44,21 @@ public class MealDAO {
 
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 
-			Meal meal;
+			Meal meal ;
 
 			while (resultSet.next()) {
 
-				int idpiatti = resultSet.getInt("idpiatti");
+				int idpiatto = resultSet.getInt("idpiatti");
 
 				String piatto = resultSet.getString("piatto");
+
 				int kcal = resultSet.getInt("kcal");
 
-				meal = new Meal(idpiatti, piatto, kcal);
+				
 
-				meal.setIdpiatti(idpiatti);
+				meal = new Meal(piatto,kcal);
+
+				meal.setIdpiatti(idpiatto);
 
 				mealList.add(meal);
 
@@ -69,6 +73,7 @@ public class MealDAO {
 		return mealList;
 
 	}
+	
 
 	public boolean insertMeal(Meal meal) {
 
@@ -116,7 +121,7 @@ public class MealDAO {
 			piatto = resultSet.getString("piatto");
 			kcal = resultSet.getInt("kcal");
 
-			Meal meal = new Meal(idpiatti,piatto,kcal);
+			Meal meal = new Meal(piatto,kcal);
 
 			meal.setIdpiatti(resultSet.getInt("idpiatti"));
 

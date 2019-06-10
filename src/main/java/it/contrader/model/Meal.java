@@ -19,7 +19,7 @@ public class Meal {
 
 
 
-	public Meal(int idpiatti, String piatto, int kcal) {
+	public Meal( String piatto, int kcal) {
 		super();
 		this.idpiatti = idpiatti;
 		this.piatto = piatto;

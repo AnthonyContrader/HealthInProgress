@@ -21,7 +21,7 @@ public class ParametersDAO {
 
 	private final String QUERY_READ = "select * from parameters where idParameter=?";
 
-	private final String QUERY_UPDATE = "UPDATE parameters SET sesso=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp=? WHERE idParameter=?";
+	private final String QUERY_UPDATE = "UPDATE parameters set sesso=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp=? WHERE idParameter=?";
 
 	private final String QUERY_DELETE = "delete from parameters where idParameter=?";
 
@@ -154,11 +154,52 @@ public class ParametersDAO {
 
 			return false;
 
+		Parameters parametersRead = readParameters(parametersToUpdate.getIdParameter());
+
+		if (!parametersRead.equals(parametersToUpdate)) {
 
 			try {
 
 				// Fill the userToUpdate object
 
+			
+				if (parametersToUpdate.getSesso() == null || parametersToUpdate.getSesso().equals("")) {
+
+					parametersToUpdate.setSesso(parametersRead.getSesso());
+
+				}
+
+				if (parametersToUpdate.getAltezza() == 0 || parametersToUpdate.getAltezza() !=0) {
+
+					parametersToUpdate.setAltezza(parametersRead.getAltezza());
+
+				}
+				if (parametersToUpdate.getPeso() == 0 || parametersToUpdate.getPeso() !=0) {
+
+					parametersToUpdate.setPeso(parametersRead.getPeso());
+
+				}
+				if (parametersToUpdate.getEta() == 0 || parametersToUpdate.getEta() !=0) {
+
+					parametersToUpdate.setEta(parametersRead.getEta());
+
+				}
+				if (parametersToUpdate.getPolso() == 0 || parametersToUpdate.getPolso() !=0) {
+
+					parametersToUpdate.setPolso(parametersRead.getPolso());
+
+				}
+				if (parametersToUpdate.getFreqResp() == 0 || parametersToUpdate.getFreqResp() !=0) {
+
+					parametersToUpdate.setFreqResp(parametersRead.getFreqResp());
+
+				}
+				if (parametersToUpdate.getTempCorp() == 0 || parametersToUpdate.getTempCorp() !=0) {
+
+					parametersToUpdate.setTempCorp(parametersRead.getTempCorp());
+
+				}
+				
 
 				// Update the user
 
@@ -176,17 +217,24 @@ public class ParametersDAO {
 				preparedStatement.setInt(8, parametersToUpdate.getIdParameter());
 
 				int a = preparedStatement.executeUpdate();
+
 				if (a > 0)
+
 					return true;
+
 				else
+
 					return false;
 
 			} catch (SQLException e) {
-				return false;
-			}
-		
 
-		
+				return false;
+
+			}
+
+		}
+
+		return false;
 	}
 
 	public boolean deleteParameters(Integer id) {

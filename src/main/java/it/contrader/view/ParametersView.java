@@ -10,6 +10,7 @@ import it.contrader.controller.ParametersController;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Parameters;
 
+
 public class ParametersView implements View {
 
 	private ParametersController parametersController;
@@ -22,13 +23,28 @@ public class ParametersView implements View {
 
 	@Override
 	public void showResults(Request request) {
+
+
+System.out.println("\n------ Gestione Parametri-------\n");
+
+		
+
+	
+		System.out.println("ID\tSesso\tAltezza\tTipoPeso\tTipoEta\tPolso\tFreqResp\tTempCorp");
+
+		System.out.print("------------------------------------------------------");
+
+		List<Parameters> parameters = parametersController.getAllParameters();
+
+		System.out.println();
+
+		parameters.forEach(parameter -> System.out.println(parameters.toString()));
+
+		System.out.println();
 	}
 
 	@Override
 	public void showOptions() {
-		
-		System.out.println("\n------ Gestione Parametri -------\n");
-		
 		
 		
 		System.out.println("Scegli l'operazione da effettuare:");

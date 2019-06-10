@@ -6,6 +6,7 @@ import it.contrader.controller.Request;
 import it.contrader.controller.MealController;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
+import it.contrader.model.User;
 
 public class MealView implements View {
 
@@ -19,10 +20,26 @@ public class MealView implements View {
 
 	@Override
 	public void showResults(Request request) {
+
 	}
 
 	@Override
 	public void showOptions() {
+System.out.println("\n------ Gestione Piatti -------\n");
+
+		
+
+		System.out.println("ID\tPiatto\tKcal");
+
+		System.out.print("------------------------------------------------------");
+
+		List<Meal> meal = mealController.getAllMeal();
+
+		System.out.println();
+
+		meal.forEach(Meal -> System.out.println(meal.toString()));
+
+		System.out.println();
 		
 		System.out.println("\n------ Gestione Piatti -------\n");
 			
