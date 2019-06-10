@@ -23,7 +23,7 @@ public class ParametersUpdateView implements View {
 
 	@Override
 	public void showOptions() {
-		int parameterIdToUpdate,eta,polso,ferqResp,tempCorp;
+		int parameterIdToUpdate,eta,polso,freqResp,tempCorp;
 		double altezza,peso;
 		String sesso ;
 
@@ -38,7 +38,7 @@ public class ParametersUpdateView implements View {
 				System.out.println("Digita il sesso:");
 				sesso = getInput();
 				if (!sesso.equals(""))
-					parametersDTO.getSesso();
+					parametersDTO.setSesso(sesso);
 				
 				System.out.println("Digita la nuova altezza");
 				altezza = Double.parseDouble(getInput());
@@ -60,13 +60,13 @@ public class ParametersUpdateView implements View {
 				System.out.println("Digita la nuova poslo");
 				polso = Integer.parseInt(getInput());
 				if (polso !=0)
-					parametersDTO.setEta(polso);
+					parametersDTO.setPolso(polso);
 				
 				
 				System.out.println("Digita la nuova ferResp");
-				ferqResp = Integer.parseInt(getInput());
-				if (ferqResp !=0)
-					parametersDTO.setFreqResp(ferqResp);
+				freqResp = Integer.parseInt(getInput());
+				if (freqResp !=0)
+					parametersDTO.setFreqResp(freqResp);
 				
 				System.out.println("Digita la tempCorp");
 				tempCorp= Integer.parseInt(getInput());
