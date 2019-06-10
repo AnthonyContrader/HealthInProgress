@@ -144,7 +144,7 @@ public class ParametersDAO {
 		}
 
 	}
-
+	//GIT
 	public boolean updateParameters(Parameters parametersToUpdate) {
 
 		Connection connection = ConnectionSingleton.getInstance();

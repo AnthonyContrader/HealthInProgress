@@ -11,6 +11,7 @@ import it.contrader.main.MainDispatcher;
 import it.contrader.model.Parameters;
 import it.contrader.view.View;
 
+//git
 public class ParametersDeleteView implements View {
 
 	private ParametersController parametersController;
