@@ -54,7 +54,7 @@ public class ParametersDAO {
 				int respiratoryR = resultSet.getInt("freqResp");
 				int bodyT = resultSet.getInt("tempCorp");
 
-				parameters = new Parameters(parametersId, sex, height, weight, age, pulse, respiratoryR, bodyT);
+				parameters = new Parameters( sex, height, weight, age, pulse, respiratoryR, bodyT);
 				parameters.setIdParameter(parametersId);
 
 				parametersList.add(parameters);
@@ -87,7 +87,7 @@ public class ParametersDAO {
 			preparedStatement.setInt(6, parameters.getFreqResp());
 			preparedStatement.setInt(7, parameters.getTempCorp());
 			
-			
+			preparedStatement.execute();
 
 			return true;
 
@@ -120,7 +120,6 @@ public class ParametersDAO {
 			int age, pulse, respiratoryr, bodyt;
 			double height, weight;
 			
-			idparameter = resultSet.getInt("idParameter");
 			sex = resultSet.getString("sesso");
 			height = resultSet.getDouble("altezza");
 			weight = resultSet.getDouble("peso");
@@ -129,7 +128,7 @@ public class ParametersDAO {
 			respiratoryr = resultSet.getInt("freqResp");
 			bodyt = resultSet.getInt("tempCorp");
 
-			Parameters parameters = new Parameters(idparameter, sex, height, weight, age, pulse, respiratoryr, bodyt);
+			Parameters parameters = new Parameters(sex, height, weight, age, pulse, respiratoryr, bodyt);
 
 			parameters.setIdParameter(resultSet.getInt("idParameter"));
 

@@ -36,8 +36,8 @@ public class ParametersController implements Controller {
 		return this.parametersService.updateParameters(parametersDTO);
 	}
 
-	public boolean deleteParameters(Integer idParameters) {
-		return this.parametersService.deleteParameters(idParameters);
+	public boolean deleteParameters(Integer idParameter) {
+		return this.parametersService.deleteParameters(idParameter);
 	}
 
 	@Override

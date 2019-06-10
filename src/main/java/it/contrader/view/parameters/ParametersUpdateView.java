@@ -1,13 +1,11 @@
 package it.contrader.view.parameters;
 
-import java.util.List;
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
 import it.contrader.controller.*;
 import it.contrader.dto.*;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.*;
 import it.contrader.view.View;
 
 public class ParametersUpdateView implements View {

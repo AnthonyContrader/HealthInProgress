@@ -2,7 +2,7 @@ package it.contrader.view.parameters;
 
 import java.util.Scanner;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Parameter;
+
 
 import it.contrader.controller.Request;
 import it.contrader.controller.ParametersController;
