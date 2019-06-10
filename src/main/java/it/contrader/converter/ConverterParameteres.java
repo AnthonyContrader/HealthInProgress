@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.ParametersDTO;
-import it.contrader.dto.UserDTO;
+
 import it.contrader.model.Parameters;
-import it.contrader.model.User;
+
 
 public class ConverterParameteres {
 

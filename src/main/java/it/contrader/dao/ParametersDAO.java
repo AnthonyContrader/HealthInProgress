@@ -1,17 +1,12 @@
 package it.contrader.dao;
 
 import java.sql.*;
-
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Vector;
-
 import it.contrader.controller.GestoreEccezioni;
-
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Parameters;
-import it.contrader.model.User;
 
 public class ParametersDAO {
 
@@ -46,15 +41,15 @@ public class ParametersDAO {
 			while (resultSet.next()) {
 
 				int parametersId = resultSet.getInt("idParameter");
-				String sex = resultSet.getString("sesso");
-				double height = resultSet.getDouble("altezza");
-				double weight = resultSet.getDouble("peso");
-				int age = resultSet.getInt("eta");
-				int pulse = resultSet.getInt("polso");
-				int respiratoryR = resultSet.getInt("freqResp");
-				int bodyT = resultSet.getInt("tempCorp");
+				String sesso = resultSet.getString("sesso");
+				double altezza = resultSet.getDouble("altezza");
+				double peso = resultSet.getDouble("peso");
+				int eta = resultSet.getInt("eta");
+				int polso = resultSet.getInt("polso");
+				int freqResp = resultSet.getInt("freqResp");
+				int tempCorp = resultSet.getInt("tempCorp");
 
-				parameters = new Parameters( sex, height, weight, age, pulse, respiratoryR, bodyT);
+				parameters = new Parameters( sesso,altezza,peso,eta,polso,freqResp,tempCorp);
 				parameters.setIdParameter(parametersId);
 
 				parametersList.add(parameters);

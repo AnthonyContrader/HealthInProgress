@@ -2,9 +2,7 @@ package it.contrader.controller;
 
 import java.util.List;
 
-import it.contrader.converter.ConverterUser;
 import it.contrader.dto.ParametersDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Parameters;
 import it.contrader.service.ParametersService;;

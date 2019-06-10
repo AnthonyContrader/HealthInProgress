@@ -8,6 +8,7 @@ import java.util.Scanner;
 import it.contrader.controller.Request;
 import it.contrader.controller.ParametersController;
 import it.contrader.main.MainDispatcher;
+import it.contrader.model.Meal;
 import it.contrader.model.Parameters;
 
 
@@ -25,28 +26,19 @@ public class ParametersView implements View {
 	public void showResults(Request request) {
 
 
-System.out.println("\n------ Gestione Parametri-------\n");
 
-		
-
-	
-		System.out.println("ID\tSesso\tAltezza\tTipoPeso\tTipoEta\tPolso\tFreqResp\tTempCorp");
-
-		System.out.print("------------------------------------------------------");
-
-		List<Parameters> parameters = parametersController.getAllParameters();
-
-		System.out.println();
-
-		parameters.forEach(parameter -> System.out.println(parameters.toString()));
-
-		System.out.println();
 	}
 
 	@Override
 	public void showOptions() {
-		
-		
+		System.out.println("\n------ Gestione Parametri-------\n");
+		System.out.println("ID\tPiatto\tKcal");
+
+		System.out.print("------------------------------------------------------");
+		System.out.println();
+        List<Parameters> parameters = parametersController.getAllParameters();
+        System.out.println();
+       System.out.println(parameters.toString());
 		System.out.println("Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");
 		try {
