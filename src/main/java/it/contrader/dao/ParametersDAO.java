@@ -21,7 +21,7 @@ public class ParametersDAO {
 
 	private final String QUERY_READ = "select * from parameters where idParameter=?";
 
-	private final String QUERY_UPDATE = "UPDATE parameters set sesso=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp,=?, WHERE idParameter=?";
+	private final String QUERY_UPDATE = "UPDATE parameters SET sesso=?,altezza=?,peso=?,eta=?,polso=?,freqResp=?,tempCorp=? WHERE idParameter=?";
 
 	private final String QUERY_DELETE = "delete from parameters where idParameter=?";
 
@@ -86,7 +86,7 @@ public class ParametersDAO {
 			preparedStatement.setInt(5, parameters.getPolso());
 			preparedStatement.setInt(6, parameters.getFreqResp());
 			preparedStatement.setInt(7, parameters.getTempCorp());
-			preparedStatement.setInt(8, parameters.getIdParameter());
+			
 			
 
 			return true;
@@ -174,6 +174,7 @@ public class ParametersDAO {
 				preparedStatement.setInt(5, parametersToUpdate.getPolso());
 				preparedStatement.setInt(6, parametersToUpdate.getFreqResp());
 				preparedStatement.setInt(7, parametersToUpdate.getTempCorp());
+				preparedStatement.setInt(8, parametersToUpdate.getIdParameter());
 
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
