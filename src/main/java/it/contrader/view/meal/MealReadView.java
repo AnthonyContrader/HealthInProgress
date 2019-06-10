@@ -1,13 +1,13 @@
 package it.contrader.view.meal;
 
 import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
 import it.contrader.controller.MealController;
 import it.contrader.dto.MealDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
 import it.contrader.dao.MealDAO;
@@ -33,7 +33,7 @@ public class MealReadView implements View {
 
 		try {
 			mealIdToRead = Integer.parseInt(getInput());
-			Meal mealDB = mealController.readMeal(mealIdToRead);
+			MealDTO mealDB = mealController.readMeal(mealIdToRead);
 
 			System.out.println("Id: " +  mealDB.getIdpiatti());
 			System.out.println("Kcal: " + mealDB.getKcal());

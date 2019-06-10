@@ -35,10 +35,10 @@ public class MealDeleteView implements View {
 		//user.forEach(user -> System.out.println(user));
 		//System.out.println();
 		//System.out.println("Digita l'ID:");
-		String usersId = getInput();
+		String idpiatti = getInput();
 
 		if (idpiatti != null && StringUtils.isStrictlyNumeric(idpiatti)) {
-			mealController.deleteClient(Idpiatti)(Integer.parseInt(usersId));
+			mealController.deleteMeal(Integer.parseInt(idpiatti));
 			
 		} else {
 			System.out.println("Valore inserito errato");
@@ -56,7 +56,7 @@ public class MealDeleteView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Meal", "doControl", request);
 	}
 
 }

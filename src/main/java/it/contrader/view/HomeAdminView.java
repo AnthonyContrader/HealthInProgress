@@ -1,5 +1,6 @@
 /**
  * Manage a Business Owner view
+
  */
 
 package it.contrader.view;
@@ -15,14 +16,14 @@ public class HomeAdminView implements View {
     private String choice;
 
     public void showResults(Request request) {
-    	System.out.println("Benvenuto in WMES "+request.get("nomeUtente").toString());
+    	System.out.println("Benvenuto in HEALTH IN PROGRESS "+request.get("nomeUtente").toString());
     }
 
 
     public void showOptions() {
         System.out.println("-------MENU-------\n");
         System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [P]arametri [M]eal [E]sci ");
+        System.out.println("[U]tenti [M]eal [E]sci ");
         this.choice = this.getInput();
     }
 
@@ -30,9 +31,7 @@ public class HomeAdminView implements View {
         if (choice.equalsIgnoreCase("U")) {
         	MainDispatcher.getInstance().callView("User", null);
         }
-        if (choice.equalsIgnoreCase("P")) {
-        	MainDispatcher.getInstance().callView("Parameters", null);
-        }
+        
         	if (choice.equalsIgnoreCase("m")) {
             	MainDispatcher.getInstance().callView("Meal", null);
             }

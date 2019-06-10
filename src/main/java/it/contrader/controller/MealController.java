@@ -2,8 +2,8 @@ package it.contrader.controller;
 
 
 import java.util.List;
-
 import it.contrader.dto.MealDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
 import it.contrader.service.MealService;
@@ -24,22 +24,22 @@ public class MealController implements Controller {
 		return this.mealService.getAllMeal();
 	}
 	
-	public Meal readMeal(int MealId) {
-		
-		return this.mealService.readMeal(MealId);
+	public MealDTO readMeal(int idmeal) {
+		return this.mealService.readMeal(idmeal);
 	}
 	
-	public boolean insertMeal(Meal mealDTO) {
+	public boolean insertMeal(MealDTO mealDTO) {
 		return this.mealService.insertMeal(mealDTO);
 	}
 
-	public boolean updateMeal(Meal meal) {
-		return this.mealService.updateMeal(meal);
+	public boolean updateMeal(MealDTO mealDTO) {
+		return this.mealService.updateMeal(mealDTO);
+
 
 	}
 
-	public boolean deleteMeal(Integer Idpiatti) {
-		return this.mealService.deleteMeal(Idpiatti);
+	public boolean deleteMeal(Integer idpiatti) {
+		return this.mealService.deleteMeal(idpiatti);
 
 	}
 
@@ -62,7 +62,7 @@ public class MealController implements Controller {
 				MainDispatcher.getInstance().callView(sub_package + "MealUpdate", null);
 				break;
 			case "C":
-				MainDispatcher.getInstance().callView(sub_package + "Meal", null);
+				MainDispatcher.getInstance().callView(sub_package + "MealDelete", null);
 			case "E":
 				MainDispatcher.getInstance().callView("Login", null);
 				break;
@@ -73,9 +73,6 @@ public class MealController implements Controller {
 		}
 	}
 
-	public void insertMeal(MealDTO mealDTO) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

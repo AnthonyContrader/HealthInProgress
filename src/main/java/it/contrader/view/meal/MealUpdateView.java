@@ -3,12 +3,11 @@ package it.contrader.view.meal;
 import java.util.List;
 import java.util.Scanner;
 
-import it.contrader.controller.*;
-import it.contrader.dao.MealDAO;
-import it.contrader.dto.*;
-import it.contrader.service.*;
+import it.contrader.controller.Request;
+import it.contrader.controller.MealController;
+import it.contrader.dto.MealDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.*;
+import it.contrader.model.Meal;
 import it.contrader.view.View;
 
 public class MealUpdateView implements View {
@@ -26,30 +25,29 @@ public class MealUpdateView implements View {
 
 	@Override
 	public void showOptions() {
-		int idPiattoToUpdate, kcal;
+		int idpiattiToUpdate;
 		String piatto;
+		int kcal;
+	
 
 		MealDTO mealDTO = new MealDTO();
 
-		System.out.println("Digita idpiatto da modificare:");
+		System.out.println("Digita l'Id dell'utente da modificare:");
 		try {
-			idPiattoToUpdate = Integer.parseInt(getInput());
-			if (idPiattoToUpdate != 0) {
+			idpiattiToUpdate = Integer.parseInt(getInput());
+			if (idpiattiToUpdate != 0) {
+				mealDTO.setIdpiatti(idpiattiToUpdate);
 
-				mealDTO.setIdpiatti(idPiattoToUpdate);
-				System.out.println("Digita il kcal da modificare:");
-				kcal = Integer.parseInt(getInput());
-				if (!kcal.equals(""))
-					MealDTO.setKcal(kcal);
-
-				System.out.println("Digita il nome piatto da modificare:");
+				System.out.println("Digita il nuovo piatto:");
 				piatto = getInput();
-				if (!piatto.equals(""))
-					piatto.set
 
-			
-					mealController.updateMeal();
-					
+				if (!piatto.equals(""))
+					mealDTO.setPiatto(piatto);
+				System.out.println("Digita il numero di kcal:");
+				kcal = Integer.parseInt(getInput());
+				if (kcal>0)
+					mealDTO.setKcal(kcal);
+				mealController.updateMeal(mealDTO);
 
 			}
 		} catch (Exception e) {
@@ -69,7 +67,7 @@ public class MealUpdateView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Meal", "doControl", request);
 	}
 
 }

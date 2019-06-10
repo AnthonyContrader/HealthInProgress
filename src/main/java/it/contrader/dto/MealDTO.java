@@ -1,69 +1,53 @@
 package it.contrader.dto;
 
 public class MealDTO {
-
-	int Idpiatti;
-	int Kcal;
-	String piatto;
-
+	private int idpiatti;
+	private String piatto;
+	private int kcal;
 	public MealDTO() {
 		super();
 	}
-	public MealDTO( int kcal, String piatto) {
+	
+	
+	
+	public MealDTO(String piatto, int kcal) {
 		super();
-		
-		this.Kcal = kcal;
 		this.piatto = piatto;
+		this.kcal = kcal;
 	}
+
+
+
+	
 	public int getIdpiatti() {
-		return Idpiatti;
+		return idpiatti;
 	}
+
+
+
 	public void setIdpiatti(int idpiatti) {
-		Idpiatti = idpiatti;
+		this.idpiatti = idpiatti;
 	}
-	public int getKcal() {
-		return Kcal;
-	}
-	public void setKcal(int kcal) {
-		Kcal = kcal;
-	}
+
+
+
 	public String getPiatto() {
 		return piatto;
 	}
 	public void setPiatto(String piatto) {
 		this.piatto = piatto;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Idpiatti;
-		result = prime * result + Kcal;
-		result = prime * result + ((piatto == null) ? 0 : piatto.hashCode());
-		return result;
+	public int getKcal() {
+		return kcal;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MealDTO other = (MealDTO) obj;
-		if (Idpiatti != other.Idpiatti)
-			return false;
-		if (Kcal != other.Kcal)
-			return false;
-		if (piatto == null) {
-			if (other.piatto != null)
-				return false;
-		} else if (!piatto.equals(other.piatto))
-			return false;
-		return true;
+	public void setKcal(int kcal) {
+		this.kcal = kcal;
 	}
+	
+
+}
+
 	
 	
 
 	
-}

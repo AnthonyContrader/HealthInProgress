@@ -22,9 +22,9 @@ public class UserInsertView implements View {
 
 	@Override
 	public void showOptions() {
-		String nome= new String() ;
-		String tipo = new String() ;
-		String password = new String() ;
+		String nome ;
+		String tipo  ;
+		String password  ;
 
 		System.out.println("Inserisci i campi dell'utente:");
 		System.out.println("Digita il nome: ");

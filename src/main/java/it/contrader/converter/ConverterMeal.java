@@ -9,15 +9,19 @@ import it.contrader.model.Meal;
 public class ConverterMeal {
 
 	public static MealDTO toDTO(Meal meal) {
-		MealDTO mealDTO = null;
+	     MealDTO mealDTO = null;
 		if (meal != null) {
-			mealDTO = new MealDTO();
-			mealDTO.setIdpiatti(meal.getIdpiatti());;
-			mealDTO.setKcal(meal.getKcal());
+			mealDTO = new MealDTO(meal.getPiatto(), meal.getKcal());
+			mealDTO.setIdpiatti(meal.getIdpiatti());
 			mealDTO.setPiatto(meal.getPiatto());
-			
+			mealDTO.setKcal(meal.getKcal());
+		
 		}
 		return mealDTO;
+		
+
+		
+		
 	}
 
 	public static Meal toEntity(MealDTO mealDTO) {
@@ -25,8 +29,8 @@ public class ConverterMeal {
 		if (mealDTO != null) {
 			meal = new Meal();
 			meal.setIdpiatti(mealDTO.getIdpiatti());
-			meal.setKcal(mealDTO.getKcal());
 			meal.setPiatto(mealDTO.getPiatto());
+			meal.setKcal(mealDTO.getKcal());
 			
 		}
 		return meal;
@@ -52,4 +56,3 @@ public class ConverterMeal {
 		return list;
 	}
 }
-

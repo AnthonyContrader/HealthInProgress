@@ -2,50 +2,93 @@ package it.contrader.model;
 
 public class Meal {
 
-	
-	private int Idpiatti;
-	private int Kcal;
+	private int idpiatti;
 	private String piatto;
+	private int kcal;
+	
+	
+	
+	
 
- 
-
-public Meal() {
-		
+	public Meal() {
+		super();
 	}
 
-public Meal(int idpiatti, int kcal, String piatto) {
+
+
+
+
+
+	public Meal(int idpiatti, String piatto, int kcal) {
 		super();
-		Idpiatti = idpiatti;
-		Kcal = kcal;
+		this.idpiatti = idpiatti;
+		this.piatto = piatto;
+		this.kcal = kcal;
+	}
+
+
+
+
+
+
+	public int getIdpiatti() {
+		return idpiatti;
+	}
+
+
+
+
+
+
+	public void setIdpiatti(int idpiatti) {
+		this.idpiatti = idpiatti;
+	}
+
+
+
+
+
+
+	public String getPiatto() {
+		return piatto;
+	}
+
+
+
+
+
+
+	public void setPiatto(String piatto) {
 		this.piatto = piatto;
 	}
 
-public int getIdpiatti() {
-	return Idpiatti;
-}
 
-public void setIdpiatti(int idpiatti) {
-	Idpiatti = idpiatti;
-}
 
-public int getKcal() {
-	return Kcal;
-}
 
-public void setKcal(int kcal) {
-	Kcal = kcal;
-}
 
-public String getPiatto() {
-	return piatto;
-}
 
-public void setPiatto(String piatto) {
-	this.piatto = piatto;
-}
-@Override
-public String toString() {
+	public int getKcal() {
+		return kcal;
+	}
 
-	return new String (this.Idpiatti + " " + this.Kcal + " " + this.piatto);
-}
+
+
+
+
+
+	public void setKcal(int kcal) {
+		this.kcal = kcal;
+	}
+
+
+
+
+
+
+	@Override
+	public String toString() {
+	
+		return new String (this.idpiatti + " " + this.piatto + " " + this.kcal);
+	}
+	
 }

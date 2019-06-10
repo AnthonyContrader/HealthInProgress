@@ -27,14 +27,9 @@ public class ParametersView implements View {
 	@Override
 	public void showOptions() {
 		
-		System.out.println("\n------ Gestione utenti -------\n");
+		System.out.println("\n------ Gestione Parametri -------\n");
 		
-		System.out.println("ID\tSesso\tAltezza\tEta\tPolso\tFreqResp\tTempCorp");
-		System.out.print("------------------------------------------------------");
-		List<Parameters> parameters = parametersController.getAllParameters();
-		System.out.println();
-		parameters.forEach(parameter -> System.out.println(parameters.toString()));
-		System.out.println();
+		
 		
 		System.out.println("Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");

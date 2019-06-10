@@ -54,7 +54,7 @@ public class UserDAO {
 
 				String password = resultSet.getString("Password");
 
-				user = new User(userId, username, usertype, password);
+				user = new User( username, usertype, password);
 
 				user.setIduser(userId);
 
@@ -120,7 +120,7 @@ public class UserDAO {
 
 			usertype = resultSet.getString("Tipo");
 
-			User user = new User(userId, username, password, usertype);
+			User user = new User(username, password, usertype);
 
 			user.setIduser(resultSet.getInt("Iduser"));
 

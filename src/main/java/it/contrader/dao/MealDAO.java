@@ -2,27 +2,30 @@ package it.contrader.dao;
 
 import java.sql.*;
 
+
 import java.util.ArrayList;
 
 import java.util.List;
 
+import java.util.Vector;
+
 import it.contrader.controller.GestoreEccezioni;
 
 import it.contrader.main.ConnectionSingleton;
+
 import it.contrader.model.Meal;
-import it.contrader.model.User;
 
 public class MealDAO {
 
-	private final String QUERY_ALL = "select * from Meal";
+	private final String QUERY_ALL = "select * from meal";
 
-	private final String QUERY_INSERT = "insert into meal (Kcal,piatto) values (?,?)";
+	private final String QUERY_INSERT = "insert into meal (piatto,kcal) values (?,?)";
 
-	private final String QUERY_READ = "select * from Meal where Idpiatti=?";
+	private final String QUERY_READ = "select * from meal where idpiatti=?";
 
-	private final String QUERY_UPDATE = "UPDATE Kcal=?,piatto=?,WHERE Idpiatti=?";
+	private final String QUERY_UPDATE = "UPDATE meal set piatto=?,kcal=?  WHERE idpiatti=?";
 
-	private final String QUERY_DELETE = "delete from user where Idpiatti=?";
+	private final String QUERY_DELETE = "delete from meal where idpiatti=?";
 
 	public MealDAO() {
 
@@ -30,7 +33,7 @@ public class MealDAO {
 
 	public List<Meal> getAllMeal() {
 
-		List<Meal> MealList = new ArrayList<>();
+		List<Meal> mealList = new ArrayList<>();
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -44,15 +47,16 @@ public class MealDAO {
 
 			while (resultSet.next()) {
 
-				int Id = resultSet.getInt("Idpiatti");
+				int idpiatti = resultSet.getInt("idpiatti");
 
-				int kcal = resultSet.getInt("Kcal");
 				String piatto = resultSet.getString("piatto");
+				int kcal = resultSet.getInt("kcal");
 
-				meal = new Meal(Id, kcal, piatto);
-				meal.setIdpiatti(Id);
+				meal = new Meal(idpiatti, piatto, kcal);
 
-				MealList.add(meal);
+				meal.setIdpiatti(idpiatti);
+
+				mealList.add(meal);
 
 			}
 
@@ -62,7 +66,7 @@ public class MealDAO {
 
 		}
 
-		return MealList;
+		return mealList;
 
 	}
 
@@ -74,8 +78,9 @@ public class MealDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 
-			preparedStatement.setInt(1, meal.getKcal());
-			preparedStatement.setString(2, meal.getPiatto());
+			preparedStatement.setString(1, meal.getPiatto());
+			preparedStatement.setInt(2, meal.getKcal());
+
 
 			preparedStatement.execute();
 
@@ -91,7 +96,7 @@ public class MealDAO {
 
 	}
 
-	public Meal readMeal(int Idpiatti) {
+	public Meal readMeal(int idpiatti) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
@@ -99,23 +104,21 @@ public class MealDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 
-			preparedStatement.setInt(1, Idpiatti);
+			preparedStatement.setInt(1, idpiatti);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			resultSet.next();
-			
-			int idpiatti;
-            int Kcal;
-			String piatto ;
-			
-			idpiatti=resultSet.getInt("Idpiatti");
-			Kcal = resultSet.getInt("Kcal");
-			piatto = resultSet.getString("piatto");
-		
-			Meal meal  = new Meal(idpiatti,Kcal,piatto);
 
-			meal.setIdpiatti(idpiatti);
+			int kcal;
+			String piatto;
+
+			piatto = resultSet.getString("piatto");
+			kcal = resultSet.getInt("kcal");
+
+			Meal meal = new Meal(idpiatti,piatto,kcal);
+
+			meal.setIdpiatti(resultSet.getInt("idpiatti"));
 
 			return meal;
 
@@ -126,42 +129,66 @@ public class MealDAO {
 			return null;
 
 		}
-
 	}
 
-	public boolean updatemeal(Meal mealtoUpdate) {
+	
+		public boolean updateMeal(Meal  mealToUpdate) {
 
-		Connection connection = ConnectionSingleton.getInstance();
+			Connection connection = ConnectionSingleton.getInstance();
 
-		// Check if id is present
+			// Check if id is present
 
-		if (mealtoUpdate.getIdpiatti() == 0)
-
-			return false;
-
-		// Update the user
-		try {
-
-			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-
-			preparedStatement.setInt(1, mealtoUpdate.getKcal());
-			preparedStatement.setString(2, mealtoUpdate.getPiatto());
-			int a = preparedStatement.executeUpdate();
-
-
-			if (a > 0)
-
-				return true;
-
-			else
+			if (mealToUpdate.getIdpiatti() == 0)
 
 				return false;
 
-		} catch (SQLException e) {
+			Meal mealRead = readMeal(mealToUpdate.getIdpiatti());
+
+			if (!mealRead.equals(mealToUpdate)) {
+
+				try {
+
+					// Fill the userToUpdate object
+
+					if (mealToUpdate.getPiatto() == null || mealToUpdate.getPiatto().equals("")) {
+
+						mealToUpdate.setPiatto(mealRead.getPiatto());
+					}
+						if (mealToUpdate.getKcal() == 0 || mealToUpdate.getKcal()>0) {
+
+							mealToUpdate.setKcal(mealRead.getKcal());
+
+					}
+
+
+					// Update the user
+
+					PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+
+					preparedStatement.setString(1, mealToUpdate.getPiatto());
+					preparedStatement.setInt(2, mealToUpdate.getKcal());
+
+
+					int a = preparedStatement.executeUpdate();
+
+					if (a > 0)
+
+						return true;
+
+					else
+
+						return false;
+
+					}catch (SQLException e) {
+
+					return false;
+
+				}
+
+			}
 
 			return false;
 
-		}
 
 	}
 

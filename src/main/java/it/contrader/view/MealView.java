@@ -25,14 +25,7 @@ public class MealView implements View {
 	public void showOptions() {
 		
 		System.out.println("\n------ Gestione Piatti -------\n");
-		
-		System.out.println("ID\tPiatto\tKcal");
-		System.out.print("------------------------------------------------------");
-		List<Meal> meal = mealController.getAllMeal();
-		System.out.println();
-		meal.forEach(Meal -> System.out.println(meal.toString()));
-		System.out.println();
-		
+			
 		System.out.println("Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");
 		try {

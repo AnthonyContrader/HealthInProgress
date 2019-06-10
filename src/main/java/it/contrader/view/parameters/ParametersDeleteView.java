@@ -16,9 +16,8 @@ public class ParametersDeleteView implements View {
 	private ParametersController parametersController;
 	private Request request;
 
-	public Parameters DeleteView() {
+	public ParametersDeleteView() {
 		this.parametersController = new ParametersController();
-		return null;
 	}
 
 	@Override
@@ -36,10 +35,10 @@ public class ParametersDeleteView implements View {
 		//user.forEach(user -> System.out.println(user));
 		//System.out.println();
 		//System.out.println("Digita l'ID:");
-		String idparameters = getInput();
+		String idParameters = getInput();
 
-		if (idparameters!= null && StringUtils.isStrictlyNumeric(idparameters)) {
-			parametersController.deleteParameters(Integer.parseInt(idparameters));
+		if (idParameters != null && StringUtils.isStrictlyNumeric(idParameters)) {
+			parametersController.deleteParameters(Integer.parseInt(idParameters));
 			
 		} else {
 			System.out.println("Valore inserito errato");

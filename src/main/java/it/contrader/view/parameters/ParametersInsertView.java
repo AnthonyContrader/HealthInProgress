@@ -25,8 +25,8 @@ public class ParametersInsertView implements View {
 
 	@Override
 	public void showOptions() {
-		String sesso= new String();
-		double altezza ;
+		String sesso;
+		double altezza  ;
 		double peso;
 		int eta,polso,freqResp,tempCorp;
 		

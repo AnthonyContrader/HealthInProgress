@@ -7,11 +7,15 @@ public class User {
 	private String Password;
 	private  String Tipo;
 	
-	public User() {}
 	
-	public User(int iduser, String nome, String password, String tipo) {
+	
+	public User() {
 		super();
-		Iduser = iduser;
+	}
+
+	public User( String nome, String password, String tipo) {
+		super();
+		
 		Nome = nome;
 		Password = password;
 		Tipo = tipo;
