@@ -23,7 +23,7 @@ public class HomeAdminView implements View {
     public void showOptions() {
         System.out.println("-------MENU-------\n");
         System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [M]eal [E]sci ");
+        System.out.println("[U]tenti [M]eal [I]ngredienti  [E]sci ");
         this.choice = this.getInput();
     }
 
@@ -34,6 +34,9 @@ public class HomeAdminView implements View {
         
         	if (choice.equalsIgnoreCase("m")) {
             	MainDispatcher.getInstance().callView("Meal", null);
+            }
+        	if (choice.equalsIgnoreCase("i")) {
+            	MainDispatcher.getInstance().callView("Ingredient", null);
             }
         
         

@@ -72,5 +72,9 @@ public class Parameters {
 		this.tempCorp = tempCorp;
 	}
 
+	@Override
+	public String toString() {
 	
+		return new String (this.idParameter + " " + this.sesso + " " + this.altezza + "" + this.peso + "" + this.eta + "" + this.polso + "" + this.freqResp + "" + this.tempCorp);
+	}
 }

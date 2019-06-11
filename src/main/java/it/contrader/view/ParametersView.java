@@ -10,6 +10,7 @@ import it.contrader.controller.ParametersController;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Meal;
 import it.contrader.model.Parameters;
+import it.contrader.model.User;
 
 
 public class ParametersView implements View {
@@ -26,19 +27,13 @@ public class ParametersView implements View {
 	public void showResults(Request request) {
 
 
-
+		System.out.println("\n------ Gestione Parametri-------\n");
+	
 	}
 
 	@Override
 	public void showOptions() {
-		System.out.println("\n------ Gestione Parametri-------\n");
-		System.out.println("ID\tPiatto\tKcal");
-
-		System.out.print("------------------------------------------------------");
-		System.out.println();
-        List<Parameters> parameters = parametersController.getAllParameters();
-        System.out.println();
-       System.out.println(parameters.toString());
+		
 		System.out.println("Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");
 		try {

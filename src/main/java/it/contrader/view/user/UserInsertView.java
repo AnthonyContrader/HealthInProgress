@@ -1,4 +1,4 @@
-package it.contrader.view.user;
+ package it.contrader.view.user;
 
 import java.util.Scanner;
 import it.contrader.controller.Request;

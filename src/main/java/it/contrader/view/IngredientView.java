@@ -1,23 +1,21 @@
 package it.contrader.view;
 
 import java.util.List;
-
-
 import java.util.Scanner;
 
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
+import it.contrader.controller.IngredientController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.User;
+import it.contrader.model.Ingredient;
 
-public class UserView implements View {
+public class IngredientView implements View {
 
-	private UserController usersController;
+	private IngredientController ingredientController;
 	private Request request;
 	private String choice;
 	
-	public UserView() {
-		this.usersController = new UserController();
+	public IngredientView() {
+		this.ingredientController = new IngredientController();
 	}
 
 	@Override
@@ -29,11 +27,11 @@ System.out.println("\n------ Gestione utenti -------\n");
 		System.out.println("ID\tUsername\tPassword\tTipoUtente");
 
 		System.out.print("------------------------------------------------------");
+		System.out.println();
+		List<Ingredient> ingredient = ingredientController.getAllIngredient();
 
-		List<User> users = usersController.getAllUser();
 
-
-		users.forEach(user -> System.out.println(user.toString()));
+		ingredient.forEach(Ingredient -> System.out.println(ingredient.toString()));
 
 	}
 
@@ -62,7 +60,7 @@ System.out.println("\n------ Gestione utenti -------\n");
 
 	@Override
 	public void submit() {
-		    MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		    MainDispatcher.getInstance().callAction("Ingredient", "doControl", this.request);
 	}
 
 }
