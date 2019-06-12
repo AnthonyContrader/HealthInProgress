@@ -15,8 +15,8 @@
 		<servlet-class>com.virtualpairprogrammers.servlets.LogoutServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>NodesServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.NodesServlet</servlet-class>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>it.contrader.servlets.UserServlet</servlet-class>
 	</servlet>	
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
@@ -27,8 +27,8 @@
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>NodesServlet</servlet-name>
-		<url-pattern>/NodesServlet</url-pattern>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/UserServlet</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>4000</session-timeout>

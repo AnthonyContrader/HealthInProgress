@@ -19,11 +19,11 @@ public class LoginServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final HttpSession session = request.getSession();
-		session.setAttribute("utente", null);
+		session.setAttribute("nome", null);
 
 		if (request != null) {
-			final String nomeUtente = request.getParameter("nome").toString();
-			final String password = request.getParameter("password").toString();
+			final String nomeUtente = request.getParameter("Username").toString();
+			final String password = request.getParameter("Password").toString();
 			// recuperiamo l'utente
 			final UserDTO userDTO = userService.getUserByUsernameAndPasword(nomeUtente, password);
 

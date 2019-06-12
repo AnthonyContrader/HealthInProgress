@@ -16,7 +16,7 @@ import it.contrader.utils.GestoreEccezioni;
 
 public class LoginDAO {
 
-    private final String QUERY_LOGIN = "select * from users where nome = ? and password = ?";
+    private final String QUERY_LOGIN = "select * from user where nome = ? and password = ?";
     
     /**
      * 
