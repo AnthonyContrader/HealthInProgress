@@ -105,15 +105,16 @@ public class ParametersDAO {
 
 	}
 
-	public Parameters readParameters(int idParameter) {
+	public Parameters readParameters(Parameters	parameters) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
 		try {
+			int parametersId = parameters.getIdParameter();
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 
-			preparedStatement.setInt(1, idParameter);
+			preparedStatement.setInt(1, parametersId);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -132,7 +133,7 @@ public class ParametersDAO {
 			respiratoryr = resultSet.getInt("freqResp");
 			bodyt = resultSet.getInt("tempCorp");
 
-			Parameters parameters = new Parameters(sex, height, weight, age, pulse, respiratoryr, bodyt);
+			parameters = new Parameters(sex, height, weight, age, pulse, respiratoryr, bodyt);
 
 			parameters.setIdParameter(resultSet.getInt("idParameter"));
 
@@ -157,52 +158,14 @@ public class ParametersDAO {
 		if (parametersToUpdate.getIdParameter() == 0)
 
 			return false;
-
-		Parameters parametersRead = readParameters(parametersToUpdate.getIdParameter());
-
-		if (!parametersRead.equals(parametersToUpdate)) {
+ 
 
 			try {
 
 				// Fill the userToUpdate object
 
 			
-				if (parametersToUpdate.getSesso() == null || parametersToUpdate.getSesso().equals("")) {
-
-					parametersToUpdate.setSesso(parametersRead.getSesso());
-
-				}
-
-				if (parametersToUpdate.getAltezza() == 0 || parametersToUpdate.getAltezza() !=0) {
-
-					parametersToUpdate.setAltezza(parametersRead.getAltezza());
-
-				}
-				if (parametersToUpdate.getPeso() == 0 || parametersToUpdate.getPeso() !=0) {
-
-					parametersToUpdate.setPeso(parametersRead.getPeso());
-
-				}
-				if (parametersToUpdate.getEta() == 0 || parametersToUpdate.getEta() !=0) {
-
-					parametersToUpdate.setEta(parametersRead.getEta());
-
-				}
-				if (parametersToUpdate.getPolso() == 0 || parametersToUpdate.getPolso() !=0) {
-
-					parametersToUpdate.setPolso(parametersRead.getPolso());
-
-				}
-				if (parametersToUpdate.getFreqResp() == 0 || parametersToUpdate.getFreqResp() !=0) {
-
-					parametersToUpdate.setFreqResp(parametersRead.getFreqResp());
-
-				}
-				if (parametersToUpdate.getTempCorp() == 0 || parametersToUpdate.getTempCorp() !=0) {
-
-					parametersToUpdate.setTempCorp(parametersRead.getTempCorp());
-
-				}
+			
 				
 
 				// Update the user
@@ -233,16 +196,14 @@ public class ParametersDAO {
 			} catch (SQLException e) {
 
 				return false;
-
+		
 			}
-
-		}
-
-		return false;
 	}
+		
+	
 
-	public boolean deleteParameters(Integer id) {
-
+	public boolean deleteParameters(Parameters	parameters) {
+		int id = parameters.getIdParameter();
 		Connection connection = ConnectionSingleton.getInstance();
 
 		try {

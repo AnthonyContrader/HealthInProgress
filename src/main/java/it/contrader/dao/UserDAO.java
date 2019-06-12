@@ -14,6 +14,7 @@ import java.util.List;
 import com.mysql.fabric.xmlrpc.base.Array;
 
 import it.contrader.model.User;
+import it.contrader.model.Users;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.utils.GestoreEccezioni;
 
@@ -29,7 +30,9 @@ public class UserDAO {
 	private final String QUERY_UPDATE = "UPDATE users set Nome=?,Password=?,Tipo=? WHERE Iduser=?";
 
 	private final String QUERY_DELETE = "delete from users where Iduser=?";
-
+	private final String QUERY_LOGIN = "select * from users where nome=(?) and password=(?)";
+	
+	
 	public UserDAO() {
 
 	}
@@ -103,11 +106,12 @@ public class UserDAO {
 
 	}
 
-	public User readUser(int userId) {
+	public User readUser(User user) {
 
 		Connection connection = ConnectionSingleton.getInstance();
 
 		try {
+			int userId = user.getIduser();
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 
@@ -124,7 +128,7 @@ public class UserDAO {
 
 			usertype = resultSet.getString("Tipo");
 
-			User user = new User(username, password, usertype);
+			 user = new User(username, password, usertype);
 
 			user.setIduser(resultSet.getInt("Iduser"));
 
@@ -150,25 +154,25 @@ public class UserDAO {
 
 			return false;
 
-		User userRead = readUser(userToUpdate.getIduser());
+		//User userRead = readUser(userToUpdate.getIduser());
 
-		if (!userRead.equals(userToUpdate)) {
+		//if (!userRead.equals(userToUpdate)) {
 
 			try {
 
 				// Fill the userToUpdate object
 
-				if (userToUpdate.getNome() == null || userToUpdate.getNome().equals("")) {
+			//	if (userToUpdate.getNome() == null || userToUpdate.getNome().equals("")) {
 
-					userToUpdate.setNome(userRead.getNome());
+				//	userToUpdate.setNome(userRead.getNome());
 
-				}
+				//}
 
-				if (userToUpdate.getTipo() == null || userToUpdate.getTipo().equals("")) {
+				//if (userToUpdate.getTipo() == null || userToUpdate.getTipo().equals("")) {
 
-					userToUpdate.setTipo(userRead.getTipo());
+					//userToUpdate.setTipo(userRead.getTipo());
 
-				}
+				//}
 
 				// Update the user
 
@@ -197,14 +201,14 @@ public class UserDAO {
 
 			}
 
-		}
+		//}
 
-		return false;
+	//	return false;
 
 	}
 
-	public boolean deleteUser(Integer id) {
-
+	public boolean deleteUser(User user) {
+		int id = user.getIduser();
 		Connection connection = ConnectionSingleton.getInstance();
 
 		try {
@@ -226,5 +230,57 @@ public class UserDAO {
 		return false;
 
 	}
+
+
+	public User login(String nome, String password) {
+
+
+
+		Connection connection = ConnectionSingleton.getInstance();
+
+		User utente = null;
+
+		try {
+
+			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
+
+			statement.setString(1, nome);
+
+			statement.setString(2, password);
+
+			statement.execute();
+
+			ResultSet resultSet = statement.getResultSet();
+
+
+
+			while (resultSet.next()) {
+
+				String name = resultSet.getString("nome");
+
+				String pass = resultSet.getString("password");
+
+				Integer userId = resultSet.getInt("Iduser");
+
+				String usertype = resultSet.getString("tipo");
+
+				utente = new User(name, pass, usertype);
+
+				utente.setIduser(userId);
+
+			}
+
+
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return utente;
+
+	}
+
 
 }

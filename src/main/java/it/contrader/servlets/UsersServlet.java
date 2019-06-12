@@ -14,7 +14,6 @@ import it.contrader.converter.UsersConverter;
 import it.contrader.dto.UsersDTO;
 import it.contrader.service.UsersServiceDTO;
 
-
 /**
  * La servlet si occupa di parlare con la JSP e utilizza i servizi opportuni.
  * Per chi farà User dovrà anche occuparsi del Login che abbiamo lasciato come struttura e va modificata in modo opportuno

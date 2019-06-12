@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>Menu Principale</title>
+<title>home</title>
 </head>
 <body>
-	<h1>Benvenuto: ${utente}</h1>
+	<h1>Benvenuti in HEALTHINPROGRESS</h1>
 	<h2>------- MENU PRINCIPALE -------</h2>
 
-	<h3>1. Esempio</h3>
+	<h3>1. </h3>
 	<form action="MenuServlet" method="post">
 		<button type="submit" value="esempioManager" name="richiesta">
 			bottone esempio</button>
 	</form>
-	<
+	
      <h3>2. Badges</h3>
      <form action="BadgeServlet" method="post">
      <button type="submit" value="badgesManagement" name="richiesta"> Management badge</button>

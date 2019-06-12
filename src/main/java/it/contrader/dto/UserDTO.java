@@ -7,9 +7,15 @@ public class UserDTO {
 	private String password;
 	
 
+	
+
+
+
 	public UserDTO() {
 		super();
 	}
+
+
 
 
 
@@ -56,6 +62,12 @@ public class UserDTO {
 		this.password = password;
 	}
 
+
+
+
+
+	}
+
 	
 
-}
+
