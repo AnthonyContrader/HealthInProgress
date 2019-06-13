@@ -1,7 +1,5 @@
 package it.contrader.servlets;
 
-
-
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -22,17 +20,13 @@ import javax.servlet.http.HttpSession;
 
 
 
-import it.contrader.converter.ConverterUser;
-
-
-
 import it.contrader.dto.UserDTO;
 
 import it.contrader.service.UserService;
 
 
 
-
+@SuppressWarnings("serial")
 
 public class UserServlet extends HttpServlet {
 
@@ -40,13 +34,13 @@ public class UserServlet extends HttpServlet {
 
 	private final UserService userService = new UserService();
 
-	private List<UserDTO> allUser = new ArrayList<>();
+	private List<UserDTO> allUsers = new ArrayList<>();
 
 
 
-	@Override
 
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 
 
@@ -62,9 +56,9 @@ public class UserServlet extends HttpServlet {
 
 		case "UserManager":
 
-			allUser = this.userService.getAllUser();
+			allUsers = this.userService.getAllUsers();
 
-			request.setAttribute("allUser", allUser);
+			request.setAttribute("allUser", allUsers);
 
 			getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 
@@ -74,7 +68,7 @@ public class UserServlet extends HttpServlet {
 
 		case "insertRedirect":
 
-			response.sendRedirect("user/insertUser.jsp");
+			getServletContext().getRequestDispatcher("/user/insertUser.jsp").forward(request, response);
 
 			break;
 
@@ -86,13 +80,14 @@ public class UserServlet extends HttpServlet {
 
 			final String username = request.getParameter("nome");
 
-			final String password = request.getParameter("password");
-
 			final String usertype = request.getParameter("tipo");
 
-			final UserDTO user = new UserDTO(username, password, usertype);
+			final String password = request.getParameter("password");
 
-			userService.insertUser(user);
+
+			final UserDTO users = new UserDTO(username,usertype, password);
+
+			userService.insertUser(users);
 
 			showAllUsers(request, response);
 
@@ -102,13 +97,11 @@ public class UserServlet extends HttpServlet {
 
 		case "updateRedirect":
 
-			int id = Integer.parseInt(request.getParameter("Iduser"));
+			int id = Integer.parseInt(request.getParameter("id"));
 
 			UserDTO userUpdate = new UserDTO("", "", "");
 
-			userUpdate.setUserId(id);
-
-
+			userUpdate.setIduser(id);
 
 			userUpdate = this.userService.readUser(userUpdate);
 
@@ -134,21 +127,23 @@ public class UserServlet extends HttpServlet {
 
 
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("Iduser"));
+			final Integer idUpdate = Integer.parseInt(request.getParameter("iduser"));
 
 			final String usernameUpdate = request.getParameter("nome");
 
+			final String usertypeUpdate= request.getParameter("tipo");
+
 			final String passwordUpdate = request.getParameter("password");
 
-			final String usertypeUpdate = request.getParameter("tipo");
+			
 
-			final UserDTO User = new UserDTO(usernameUpdate, passwordUpdate, usertypeUpdate);
+			final UserDTO user = new UserDTO(usernameUpdate,usertypeUpdate, passwordUpdate);
 
-			User.setUserId(idUpdate);
+			user.setIduser(idUpdate);
 
 
 
-			userService.updateUser(User);
+			userService.updateUser(user);
 
 			showAllUsers(request, response);
 
@@ -158,15 +153,15 @@ public class UserServlet extends HttpServlet {
 
 		case "delete":
 
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+			final int deleteId = Integer.parseInt(request.getParameter("id"));
 
 
 
-			final UserDTO userdelete = new UserDTO("", "", "");
+			final UserDTO userdelete = new UserDTO("","","");
 
-			userdelete.setUserId(deleteId);
+			userdelete.setIduser(deleteId);
 
-			userService.deleteUser(userdelete);
+			userService.deleteUsers(userdelete);
 
 			showAllUsers(request, response);
 
@@ -190,6 +185,8 @@ public class UserServlet extends HttpServlet {
 
 
 
+
+
 		}
 
 
@@ -202,9 +199,9 @@ public class UserServlet extends HttpServlet {
 
 			throws ServletException, IOException {
 
-		allUser = this.userService.getAllUser();
+		allUsers = this.userService.getAllUsers();
 
-		request.setAttribute("allUser", allUser);
+		request.setAttribute("allUser", allUsers);
 
 		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 

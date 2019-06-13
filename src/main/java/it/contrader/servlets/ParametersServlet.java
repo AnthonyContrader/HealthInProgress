@@ -1,7 +1,5 @@
 package it.contrader.servlets;
 
-
-
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -22,17 +20,13 @@ import javax.servlet.http.HttpSession;
 
 
 
-import it.contrader.converter.ConverterParameteres;
-
-
-
 import it.contrader.dto.ParametersDTO;
-import it.contrader.model.Parameters;
+
 import it.contrader.service.ParametersService;
 
 
 
-
+@SuppressWarnings("serial")
 
 public class ParametersServlet extends HttpServlet {
 
@@ -40,13 +34,13 @@ public class ParametersServlet extends HttpServlet {
 
 	private final ParametersService parametersService = new ParametersService();
 
-	private List<Parameters> allParameters = new ArrayList<>();
+	private List<ParametersDTO> allParameters = new ArrayList<>();
 
 
 
-	@Override
 
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 
 
@@ -58,15 +52,15 @@ public class ParametersServlet extends HttpServlet {
 
 		switch (scelta) {
 
-
+		
 
 		case "ParametersManager":
-
+			
 			allParameters = this.parametersService.getAllParameters();
 
 			request.setAttribute("allParameters", allParameters);
 
-			getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/parameters/manageParameters.jsp").forward(request, response);
 
 			break;
 
@@ -74,7 +68,7 @@ public class ParametersServlet extends HttpServlet {
 
 		case "insertRedirect":
 
-			response.sendRedirect("parameters/insertParameters.jsp");
+			getServletContext().getRequestDispatcher("/parameters/insertParameters.jsp").forward(request, response);
 
 			break;
 
@@ -87,11 +81,18 @@ public class ParametersServlet extends HttpServlet {
 			final String sesso = request.getParameter("sesso");
 
 			final double altezza = Double.parseDouble(request.getParameter("altezza"));
-			final  double peso = Double.parseDouble(request.getParameter("peso"));
-			final int eta  = Integer.parseInt(request.getParameter("eta"));
+
+			final double peso = Double.parseDouble(request.getParameter("peso"));
+			
+			final int eta= Integer.parseInt(request.getParameter("eta"));
+
 			final int polso = Integer.parseInt(request.getParameter("polso"));
+
 			final int freqResp = Integer.parseInt(request.getParameter("freqResp"));
+
 			final int tempCorp = Integer.parseInt(request.getParameter("tempCorp"));
+
+
 
 			final ParametersDTO parameters = new ParametersDTO(sesso,altezza,peso,eta,polso,freqResp,tempCorp);
 
@@ -105,19 +106,17 @@ public class ParametersServlet extends HttpServlet {
 
 		case "updateRedirect":
 
-			int id = Integer.parseInt(request.getParameter("idParameter"));
+			int id = Integer.parseInt(request.getParameter("id"));
 
 			ParametersDTO parametersUpdate = new ParametersDTO();
 
 			parametersUpdate.setIdParameter(id);
 
-
-
 			parametersUpdate = this.parametersService.readParameters(parametersUpdate);
 
 			request.setAttribute("parametersUpdate", parametersUpdate);
 
-			getServletContext().getRequestDispatcher("/user/updateParameters.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/parameters/updateParameters.jsp").forward(request, response);
 
 
 
@@ -137,26 +136,36 @@ public class ParametersServlet extends HttpServlet {
 
 
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("idParameter"));
+			final Integer idparameter = Integer.parseInt(request.getParameter("idParameter"));
 
-			final String sessoupdate= request.getParameter("sesso");
+			final String sessos = request.getParameter("sesso");
 
-			final double altezzaupdate= Double.parseDouble(request.getParameter("altezza"));
-			final  double pesoupdate = Double.parseDouble(request.getParameter("peso"));
-			final int etaupdate  = Integer.parseInt(request.getParameter("eta"));
-			final int polsoupdate = Integer.parseInt(request.getParameter("polso"));
-			final int freqRespupdate = Integer.parseInt(request.getParameter("freqResp"));
-			final int tempCorpupdate = Integer.parseInt(request.getParameter("tempCorp"));
+			final Double altezzas = Double.parseDouble(request.getParameter("altezza"));
 
-			final ParametersDTO Parameters = new ParametersDTO(sessoupdate,altezzaupdate,pesoupdate,etaupdate,polsoupdate,freqRespupdate,tempCorpupdate);
+			final Double pesos = Double.parseDouble(request.getParameter("peso"));
+			
+			final int etas= Integer.parseInt(request.getParameter("eta"));
 
-			Parameters.setIdParameter(idUpdate);
+			final int polsos = Integer.parseInt(request.getParameter("polso"));
+
+			final int freqResps = Integer.parseInt(request.getParameter("freqResp"));
+
+			final int tempCorps = Integer.parseInt(request.getParameter("tempCorp"));
+			
+			
+			
+
+			
+
+			final ParametersDTO parameter= new ParametersDTO(sessos,altezzas,pesos,etas,polsos,freqResps,tempCorps);
+
+			parameter.setIdParameter(idparameter);
 
 
 
-			parametersService.updateParameters(Parameters);
+			parametersService.updateParameters(parameter);
 
-			showAllUsers(request, response);
+			showAllParameters(request, response);
 
 			break;
 
@@ -164,7 +173,7 @@ public class ParametersServlet extends HttpServlet {
 
 		case "delete":
 
-			final Integer deleteId = Integer.parseInt(request.getParameter("idParameter"));
+			final int deleteId = Integer.parseInt(request.getParameter("id"));
 
 
 
@@ -174,7 +183,7 @@ public class ParametersServlet extends HttpServlet {
 
 			parametersService.deleteParameters(parametersdelete);
 
-			showAllUsers(request, response);
+			showAllParameters(request, response);
 
 			break;
 
@@ -196,6 +205,8 @@ public class ParametersServlet extends HttpServlet {
 
 
 
+
+
 		}
 
 
@@ -204,21 +215,20 @@ public class ParametersServlet extends HttpServlet {
 
 
 
-	private void showAllParameters(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+
+	private void showAllParameters(HttpServletRequest request, HttpServletResponse response)
 
 			throws ServletException, IOException {
 
-		allParameters = this.parametersService.getAllParameters();
+		allParameters= this.parametersService.getAllParameters();
 
 		request.setAttribute("allParameters", allParameters);
 
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/parameters/manageParameters.jsp").forward(request, response);
+
 	}
-	}
+
+}

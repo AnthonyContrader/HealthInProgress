@@ -60,7 +60,31 @@ public class User {
 	@Override
 	public String toString() {
 	
-		return new String (this.Iduser + " " + this.Nome + " " + this.Tipo);
+		return new String (this.Iduser + " " + this.Nome + " " + this.Tipo+""+ this.Password);
 	}
-	
+	public boolean equals(User userCompare)  {
+
+		if (!this.getNome().equals(userCompare.getNome())) {
+
+			return false;
+
+		}
+ 
+		
+
+		if (!this.getPassword().equals(userCompare.getPassword())) {
+
+			return false;
+
+		}
+
+		
+
+		
+
+		return true;
+
+				
+
+	}
 }

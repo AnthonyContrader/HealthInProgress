@@ -2,9 +2,12 @@
 
 <head>
 
-<link href = "Stile.css" rel = "stylesheet" media = "screen">
+<title>Login</title>
 
-<title>Login Trader</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
 
 </head>
 
@@ -12,39 +15,49 @@
 
 
 
+	<div class="pre_contenitore">
 
+		<p>Login</p>
 
-	<div>
+	</div>
+
+	<div class="contenitore">
 
 		<form action="LoginServlet" method="post">
 
-			<h3>
+			<p>Enter your login details</p>
 
-				username: <input type="text" id="#user" name="username"
+			<p>
 
-					placeholder="inserisci username">
+				<br>
 
-			</h3>
+				<label>Username</label>
 
-			<h3>
+				<br>
 
-				password: <input type="password" id="pass" name="password"
+				<input type="text" name="nome" id="nome" class="nome" placeholder="nome">
 
-					placeholder="inserisci password">
+			</p>
 
-			</h3>
+			<p>
 
-			<button type="submit" value="Login" name="pulsante">Login</button>
+				<label>Password</label>
 
-			<!--  <br> <a href="register.jsp"> Registrati </a> -->
+				<br>
+
+				<input type="Password" name="password" id="password" class="password" placeholder="Password">
+
+			</p>
+
+			<h3><font color="red" name="error">${error}</font></h3>
+
+			<button type="submit" value="Login" class="btn btn-warning">Sign in</button>
+
+	  
 
 		</form>
 
 	</div>
-
-	
-
-
 
 
 

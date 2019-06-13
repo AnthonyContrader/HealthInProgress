@@ -21,7 +21,7 @@
 
 <%
 
-	UserDTO updateUser = (UserDTO) request.getAttribute("userUpdate");
+	IngredientDTO updateIngredient = (IngredientDTO) request.getAttribute("ingredientUpdate");
 
 %>
 
@@ -49,10 +49,10 @@
 
 		<br>
 
-		<form method="POST" action="UserServlet?richiesta=update">
+		<form method="POST" action="IngredientServlet?richiesta=update">
 
 
-			<input type="hidden" name="iduser" value="<%=updateUser.getIduser()%>" />
+			<input type="hidden" name="idingredient" value="<%=updateIngredient.getIdingredient()%>" />
 
 			<br>
 
@@ -61,19 +61,7 @@
 
 			
 
-			Username: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateUser.getNome()%>" />
-
-			<br>
-
-			<br>
-
-			User type: <input type="text" size="40" maxlength="40" name="tipo" value="<%=updateUser.getTipo()%>" />
-
-			<br>
-
-			<br>
-
-			Password: <input type="text" size="40" maxlength="40" name="password" value="<%=updateUser.getPassword()%>" />
+			Nome: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateIngredient.getNome()%>" />
 
 			<br>
 
@@ -86,7 +74,7 @@
 
 			<br>
 
-			<a href="/JspApp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+			<a href="/JspApp/IngredientServlet?richiesta=IngredientManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 

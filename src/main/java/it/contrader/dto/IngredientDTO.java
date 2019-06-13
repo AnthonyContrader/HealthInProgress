@@ -6,8 +6,9 @@ public class IngredientDTO {
 		public IngredientDTO() {
 			super();
 		}
-		public IngredientDTO(String nome) {
+		public IngredientDTO( String nome) {
 			super();
+			this.idingredient = idingredient;
 			this.nome = nome;
 		}
 		public int getIdingredient() {
@@ -22,5 +23,6 @@ public class IngredientDTO {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
+		
 		
 }

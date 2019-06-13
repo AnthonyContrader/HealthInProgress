@@ -1,58 +1,86 @@
 package it.contrader.converter;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import it.contrader.dto.UserDTO;
+
 import it.contrader.model.User;
+
+
+
+/**
+
+ * Il converter si occupa di "convertire" un model in un dto e viceversa
+
+ *
+
+ */
 
 public class ConverterUser {
 
-	public static UserDTO toDTO(User user) {
-		UserDTO userDTO = null;
-		if (user != null) {
-			userDTO = new UserDTO(user.getNome(), user.getTipo(), user.getPassword());
-			userDTO.setUserId(user.getIduser());;
-			userDTO.setUsername(user.getNome());
-			userDTO.setPassword(user.getPassword());
-			userDTO.setUsertype(user.getTipo());
-		}
-		return userDTO;
-		
 
-		
-		
-	}
+
+	/**
+
+	 * Converte un NodesDTO in Nodes
+
+	 */
 
 	public static User toEntity(UserDTO userDTO) {
-		User user = null;
+
+
+
+		User user= null;
+
 		if (userDTO != null) {
-			user = new User();
-			user.setIduser(userDTO.getUserId());
-			user.setPassword(userDTO.getPassword());
-			user.setNome(userDTO.getUsername());
-			user.setTipo(userDTO.getUsertype());
+
+			user = new User(userDTO.getNome(),userDTO.getPassword(),userDTO.getTipo());
+
+			if (userDTO.getIduser() != 0)
+
+			user.setIduser(userDTO.getIduser());
+
 		}
+		
+
+		
+
 		return user;
+
 	}
 
-	public static List<UserDTO> toListDTO(List<User> list) {
-		List<UserDTO> listUserDTO = new ArrayList<>();
-		if (!list.isEmpty()) {
-			for (User user : list) {
-				listUserDTO.add(ConverterUser.toDTO(user));
-			}
+
+
+	/**
+
+	 * Converte un Nodes in NodesDTO
+
+	 */
+
+
+
+	public static UserDTO toDTO(User user) {
+
+
+
+		UserDTO userDTO= null ;
+
+		if (user != null) {
+
+			userDTO = new UserDTO(user.getNome(),  user.getTipo(),user.getPassword());
+
+			userDTO.setIduser(user.getIduser());
+
+			// userDTO.setId(user.getUserId());
+
 		}
-		return listUserDTO;
+
+
+
+		return userDTO;
+
 	}
 
-	public static List<User> toListEntity(List<UserDTO> listUserDTO) {
-		List<User> list = new ArrayList<>();
-		if (!listUserDTO.isEmpty()) {
-			for (UserDTO userDTO : listUserDTO) {
-				list.add(ConverterUser.toEntity(userDTO));
-			}
-		}
-		return list;
-	}
+
+
 }

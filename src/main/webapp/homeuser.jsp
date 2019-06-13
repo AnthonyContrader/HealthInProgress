@@ -1,3 +1,4 @@
+
 <%@ page import="it.contrader.dto.*"%>
 
 <%@ page import="java.util.*"%>
@@ -12,7 +13,7 @@
 
 <meta charset="ISO-8859-1">
 
-<title>Home Admin</title>
+<title>Home User</title>
 
 <link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 
@@ -90,21 +91,12 @@
 
 	<div class="contenitore">
 
-		<a href="UserServlet?richiesta=UserManager"><span class="fs"> User Management </span></a>
+		<a href="ParametersServlet?richiesta=ParametersManager"><span class="fs"> Parameters Management </span></a>
 
 		<br>
 		<br>
 		
-		<a href="DeviceServlet?richiesta=DeviceManager"><span class="fs"> Device Management </span></a>
-
-		<br>
-		<br>
 		
-		<a href="IngredientServlet?richiesta=IngredientManager"><span class="fs"> Ingredient Management </span></a>
-
-		<br>
-
-		<br>
 
 		<a href="index.jsp"> Logout </a>
 

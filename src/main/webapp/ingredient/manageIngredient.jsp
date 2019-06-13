@@ -12,7 +12,7 @@
 
 <head>
 
-<title>Gestione Utenti</title>
+<title>Gestione Ingredienti</title>
 
 	<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 
@@ -66,7 +66,7 @@
 
 <%
 
-	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+	List<IngredientDTO> allIngredient = (List<IngredientDTO>) request.getAttribute("allIngredient");
 
 %>
 
@@ -80,7 +80,7 @@
 
 
 
-		<p>User Management</p>
+		<p>Ingredient Management</p>
 
 
 
@@ -104,11 +104,7 @@
 
 			<th>ID</th>
 
-			<th>Username</th>
-
-			<th>User Type</th>
-
-			<th>Password</th>
+			<th>Nome</th>
 
 			<th>Update</th>
 
@@ -118,23 +114,20 @@
 
 		<%
 
-			for (UserDTO user : allUser) {
+			for (IngredientDTO ingredient : allIngredient) {
 
 		%>
 
 		<tr>
 
-			<td><%=user.getIduser() %></td>
+			<td><%=ingredient.getIdingredient() %></td>
 
-			<td><%=user.getNome()%></td>
+			<td><%=ingredient.getNome()%></td>
 
-			<td><%=user.getTipo()%></td>
 
-			<td><%=user.getPassword()%></td>
+			<td><a href="IngredientServlet?richiesta=updateRedirect&id=<%=ingredient.getIdingredient() %>">Update</a></td>
 
-			<td><a href="UserServlet?richiesta=updateRedirect&id=<%=user.getIduser() %>">Update</a></td>
-
-			<td><a href="UserServlet?richiesta=delete&id=<%=user.getIduser() %>" >Delete</a></td>
+			<td><a href="IngredientServlet?richiesta=delete&id=<%=ingredient.getIdingredient() %>" >Delete</a></td>
 
 		</tr>
 
@@ -150,11 +143,11 @@
 
 	<br>
 
-	<a href="/JspApp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/IngredientServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Ingredient</i></a>
 
 	<br>	
 
-	<a href="UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="IngredientServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 

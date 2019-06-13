@@ -66,7 +66,7 @@
 
 <%
 
-	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+	List<DeviceDTO> allDevice = (List<DeviceDTO>) request.getAttribute("allDevice");
 
 %>
 
@@ -80,7 +80,7 @@
 
 
 
-		<p>User Management</p>
+		<p>Device Management</p>
 
 
 
@@ -104,11 +104,7 @@
 
 			<th>ID</th>
 
-			<th>Username</th>
-
-			<th>User Type</th>
-
-			<th>Password</th>
+			<th>Nome</th>
 
 			<th>Update</th>
 
@@ -118,23 +114,20 @@
 
 		<%
 
-			for (UserDTO user : allUser) {
+			for (DeviceDTO device : allDevice) {
 
 		%>
 
 		<tr>
 
-			<td><%=user.getIduser() %></td>
+			<td><%=device.getIddevice() %></td>
 
-			<td><%=user.getNome()%></td>
+			<td><%=device.getNome()%></td>
 
-			<td><%=user.getTipo()%></td>
 
-			<td><%=user.getPassword()%></td>
+			<td><a href="DeviceServlet?richiesta=updateRedirect&id=<%=device.getIddevice() %>">Update</a></td>
 
-			<td><a href="UserServlet?richiesta=updateRedirect&id=<%=user.getIduser() %>">Update</a></td>
-
-			<td><a href="UserServlet?richiesta=delete&id=<%=user.getIduser() %>" >Delete</a></td>
+			<td><a href="DeviceServlet?richiesta=delete&id=<%=device.getIddevice() %>" >Delete</a></td>
 
 		</tr>
 
@@ -150,11 +143,11 @@
 
 	<br>
 
-	<a href="/JspApp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
+	<a href="/JspApp/DeviceServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Device</i></a>
 
 	<br>	
 
-	<a href="UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
+	<a href="DeviceServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 
