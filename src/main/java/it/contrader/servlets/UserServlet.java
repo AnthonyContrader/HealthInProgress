@@ -25,7 +25,6 @@ import it.contrader.dto.UserDTO;
 import it.contrader.service.UserService;
 
 
-
 @SuppressWarnings("serial")
 
 public class UserServlet extends HttpServlet {

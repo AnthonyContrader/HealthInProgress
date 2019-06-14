@@ -9,105 +9,54 @@
 <html>
 
 <head>
-
-<meta charset="ISO-8859-1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <title>Home Admin</title>
 
-<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-<style>
-
-/*contenitore in cima dove c'è scritto "Login"*/
-
-.pre_contenitore {
-
-	width: 320px;
-
-	margin: auto;
-
-	height: 50px;
-
-	border: 1px solid black;
-
-	border-radius: 40px 40px 40px 40px;
-
-	background-color: rgba(0, 0, 0, 0.9);
-
-	box-shadow: 20px 30px 20px #000000;
-
-	padding: 20px;
-
-}
+ <style>
 
 
-
-.pre_contenitore p {
-
-	color: white;
-
-	text-align: center;
-
-	font-size: 1.9em;
-
-	font-family: arial;
-
-	line-height: 2px;
-
-}
-
+body{
+background-image:url('https://i.ytimg.com/vi/1ZYbU82GVz4/maxresdefault.jpg')
 </style>
-
 </head>
 
 <body>
 
-	<div class="pre_contenitore">
-
-
-
-		<p>Welcome!</p>
-
-<br>
-
-<br>
-
-<br>
-
-	</div>
-
-	<br>
-
-<br>
-
-<br>
-
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">ADMIN</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  
+    <ul class="navbar-nav">
+      <li class="nav-item">
+		<a class="nav-link"  href="UserServlet?richiesta=UserManager">User Management </a>
+	 </li>
+	 <li class="nav-item">
 	
+		<a class="nav-link" href="DeviceServlet?richiesta=DeviceManager">Device Management </a>
 
-	<div class="contenitore">
-
-		<a href="UserServlet?richiesta=UserManager"><span class="fs"> User Management </span></a>
-
-		<br>
-		<br>
-		
-		<a href="DeviceServlet?richiesta=DeviceManager"><span class="fs"> Device Management </span></a>
-
-		<br>
-		<br>
-		
-		<a href="IngredientServlet?richiesta=IngredientManager"><span class="fs"> Ingredient Management </span></a>
-
-		<br>
-
-		<br>
-
-		<a href="index.jsp"> Logout </a>
-
+		</li>
+		<li class="nav-item"> 
+		 
+		<a class="nav-link" href="IngredientServlet?richiesta=IngredientManager">Ingredient Management</a>
+      </li>    
+      <li class="nav-item">
+		 <ul class="nav navbar-nav navbar-right">
+		<a class="nav-link" href="index.jsp"> Logout </a> </a>
+		 </ul>
+      </li> 
+    </ul>
+ 
+  </div>  
+</nav>
+<br>
 	</div>
 
 </body>

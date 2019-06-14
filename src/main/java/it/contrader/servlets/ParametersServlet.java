@@ -78,19 +78,19 @@ public class ParametersServlet extends HttpServlet {
 
 			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 
-			final String sesso = request.getParameter("sesso");
+			final String sesso = request.getParameter("sesso").toString();
 
-			final double altezza = Double.parseDouble(request.getParameter("altezza"));
+			final double altezza = Double.parseDouble(request.getParameter("altezza").toString());
 
-			final double peso = Double.parseDouble(request.getParameter("peso"));
+			final double peso = Double.parseDouble(request.getParameter("peso").toString());
 			
-			final int eta= Integer.parseInt(request.getParameter("eta"));
+			final int eta= Integer.parseInt(request.getParameter("eta").toString());
 
-			final int polso = Integer.parseInt(request.getParameter("polso"));
+			final int polso = Integer.parseInt(request.getParameter("polso").toString());
 
-			final int freqResp = Integer.parseInt(request.getParameter("freqResp"));
+			final int freqResp = Integer.parseInt(request.getParameter("freqResp").toString());
 
-			final int tempCorp = Integer.parseInt(request.getParameter("tempCorp"));
+			final int tempCorp = Integer.parseInt(request.getParameter("tempCorp").toString());
 
 
 
