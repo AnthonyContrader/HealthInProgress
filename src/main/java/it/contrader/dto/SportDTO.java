@@ -2,76 +2,48 @@ package it.contrader.dto;
 
 public class SportDTO {
 
-	private int idsport;
+	private int Idsport;
 	private String nome;
-	private String tipo;
-	private Double durata;
+	private int tipo;
+	private int durata;
 	
-	public SportDTO(String nome, String tipo, double durata) {
+	public SportDTO() {
 		super();
-		this.idsport = idsport;
+	}
+
+
+	public SportDTO(String nome, int tipo, int durata) {
+		super();
 		this.nome = nome;
 		this.tipo = tipo;
 		this.durata = durata;
 	}
+			
 
-	/**
-	 * @return the idsport
-	 */
 	public int getIdsport() {
-		return idsport;
+		return Idsport;
 	}
-
-	/**
-	 * @param idsport the idsport to set
-	 */
 	public void setIdsport(int idsport) {
-		this.idsport = idsport;
+		Idsport = idsport;
 	}
-
-	/**
-	 * @return the nome
-	 */
 	public String getNome() {
 		return nome;
 	}
-
-	/**
-	 * @param nome the nome to set
-	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	/**
-	 * @return the tipo
-	 */
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
 
-	/**
-	 * @param tipo the tipo to set
-	 */
-	public void setTipo(String tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-
-	/**
-	 * @return the durata
-	 */
-	public Double getDurata() {
+	public int getDurata() {
 		return durata;
 	}
 
-	/**
-	 * @param durata the durata to set
-	 */
-	public void setDurata(Double durata) {
+	public void setDurata(int durata) {
 		this.durata = durata;
 	}
-
-	
-	
-
 }

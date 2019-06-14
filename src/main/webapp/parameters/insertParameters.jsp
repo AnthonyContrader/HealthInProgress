@@ -24,25 +24,25 @@
 	<form method="POST" action="/JspApp/ParametersServlet?richiesta=insert">
 		<br>
 	    <br>
-		Sesso: <input type="" size="40" maxlength="40" name="nome" />
+		Sesso: <input type="" size="40" maxlength="40" name="sesso" />
 		<br>
 		<br>
-		Altezza: <input type="" size="40" maxlength="40" name="nome" />
+		Altezza: <input type="" size="40" maxlength="40" name="altezza" />
 		<br>
 		<br>
-		Peso: <input type="" size="40" maxlength="40" name="nome" />
+		Peso: <input type="" size="40" maxlength="40" name="peso" />
 		<br>
 		<br>
-		Eta: <input type="" size="40" maxlength="40" name="nome" />
+		Eta: <input type="" size="40" maxlength="40" name="eta" />
 		<br>
 		<br>
-		Polso: <input type="" size="40" maxlength="40" name="nome" />
+		Polso: <input type="" size="40" maxlength="40" name="polso" />
 		<br>
 		<br>
-		FreqResp: <input type="" size="40" maxlength="40" name="nome" />
+		FreqResp: <input type="" size="40" maxlength="40" name="freqResp" />
 		<br>
 		<br>
-		TempCorp: <input type="" size="40" maxlength="40" name="nome" />
+		TempCorp: <input type="" size="40" maxlength="40" name="tempCorp" />
 		<br>
 		<br>	
 		<input type="SUBMIT" value="Add">

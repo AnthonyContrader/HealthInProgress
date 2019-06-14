@@ -10,17 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.contrader.dto.DeviceDTO;
 import it.contrader.dto.SportDTO;
-import it.contrader.service.SportServiceDTO;
+import it.contrader.service.SportService;
 
-
-@SuppressWarnings("serial")
 public class SportServlet extends HttpServlet {
 
-	private final SportServiceDTO sportServiceDTO = new SportServiceDTO();
-	private List<SportDTO> allSports = new ArrayList<>();
+	private final SportService sportServiceDTO = new SportService();
+	private List<SportDTO> allSport = new ArrayList<>();
 
-
+	@Override
 	public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
@@ -29,28 +28,31 @@ public class SportServlet extends HttpServlet {
 		switch (scelta) {
 
 		case "SportManager":
-			allSports = this.sportServiceDTO.getAllSports();
-			request.setAttribute("allSport", allSports);
+			allSport = this.sportServiceDTO.getAllSports();
+			request.setAttribute("allSport", allSport);
 			getServletContext().getRequestDispatcher("/sport/manageSport.jsp").forward(request, response);
 			break;
+			
+		
 
 		case "insertRedirect":
 			getServletContext().getRequestDispatcher("/sport/insertSport.jsp").forward(request, response);
 			break;
 
 		case "insert":
-			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
+			// final Integer id = Integer.parseInt(request.getParameter("idsport"));
 			final String nome = request.getParameter("nome");
-			final String tipo = request.getParameter("tipo");
-			final Double durata = Double.valueOf(request.getParameter("durata"));
-			final SportDTO sports = new SportDTO(nome, tipo, durata);
-			sportServiceDTO.insertSports(sports);
-			showAllSports(request, response);
+			final int tipo = Integer.parseInt(request.getParameter("tipo").toString());
+			final int durata = Integer.parseInt(request.getParameter("durata").toString());
+			
+			final SportDTO sport = new SportDTO(nome,tipo,durata);
+			sportServiceDTO.insertSport(sport);
+			showAllSport(request, response);
 			break;
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			SportDTO sportUpdate = new SportDTO("", "",0);
+			SportDTO sportUpdate = new SportDTO();
 			sportUpdate.setIdsport(id);
 
 			sportUpdate = this.sportServiceDTO.readSport(sportUpdate);
@@ -60,29 +62,28 @@ public class SportServlet extends HttpServlet {
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
-			//System.out.println("username: " + request.getParameter("user_user"));
-			//System.out.println("password: " + request.getParameter("user_pass"));
-			//System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			
+			final int idsport = Integer.parseInt(request.getParameter("idsport"));
+			final String nomes = request.getParameter("nome");
+			final int tipos = Integer.parseInt(request.getParameter("tipo"));
+			final int duratas = Integer.parseInt(request.getParameter("durata"));
+			
+			final SportDTO sports = new SportDTO(nomes,tipos,duratas);
+			sports.setIdsport(idsport);
 
-			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
-			final String nomeUpdate = request.getParameter("nome");
-			final String tipoUpdate= request.getParameter("tipo");
-			final Double durataUpdate = Double.valueOf(request.getParameter("durata"));
-			final SportDTO sport = new SportDTO(nomeUpdate, tipoUpdate, durataUpdate);
-			sport.setIdsport(idUpdate);
-
-			sportServiceDTO.updateSport(sport);
-			showAllSports(request, response);
+			sportServiceDTO.updateSport(sports);
+			showAllSport(request, response);
 			break;
 
-		case "delete":
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+		
 
-			final SportDTO sportdelete = new SportDTO("","",0.0);
+		case "delete":
+			final int deleteId = Integer.parseInt(request.getParameter("id"));
+
+			final SportDTO sportdelete =  new SportDTO();
 			sportdelete.setIdsport(deleteId);
-			sportServiceDTO.deleteSports(sportdelete);
-			showAllSports(request, response);
+			sportServiceDTO.deleteSport(sportdelete);
+			showAllSport(request, response);
 			break;
 
 		case "indietro":
@@ -98,10 +99,10 @@ public class SportServlet extends HttpServlet {
 
 	}
 
-	private void showAllSports(HttpServletRequest request, HttpServletResponse response)
+	private void showAllSport(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		allSports = this.sportServiceDTO.getAllSports();
-		request.setAttribute("allSport", allSports);
-		getServletContext().getRequestDispatcher("/sport/manageUser.jsp").forward(request, response);
+		allSport = this.sportServiceDTO.getAllSports();
+		request.setAttribute("allSport", allSport);
+		getServletContext().getRequestDispatcher("/sport/manageSport.jsp").forward(request, response);
 	}
 }

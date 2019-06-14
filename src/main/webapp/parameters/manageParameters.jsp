@@ -102,7 +102,7 @@
 
 		<tr>
 
-			<th>IdParameter</th>
+			<th>ID</th>
 
 			<th>Sesso</th>
 

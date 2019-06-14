@@ -78,19 +78,19 @@ public class ParametersServlet extends HttpServlet {
 
 			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
 
-			final String sesso = request.getParameter("sesso").toString();
+			final String sesso = request.getParameter("sesso");
 
-			final double altezza = Double.parseDouble(request.getParameter("altezza").toString());
+			final int altezza = Integer.parseInt(request.getParameter("altezza"));
 
-			final double peso = Double.parseDouble(request.getParameter("peso").toString());
+			final int peso = Integer.parseInt(request.getParameter("peso"));
 			
-			final int eta= Integer.parseInt(request.getParameter("eta").toString());
+			final int eta= Integer.parseInt(request.getParameter("eta"));
 
-			final int polso = Integer.parseInt(request.getParameter("polso").toString());
+			final int polso = Integer.parseInt(request.getParameter("polso"));
 
-			final int freqResp = Integer.parseInt(request.getParameter("freqResp").toString());
+			final int freqResp = Integer.parseInt(request.getParameter("freqResp"));
 
-			final int tempCorp = Integer.parseInt(request.getParameter("tempCorp").toString());
+			final int tempCorp = Integer.parseInt(request.getParameter("tempCorp"));
 
 
 
@@ -140,9 +140,9 @@ public class ParametersServlet extends HttpServlet {
 
 			final String sessos = request.getParameter("sesso");
 
-			final Double altezzas = Double.parseDouble(request.getParameter("altezza"));
+			final int altezzas = Integer.parseInt(request.getParameter("altezza"));
 
-			final Double pesos = Double.parseDouble(request.getParameter("peso"));
+			final int pesos = Integer.parseInt(request.getParameter("peso"));
 			
 			final int etas= Integer.parseInt(request.getParameter("eta"));
 

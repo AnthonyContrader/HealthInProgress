@@ -52,7 +52,7 @@
 		<form method="POST" action="ParametersServlet?richiesta=update">
 
 
-			<input type="hidden" name="iduser" value="<%=updateParameters.getIdParameter()%>" />
+			<input type="hidden" name="idParameter" value="<%=updateParameters.getIdParameter()%>" />
 
 			<br>
 
@@ -61,13 +61,13 @@
 
 			
 
-	sesso: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getSesso()%>" />
-	altezza: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getAltezza()%>" />
-	peso: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getPeso()%>" />
-	eta: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getEta()%>" />
-	polso: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getPolso()%>" />
-	freqResp: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getFreqResp()%>" />
-	tempoCorp: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateParameters.getTempCorp()%>" />
+	sesso: <input type="text" size="40" maxlength="40" name="sesso" value="<%=updateParameters.getSesso()%>" />
+	altezza: <input type="text" size="40" maxlength="40" name="altezza" value="<%=updateParameters.getAltezza()%>" />
+	peso: <input type="text" size="40" maxlength="40" name="peso" value="<%=updateParameters.getPeso()%>" />
+	eta: <input type="text" size="40" maxlength="40" name="eta" value="<%=updateParameters.getEta()%>" />
+	polso: <input type="text" size="40" maxlength="40" name="polso" value="<%=updateParameters.getPolso()%>" />
+	freqResp: <input type="text" size="40" maxlength="40" name="freqResp" value="<%=updateParameters.getFreqResp()%>" />
+	tempoCorp: <input type="text" size="40" maxlength="40" name="tempCorp" value="<%=updateParameters.getTempCorp()%>" />
 			<br>
 
 			<br>

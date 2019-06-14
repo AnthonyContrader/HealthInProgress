@@ -64,7 +64,7 @@ public class DeviceServlet extends HttpServlet {
 
 		case "update":
 			
-			final int idUpdate = Integer.parseInt(request.getParameter("id_device"));
+			final int idUpdate = Integer.parseInt(request.getParameter("iddevice"));
 			final String nomeUpdate = request.getParameter("nome");
 			
 			final DeviceDTO device = new DeviceDTO(nomeUpdate);

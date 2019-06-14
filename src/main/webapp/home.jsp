@@ -45,6 +45,10 @@ background-image:url('https://i.ytimg.com/vi/1ZYbU82GVz4/maxresdefault.jpg')
 		</li>
 		<li class="nav-item"> 
 		 
+		<a class="nav-link" href="SportServlet?richiesta=SportManager">Sport Management</a>
+      </li>    
+		<li class="nav-item"> 
+		 
 		<a class="nav-link" href="IngredientServlet?richiesta=IngredientManager">Ingredient Management</a>
       </li>    
       <li class="nav-item">

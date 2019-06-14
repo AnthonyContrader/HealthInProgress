@@ -108,6 +108,8 @@ public class DeviceDAO {
 			// Update the user
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setString(1, deviceToUpdate.getNome());
+			preparedStatement.setInt(2, deviceToUpdate.getIddevice());
+			
 			
 			int a = preparedStatement.executeUpdate();
 			if (a > 0)

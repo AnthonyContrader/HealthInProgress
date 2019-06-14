@@ -51,8 +51,8 @@ public class ParametersDAO {
 
 				int parametersId = resultSet.getInt("idParameter");
 				String sesso = resultSet.getString("sesso");
-				double altezza = resultSet.getDouble("altezza");
-				double peso = resultSet.getDouble("peso");
+				int altezza = resultSet.getInt("altezza");
+				int peso = resultSet.getInt("peso");
 				int eta = resultSet.getInt("eta");
 				int polso = resultSet.getInt("polso");
 				int freqResp = resultSet.getInt("freqResp");
@@ -84,8 +84,8 @@ public class ParametersDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 
 			preparedStatement.setString(1, parameters.getSesso());
-			preparedStatement.setDouble(2, parameters.getAltezza());
-			preparedStatement.setDouble(3, parameters.getPeso());
+			preparedStatement.setInt(2, parameters.getAltezza());
+			preparedStatement.setInt(3, parameters.getPeso());
 			preparedStatement.setInt(4, parameters.getEta());
 			preparedStatement.setInt(5, parameters.getPolso());
 			preparedStatement.setInt(6, parameters.getFreqResp());
@@ -120,20 +120,19 @@ public class ParametersDAO {
 
 			resultSet.next();
 
-			String sex;
-			int idparameter;
-			int age, pulse, respiratoryr, bodyt;
-			double height, weight;
+			String sesso;
+			int idParameter,altezza,peso,eta,polso,freqResp,tempCorp;
 			
-			sex = resultSet.getString("sesso");
-			height = resultSet.getDouble("altezza");
-			weight = resultSet.getDouble("peso");
-			age = resultSet.getInt("eta");
-			pulse = resultSet.getInt("polso");
-			respiratoryr = resultSet.getInt("freqResp");
-			bodyt = resultSet.getInt("tempCorp");
+			
+			sesso = resultSet.getString("sesso");
+			altezza = resultSet.getInt("altezza");
+			peso = resultSet.getInt("peso");
+			eta = resultSet.getInt("eta");
+			polso = resultSet.getInt("polso");
+			freqResp = resultSet.getInt("freqResp");
+			tempCorp = resultSet.getInt("tempCorp");
 
-			parameters = new Parameters(sex, height, weight, age, pulse, respiratoryr, bodyt);
+			parameters = new Parameters(sesso,altezza,peso,eta,polso,freqResp,tempCorp);
 
 			parameters.setIdParameter(resultSet.getInt("idParameter"));
 
@@ -173,9 +172,9 @@ public class ParametersDAO {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 
 				preparedStatement.setString(1, parametersToUpdate.getSesso());
-				preparedStatement.setDouble(2, parametersToUpdate.getAltezza());
+				preparedStatement.setInt(2, (int) parametersToUpdate.getAltezza());
 
-				preparedStatement.setDouble(3, parametersToUpdate.getPeso());
+				preparedStatement.setInt(3, parametersToUpdate.getPeso());
 
 				preparedStatement.setInt(4, parametersToUpdate.getEta());
 				preparedStatement.setInt(5, parametersToUpdate.getPolso());

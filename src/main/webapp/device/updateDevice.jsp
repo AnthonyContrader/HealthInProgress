@@ -52,14 +52,12 @@
 		<form method="POST" action="DeviceServlet?richiesta=update">
 
 
-			<input type="hidden" name="iduser" value="<%=updateDevice.getIddevice()%>" />
+			<input type="hidden" name="iddevice" value="<%=updateDevice.getIddevice()%>" />
 
 			<br>
 
 			<br>
-					
-
-			
+						
 
 			nome: <input type="text" size="40" maxlength="40" name="nome" value="<%=updateDevice.getNome()%>" />
 

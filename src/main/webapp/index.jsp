@@ -28,7 +28,7 @@ background-image:url('https://i.ytimg.com/vi/1TCC-DjkKOQ/maxresdefault.jpg')
 <div class="row align-items-center h-100">
     <div class="col-3 mx-auto">
         <div class="text-center">
-            <img id="profile-img" class="rounded-circle profile-img-card" src="http://vignette3.wikia.nocookie.net/littlemix/images/3/30/Mixers-salute-logo.png/revision/latest?cb=20131222041511" />
+            <img id="profile-img" class="rounded-circle profile-img-card" src="file:///C:/Users/Contrader/AppData/Local/Packages/Microsoft.MicrosoftEdge_8wekyb3d8bbwe/TempState/Downloads/HealthPro_Logo-09%20(1).svg" />
             <p id="profile-name" class="profile-name-card"></p>
             <form  class="form-signin">
 

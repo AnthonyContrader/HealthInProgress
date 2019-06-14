@@ -3,8 +3,8 @@ package it.contrader.model;
 public class Parameters {
 	private int idParameter;
 	private String sesso;
-	private double altezza;
-	private double peso;
+	private int altezza;
+	private int peso;
 	private int eta;
 	private int polso;
 	private int freqResp;
@@ -12,7 +12,7 @@ public class Parameters {
 	public Parameters() {
 		super();
 	}
-	public Parameters(String sesso, double altezza, double peso, int eta, int polso, int freqResp,
+	public Parameters(String sesso, int altezza, int peso, int eta, int polso, int freqResp,
 			int tempCorp) {
 		super();
 		this.sesso = sesso;
@@ -35,16 +35,16 @@ public class Parameters {
 	public void setSesso(String sesso) {
 		this.sesso = sesso;
 	}
-	public double getAltezza() {
+	public int getAltezza() {
 		return altezza;
 	}
-	public void setAltezza(double altezza) {
+	public void setAltezza(int altezza) {
 		this.altezza = altezza;
 	}
-	public double getPeso() {
+	public int getPeso() {
 		return peso;
 	}
-	public void setPeso(double peso) {
+	public void setPeso(int peso) {
 		this.peso = peso;
 	}
 	public int getEta() {
