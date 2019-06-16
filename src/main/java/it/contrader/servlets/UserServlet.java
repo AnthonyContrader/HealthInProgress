@@ -93,6 +93,32 @@ public class UserServlet extends HttpServlet {
 			break;
 
 
+		case "registerRedirect":
+
+			getServletContext().getRequestDispatcher("/user/registerUser.jsp").forward(request, response);
+
+			break;
+
+
+
+		case "register":
+
+			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
+
+			final String usernamer = request.getParameter("nome");
+
+			final String usertyper = "user";
+
+			final String passwordr = request.getParameter("password");
+
+
+			final UserDTO userr = new UserDTO(usernamer,usertyper, passwordr);
+
+			userService.insertUser(userr);
+
+			break;
+
+
 
 		case "updateRedirect":
 

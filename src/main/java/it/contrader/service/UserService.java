@@ -122,6 +122,16 @@ public class UserService {
 
 }
 	
+	
+	public boolean registerUser (UserDTO usersDTO) {
+
+		return this.userDAO.registerUser(ConverterUser.toEntity(usersDTO));
+
+	
+
+}
+	
+	
 
 
 

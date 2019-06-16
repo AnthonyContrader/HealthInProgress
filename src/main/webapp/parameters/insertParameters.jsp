@@ -6,16 +6,38 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inserisci nuovo Parametro</title>
-<link rel="stylesheet" type="text/css" href="/JspApp/css/style.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<title>aggiunto nuovo parametro</title>
 
+ <script>
+            
+            function calc()
+            {
+            	var n1 =document.getElementById('n1').value;
+                var n2 = parseFloat(document.getElementById('n2').value);
+                var n3 = parseFloat(document.getElementById('n3').value);
+                var n4 = parseFloat(document.getElementById('n4').value);
+                
+                if(n1 === 'Maschio')
+                {
+                    document.getElementById('result').value =(66.5+(13.8*n3)+(5*n2)-(6.5*n4));
+                }
+                
+                if(n1 === 'Femina')
+                {
+                    document.getElementById('result').value = (655.1+(9.6*n3)+(1.9*n2)-(4.7*n4));
+                }
+ 
+      
+            }
+            
+        </script>
+        
+        
 </head>
 <body>
 	<div class="pre_contenitore">
 
-		<p>New Device</p>
+		<p>aggiunto nuovo parametro</p>
 
 	</div>
 
@@ -24,32 +46,40 @@
 	<form method="POST" action="/JspApp/ParametersServlet?richiesta=insert">
 		<br>
 	    <br>
-		Sesso: <input type="" size="40" maxlength="40" name="sesso" />
+	    Sesso:
+	    <select  id="n1" name ="sesso">
+            <option value="Maschio">Maschio</option>
+            <option value="Femina">Femina</option>
+        </select>
 		<br>
 		<br>
-		Altezza: <input type="" size="40" maxlength="40" name="altezza" />
+		Altezza: <input type="text" size="40" maxlength="40" name="altezza" id ="n2" class="rightAligned"/>
 		<br>
 		<br>
-		Peso: <input type="" size="40" maxlength="40" name="peso" />
+		Peso: <input type="text" size="40" maxlength="40" name="peso" id ="n3" class="rightAligned"/>
 		<br>
 		<br>
-		Eta: <input type="" size="40" maxlength="40" name="eta" />
+		Eta: <input type="text" size="40" maxlength="40" name="eta"  id ="n4"class="rightAligned"/>
 		<br>
 		<br>
-		Polso: <input type="" size="40" maxlength="40" name="polso" />
+		Polso: <input type="text" size="40" maxlength="40" name="polso" id ="n5"class="rightAligned" />
 		<br>
 		<br>
-		FreqResp: <input type="" size="40" maxlength="40" name="freqResp" />
+		FreqResp: <input type="text" size="40" maxlength="40" name="freqResp" id ="n6"class="rightAligned"/>
 		<br>
 		<br>
-		TempCorp: <input type="" size="40" maxlength="40" name="tempCorp" />
+		TempCorp: <input type="text" size="40" maxlength="40" name="tempCorp" id="n7"class="rightAligned"/>
 		<br>
 		<br>	
-		<input type="SUBMIT" value="Add">
-		<br>
-		<br>
-		<a href="/JspApp/ParametersServlet?richiesta=ParametersManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
-
+		<input type="SUBMIT" value="ADD">
+	
 	</form>
+	
+	<br>
+		<button onclick="calc();">calc kcal</button>
+        <input type="text" id="result"/>
+   	    <br>
+
+	
 </body>
 </html>

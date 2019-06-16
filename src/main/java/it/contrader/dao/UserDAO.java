@@ -33,6 +33,9 @@ public class UserDAO {
 	private final String QUERY_DELETE = "delete from users where iduser=?";
 
 	private final String QUERY_LOGIN = "select * from users where nome=? and password=?";
+	
+	private final String QUERY_REGISTER = "insert into users (nome,password,tipo) values (?,?,?)";
+
 
 
 
@@ -345,4 +348,33 @@ public class UserDAO {
 
 	}
 
+	public boolean registerUser(User user) {
+
+		Connection connection = ConnectionSingleton.getInstance();
+
+		try {
+
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_REGISTER);
+
+			preparedStatement.setString(1, user.getNome());
+
+			preparedStatement.setString(2, user.getPassword());
+
+			preparedStatement.setString(3, "user");
+
+			preparedStatement.execute();
+
+			return true;
+
+		} catch (SQLException e) {
+
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+
+			return false;
+
+		}
+
+
+
+	}
 }

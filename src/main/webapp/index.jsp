@@ -55,8 +55,9 @@ background-image:url('https://i.ytimg.com/vi/1TCC-DjkKOQ/maxresdefault.jpg')
 			<h3><font color="red" name="error">${error}</font></h3>
 
 			<button type="submit" value="Login" class="btn btn-warning">Sign in</button>
+			<button href="/JspApp/UserServlet?richiesta=registerRedirect"><i class="fas fa-plus-circle fa-lg"> Registra</i></button>
 
-	  
+	  		
 
 		</form>
 
