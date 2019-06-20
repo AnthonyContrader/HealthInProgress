@@ -194,6 +194,7 @@ public class UserController {
 
 	}
 
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
 	public String loginControl(HttpServletRequest request) {
@@ -210,25 +211,31 @@ public class UserController {
 
 		final String userType = userDTO.getUsertype();
 
-
-
 		if (!StringUtils.isEmpty(userType)) {
 
-			session.setAttribute("utenteCollegato", userDTO);
+
+
+			session.setAttribute("utente", userDTO);
 
 
 
-			switch (userType) {
+			/*
+
+			 * if (userType.equals("admin")) { return "home"; } else if
+
+			 * (userType.equals("bo")) { return "home"; }
+
+			 */
+
+			switch (userType.toLowerCase()) {
 
 			case "admin":
 
-				session.setAttribute("utenteCollegato", userDTO);
+				return "redirect:/Home/homeAdmin";
 
-				System.out.println(userDTO.getUsertype());
+			case "user":
 
-
-
-				return "homeAdmin";
+				return "redirect:/Home/homeUser";
 
 			default:
 
@@ -243,19 +250,5 @@ public class UserController {
 		return "index";
 
 	}
-
-
-
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-
-	public String logOut(HttpServletRequest request) {
-
-		request.getSession().invalidate();
-
-		return "index";
-
-	}
-
-
 
 }

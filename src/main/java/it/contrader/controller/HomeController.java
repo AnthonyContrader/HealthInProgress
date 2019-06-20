@@ -102,12 +102,26 @@ public class HomeController {
 		request.setAttribute("allUserDTO", allUser);
 
 	
-		return "homeAdmin.jsp";
+		return "homeAdmin";
 
 	}
 
 
+	@RequestMapping(value = "/homeUser", method = RequestMethod.GET)
 
+	public String homeBO(HttpServletRequest request, HttpSession session) {
+
+	//	UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+
+	//	List<userDTO> allProject = this.userService.finduserDTOByUser(userLogged);
+
+	//	request.setAttribute("allProjectDTO", allProject);
+
+		//request.setAttribute("clientDTOCount", allClient.size());
+
+		return "homeUser";
+
+	}
 	
 
 

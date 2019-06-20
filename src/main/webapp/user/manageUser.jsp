@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 
     pageEncoding="ISO-8859-1"%>
 
@@ -124,7 +124,7 @@
 
       <!--logo start-->
 
-      <a href="/homeAdmin.jsp" class="logo">Healthinprogress</a>
+      <a href="/homeAdmin.jsp" class="logo">HealthInProgress</a>
 
       <!--logo end-->
 
@@ -216,7 +216,7 @@
 
             	<table class="table table-striped">
 
-		<tr><th>Id</th><th>Username</th><th>Password</th><th>User type</th><th>Name</th><th>Surname</th><th>SSN</th><th colspan=2>Manage</th></tr>
+		<tr><th>Id</th><th>Username</th><th>Password</th><th>User type</th><th colspan=2>Manage</th></tr>
 
 		<%
 
@@ -234,6 +234,7 @@
 
 		 		<td><%=user.getUsertype()%></td>
 
+		 		
 
 		 		<td><a class="btn btn-primary btn-lg btn-block" href="/User/deleteUser?id=<%=user.getId() %>">Delete</a></td>
 
@@ -448,7 +449,3 @@
     </script>
 
 	
-
-</body>
-
-</html>
