@@ -1,38 +1,108 @@
-package it.contrader.converter;
+ package it.contrader.converter;
 
-import org.springframework.stereotype.Component;
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
 
 import it.contrader.dto.UserDTO;
 
 import it.contrader.model.User;
 
-/**
- * Questa classe implementa i metodi di conversione dell'entità User.
- *  
- * @author Vittorio Valent & Girolamo Murdaca
- * 
- *@see AbstractConverter
- *@see Converter
- */
-@Component
-public class UserConverter extends AbstractConverter<User,UserDTO> {
 
-	@Override
-	public User toEntity(UserDTO userDTO) {
-		User user = null;
-		if (userDTO != null) {
-			user = new User(userDTO.getId(),userDTO.getUsername(),userDTO.getPassword(),userDTO.getUsertype());			
-		}
-		return user;
-	}
 
-	@Override
-	public UserDTO toDTO(User user) {
+public class ConverterUser {
+
+
+
+	public static UserDTO toDTO(User user) {
+
 		UserDTO userDTO = null;
+
 		if (user != null) {
-			userDTO = new UserDTO(user.getId(),user.getUsername(),user.getPassword(),user.getUsertype());
-			
+
+			userDTO = new UserDTO();
+
+			userDTO.setId(user.getId());
+
+			userDTO.setUsername(user.getUsername());
+
+			userDTO.setPassword(user.getPassword());
+
+			userDTO.setUsertype(user.getUsertype());
+
+
+		
 		}
 		return userDTO;
 	}
+
+
+
+	public static User toEntity(UserDTO userDTO) {
+
+		User user = null;
+
+		if (userDTO != null) {
+
+			user = new User();
+
+			user.setId(userDTO.getId());
+
+			user.setUsername(userDTO.getUsername());
+
+			user.setPassword(userDTO.getPassword());
+
+			user.setUsertype(userDTO.getUsertype());
+
+
+		}
+
+		return user;
+
+	}
+
+
+
+	public static List<UserDTO> toListDTO(List<User> list) {
+
+		List<UserDTO> listUserDTO = new ArrayList<>();
+
+		if (!list.isEmpty()) {
+
+			for (User user : list) {
+
+				listUserDTO.add(ConverterUser.toDTO(user));
+
+			}
+
+		}
+
+		return listUserDTO;
+
+	}
+
+
+
+	public static List<User> toListEntity(List<UserDTO> listUserDTO) {
+
+		List<User> list = new ArrayList<>();
+
+		if (!listUserDTO.isEmpty()) {
+
+			for (UserDTO userDTO : listUserDTO) {
+
+				list.add(ConverterUser.toEntity(userDTO));
+
+			}
+
+		}
+
+		return list;
+
+	}
+
 }
