@@ -2,11 +2,9 @@ package it.contrader.service;
 
 import org.springframework.stereotype.Service;
 
-import it.contrader.dao.UserRepository;
-import it.contrader.dto.ParameterDTO;
-import it.contrader.dto.UserDTO;
-import it.contrader.model.Parameter;
-import it.contrader.model.User;
+import it.contrader.dao.SportRepository;
+import it.contrader.dto.SportDTO;
+import it.contrader.model.Sport;
 
 /**
  * Estende AbstractService con parametri User e UserDTO. 
@@ -18,8 +16,11 @@ import it.contrader.model.User;
  * @see ServiceDTO
  */
 @Service
-public class ParameterService extends AbstractService<Parameter,ParameterDTO> {
+public class SportService extends AbstractService<Sport,SportDTO> {
 	
-
+	//ALL crud methods in AbstractService
+	
+	//LOGIN method
+	
 
 }
