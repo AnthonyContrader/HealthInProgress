@@ -14,11 +14,13 @@ public class ConverterParameter {
 		if (parameter != null) {
 			parameterDTO = new ParameterDTO();
 		
-			parameter.setIdParameter(parameter.getIdParameter());
-			parameter.setSesso(parameter.getSesso());
-			parameter.setAltezza(parameter.getPeso());
-			parameter.setEta(parameter.getEta());
-			parameter.setTotKacl(parameter.getTotKacl());
+			parameterDTO.setId(parameter.getId());
+			parameterDTO.setSesso(parameter.getSesso());
+			parameterDTO.setAltezza(parameter.getAltezza());
+			parameterDTO.setPeso(parameter.getPeso());
+			parameterDTO.setEta(parameter.getEta());
+			
+			parameterDTO.setTotKcal(parameter.getTotKcal());
 			parameterDTO.setUserDTO(ConverterUser.toDTO(parameter.getUser()));
 		
 
@@ -30,12 +32,13 @@ public class ConverterParameter {
 		Parameter parameter = null;
 		if (parameterDTO != null) {
 			parameter = new Parameter();
-			parameter.setIdParameter(parameterDTO.getIdParameter());
+			parameter.setId(parameterDTO.getId());
 			parameter.setUser(ConverterUser.toEntity(parameterDTO.getUserDTO()));
 			parameter.setSesso(parameterDTO.getSesso());
 			parameter.setAltezza(parameterDTO.getAltezza());
+			parameter.setEta(parameterDTO.getEta());
 			parameter.setPeso(parameterDTO.getPeso());
-			parameter.setTotKacl(parameterDTO.getTotKcal());
+			parameter.setTotKcal(parameterDTO.getTotKcal());
 
 			
 	

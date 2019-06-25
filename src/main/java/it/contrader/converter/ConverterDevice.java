@@ -14,9 +14,9 @@ public class ConverterDevice {
 		if (device != null) {
 			deviceDTO = new DeviceDTO();
 		
-			device.setIdDevice(device.getIdDevice());
-			device.setNome(device.getNome());
-			device.setUser(ConverterUser.toEntity(deviceDTO.getUserDTO()));
+			deviceDTO.setId(device.getId());
+			deviceDTO.setNome(device.getNome());
+			deviceDTO.setUserDTO(ConverterUser.toDTO(device.getUser()));
 		
 
 		}
@@ -27,7 +27,7 @@ public class ConverterDevice {
 		Device device = null;
 		if (deviceDTO != null) {
 			device = new Device();
-			device.setIdDevice(deviceDTO.getIdDevice());
+			device.setId(deviceDTO.getId());
 			device.setUser(ConverterUser.toEntity(deviceDTO.getUserDTO()));
 			device.setNome(deviceDTO.getNome());
 

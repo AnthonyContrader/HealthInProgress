@@ -40,18 +40,17 @@ public class SportController {
 
 	@RequestMapping(value = "/sportManagement", method = RequestMethod.GET)
 	public String deviceManagement(HttpServletRequest request) {
-		
 		visualSport(request);
-		return "sport/manageSport";
+		return "sport/sportManagement";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.sportService.getSportDTOById(id);
+	public String deleteSport(HttpServletRequest request) {
+		int idSport = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", idSport);
+		this.sportService.deleteSportById(idSport);
 		visualSport(request);
-		return "sport/manageSport";
+		return "sport/sportManagement";
 
 	}
 
@@ -64,20 +63,22 @@ public class SportController {
 	public String insert(HttpServletRequest request,HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		
-		String sportName = request.getParameter("sport_name").toString();
-		String sportTipo = request.getParameter("sport_tipo").toString();
-		Integer sportDurata= Integer.parseInt(request.getParameter("sport_duarata"));
+		String sportName = request.getParameter("nome").toString();
+		String sportTipo = request.getParameter("tipo").toString();
+		Integer sportDurata= Integer.parseInt(request.getParameter("durata"));
 		
 
 		SportDTO sportObj = new SportDTO();
 		sportObj.setNome(sportName);
+		sportObj.setUserDTO(userLogged);
 		sportObj.setTipo(sportTipo);
 		sportObj.setDurata(sportDurata);
+		sportService.insertSport(sportObj);
 	
 		visualSport(request);
 		 
 
-		return "sport/manageSport";
+		return "sport/sportManagement";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
@@ -86,28 +87,29 @@ public class SportController {
 
 		sportUpdate = this.sportService.getSportDTOById(id);
 		request.setAttribute("sportUpdate", sportUpdate);
-		return "sport/update";
+		return "sport/updateSport";
 	}		
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request, HttpSession session) {
 		
-		Integer idUpdate = Integer.parseInt(request.getParameter("id"));
+		Integer idUpdate = Integer.parseInt(request.getParameter("idSport"));
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-		String nome = request.getParameter("nome");
-		String tipo = request.getParameter("tipo");
-		Integer durata = Integer.parseInt(request.getParameter("duarata"));
+		String sportnome = request.getParameter("nome");
+		String sporttipo = request.getParameter("tipo");
+		Integer sportdurata = Integer.parseInt(request.getParameter("durata"));
 		
 		SportDTO sportUpdateDTO = new SportDTO();
-		sportUpdateDTO.setNome(nome);
-		sportUpdateDTO.setTipo(tipo);
-		sportUpdateDTO.setDurata(durata);
-		
+		sportUpdateDTO.setUserDTO(userLogged);
+		sportUpdateDTO.setNome(sportnome);
+		sportUpdateDTO.setIdSport(idUpdate);
+		sportUpdateDTO.setTipo(sporttipo);
+		sportUpdateDTO.setDurata(sportdurata);
 		
 		sportService.updateSport(sportUpdateDTO);
 		visualSport(request);
 		
-		return "sport/manageSport";
+		return "sport/sportManagement";
 	}
 	
 }

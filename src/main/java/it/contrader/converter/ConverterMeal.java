@@ -14,11 +14,11 @@ public class ConverterMeal {
 		if (meal != null) {
 			mealDTO = new MealDTO();
 		
-			meal.setIdPiatto(meal.getIdPiatto());
-			meal.setNome(meal.getNome());
-			meal.setKcal(meal.getKcal());
-			meal.setTipo(meal.getTipo());
-			meal.setUser(ConverterUser.toEntity(mealDTO.getUserDTO()));
+			mealDTO.setIdPiatto(meal.getIdPiatto());
+			mealDTO.setNome(meal.getNome());
+			mealDTO.setKcal(meal.getKcal());
+			mealDTO.setTipo(meal.getTipo());
+			mealDTO.setUserDTO(ConverterUser.toDTO(meal.getUser()));
 		
 
 		}

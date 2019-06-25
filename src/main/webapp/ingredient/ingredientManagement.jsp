@@ -1,10 +1,11 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@page import="it.contrader.model.Meal"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 
     pageEncoding="ISO-8859-1"%>
 
 <%@ page import="java.util.List" %>
 
-<%@	page import="it.contrader.dto.UserDTO"%>
+<%@	page import="it.contrader.dto.IngredientDTO"%>
 
 <!DOCTYPE html>
 
@@ -18,7 +19,7 @@
 
 	<%
 
-		List<IngredientDTO> listIngredient = (List<IngredientDTO>) request.getAttribute("ingredient");
+		List<IngredientDTO> listIngredient = (List<IngredientDTO>) request.getAttribute("allIngredientDTO");
 
 	 %>
 
@@ -226,15 +227,18 @@
 
 		 	<tr>
 
-		 		<td><%=ingredient.getId()%></td>
+		 		<td><%=ingredient.getIdIngredient()%></td>
 
 		 		<td><%=ingredient.getNome()%></td>
+		 		
+		 		
+	 		
 
 		 	
 
-		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Ingredient/deleteIngredient?id=<%=ingeredient.getId() %>">Delete</a></td>
+		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Ingredient/delete?id=<%=ingredient.getIdIngredient() %>">Delete</a></td>
 
-		 		<td><a class="btn btn-primary btn-lg btn-block"href="/Ingredient/redirectUpdate?id=<%=ingredient.getId()%>">Update</a></td>
+		 		<td><a class="btn btn-primary btn-lg btn-block"href="/Ingredient/updateRedirect?id=<%=ingredient.getIdIngredient()%>">Update</a></td>
 
 		 	</tr>
 
@@ -246,7 +250,7 @@
 
 	</table>
 
-	<a class="btn btn-primary btn-lg btn-block" href="/user/insertIngredient.jsp">Insert new Ingredient</a>
+	<a class="btn btn-primary btn-lg btn-block" href="/ingredient/insertIngredient.jsp">Insert new Ingredient</a>
 
 	<br>
 

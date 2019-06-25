@@ -139,6 +139,11 @@
 						</button>
 					
 					</div>
+					<div class="container-login100-form-btn">
+<li><a class="" href="/User/registerUser">Register</a></li></a>
+					
+					</div>
+					
 
 					
 					

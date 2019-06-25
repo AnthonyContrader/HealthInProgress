@@ -1,4 +1,4 @@
-package it.contrader.dto;
+ package it.contrader.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,12 +12,12 @@ import java.util.List;
 @NoArgsConstructor
 public class ParameterDTO {
 
-	private Integer IdParameter;
+	private Integer Id;
 	private String sesso;
 	private Integer altezza;
 	private Integer peso;
 	private Integer eta;
-	private Integer totKcal;
+	private String totKcal;
 
 	private UserDTO userDTO;
 

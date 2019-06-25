@@ -14,7 +14,7 @@ public class ConverterSport {
 		if (sport != null) {
 			sportDTO = new SportDTO();
 		
-			sport.setIdSport(sport.getIdSport());
+			sportDTO.setIdSport(sport.getIdSport());
 			sportDTO.setNome(sport.getNome());
 			sportDTO.setDurata(sport.getDurata());
 			sportDTO.setTipo(sport.getTipo());

@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 
     pageEncoding="ISO-8859-1"%>
 
@@ -18,7 +18,7 @@
 
 	<%
 
-		List<ParameterDTO> listParameter = (List<ParameterDTO>) request.getAttribute("parameter");
+		List<ParameterDTO> listParameter = (List<ParameterDTO>) request.getAttribute("allParameterDTO");
 
 	 %>
 
@@ -38,7 +38,7 @@
 
 
 
-  <title>User Management</title>
+  <title>Parameter Management</title>
 
 
 
@@ -200,7 +200,7 @@
 
               <li><i class="fa fa-home"></i>Home</a></li>
 
-              <li><i class="fa fa-laptop"></i>User Management</li>
+              <li><i class="fa fa-laptop"></i>Parameter Management</li>
 
             </ol>
 
@@ -220,28 +220,28 @@
 
 		<%
 
-			for(ParameterDTO user: listParameter){
+			for(ParameterDTO parameter: listParameter){
 
 		 %>
 
 		 	<tr>
 
-		 		<td><%=user.getId()%></td>
+		 		<td><%=parameter.getId()%></td>
 
-		 		<td><%=user.getSesso()%></td>
+		 		<td><%=parameter.getSesso()%></td>
 
-		 		<td><%=user.getAltezza()%></td>
+		 		<td><%=parameter.getAltezza()%></td>
 
-		 		<td><%=user.getEta()%></td>
+		 		<td><%=parameter.getEta()%></td>
 		 		
-		 		<td><%=user.getPeso()%></td>
+		 		<td><%=parameter.getPeso()%></td>
 		 		
-		 		<td><%=user.getTotKcal()%></td>
+		 		<td><%=parameter.getTotKcal()%></td>
 
 
-		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Parameter/deleteParameter?id=<%=user.getId() %>">Delete</a></td>
+		 		<td><a class="btn btn-primary btn-lg btn-block" href="/Parameter/delete?id=<%=parameter.getId() %>">Delete</a></td>
 
-		 		<td><a class="btn btn-primary btn-lg btn-block"href="/Parameter/redirectUpdate?id=<%=user.getId()%>">Update</a></td>
+		 		<td><a class="btn btn-primary btn-lg btn-block"href="/Parameter/updateRedirect?id=<%=parameter.getId()%>">Update</a></td>
 
 		 	</tr>
 
@@ -253,7 +253,7 @@
 
 	</table>
 
-	<a class="btn btn-primary btn-lg btn-block" href="/paramter/insertParameter.jsp">Insert new Parameter</a>
+	<a class="btn btn-primary btn-lg btn-block" href="/parameter/insertParameter.jsp">Insert new Parameter</a>
 
 	<br>
 

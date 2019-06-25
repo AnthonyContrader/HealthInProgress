@@ -1,4 +1,4 @@
-package it.contrader .dao;
+ package it.contrader .dao;
 
 import java.util.List;
 

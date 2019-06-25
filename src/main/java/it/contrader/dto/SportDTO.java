@@ -23,6 +23,8 @@ public class SportDTO {
 
 	private UserDTO userDTO;
 
+	
+	
 
 
 	

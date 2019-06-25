@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="Sports")
-@NamedQuery(name="Sport.findAll", query="SELECT s FROM Sport s")
+//@NamedQuery(name="Sport.findAll", query="SELECT s FROM Sport s")
 public class Sport implements Serializable {
 	private static final long serialVersionUID = 1L;
 

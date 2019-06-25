@@ -41,16 +41,16 @@ public class DeviceController {
 	@RequestMapping(value = "/deviceManagement", method = RequestMethod.GET)
 	public String deviceManagement(HttpServletRequest request) {
 		visualDevice(request);
-		return "device/manageDevice";
+		return "device/deviceManagement";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
-		this.deviceService.getDeviceDTOById(id);
+		this.deviceService.deleteDeviceById(id);
 		visualDevice(request);
-		return "device/manageDevice";
+		return "device/deviceManagement";
 
 	}
 
@@ -63,7 +63,7 @@ public class DeviceController {
 	public String insert(HttpServletRequest request,HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		
-		String deviceName = request.getParameter("device_name").toString();
+		String deviceName = request.getParameter("nome").toString();
 		
 
 		DeviceDTO deviceObj = new DeviceDTO();
@@ -73,7 +73,7 @@ public class DeviceController {
 		visualDevice(request);
 		 
 
-		return "device/manageDevice";
+		return "device/deviceManagement";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
@@ -82,24 +82,24 @@ public class DeviceController {
 
 		deviceUpdate = this.deviceService.getDeviceDTOById(id);
 		request.setAttribute("deviceUpdate", deviceUpdate);
-		return "device/update";
+		return "device/updateDevice";
 	}		
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request, HttpSession session) {
 		
-		Integer idUpdate = Integer.parseInt(request.getParameter("idDevice"));
+		Integer idUpdate = Integer.parseInt(request.getParameter("id"));
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String deviceName = request.getParameter("nome");
 		
 		DeviceDTO deviceUpdateDTO = new DeviceDTO();
+		deviceUpdateDTO.setId(idUpdate);
+		deviceUpdateDTO.setUserDTO(userLogged);
 		deviceUpdateDTO.setNome(deviceName);
-
-		
 		deviceService.updateDevice(deviceUpdateDTO);
 		visualDevice(request);
 		
-		return "device/manageDevice";
+		return "device/deviceManagement";
 	}
 	
 }

@@ -35,7 +35,7 @@ public class SportService {
 	}
 
 	
-	public boolean insertClient(SportDTO sportDTO) {
+	public boolean insertSport(SportDTO sportDTO) {
 		return sportRepository.save(ConverterSport.toEntity(sportDTO)) != null;
 	}
 	

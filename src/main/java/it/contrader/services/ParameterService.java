@@ -1,4 +1,4 @@
-package it.contrader.services;
+ package it.contrader.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class ParameterService {
 		this.parameterRepository = parameterRepository;
 	}
 	
-	public List<ParameterDTO> getListaClientDTO(){
+	public List<ParameterDTO> getListaParameterDTO(){
 	//	List <Parameter> prova= parameterRepository.findAll();
 		return ConverterParameter.toListDTO((List<Parameter>) parameterRepository.findAll());
 		
@@ -33,6 +33,7 @@ public class ParameterService {
 	
 	public ParameterDTO getParameterDTOById(Integer id) {
 		return ConverterParameter.toDTO(parameterRepository.findById(id).get());
+		
 	}
 
 	
@@ -44,7 +45,7 @@ public class ParameterService {
 		return parameterRepository.save(ConverterParameter.toEntity(parameterDTO)) != null;
 	}
 	
-	public void deleteClientById(Integer id) {
+	public void deleteParameterById(Integer id) {
 		parameterRepository.deleteById(id);
 	}
 

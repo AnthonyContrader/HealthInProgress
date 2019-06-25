@@ -17,8 +17,8 @@ public class Device implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idDevice")
-	private Integer idDevice;
+	@Column(name="id")
+	private Integer id;
 	
 	@Column(name="nome")
 	private String nome;
@@ -37,15 +37,15 @@ public class Device implements Serializable {
 
 
 
-	public Integer getIdDevice() {
-		return idDevice;
+	public Integer getId() {
+		return id;
 	}
 
 
 
 
-	public void setIdDevice(Integer idDevice) {
-		this.idDevice = idDevice;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 

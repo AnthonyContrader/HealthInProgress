@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert Ingredient</title>
+<title>Insert User</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title>Insert Ingredient</title>
+  <title>Insert DEVICE</title>
 
   <!-- Bootstrap CSS -->
   <link href="/dash/css/bootstrap.min.css" rel="stylesheet">
@@ -92,29 +92,29 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Insert Ingredient</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Insert Device</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i>Home</a></li>
-              <li><i class="fa fa-laptop"></i>Insert Ingredient</li>
+              <li><i class="fa fa-laptop"></i>Insert Device</li>
             </ol>
           </div>
         </div>
         
         <div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        		<form class="insert-form" action="/Ingredient/insert" method="post">
+        		<form class="insert-form" action="/Device/insert" method="post">
 		<table>
 			<tr>
-				<td>Nome</td><td><input type="text" name="nome" placeholder="nome"></td>
+				<td>Name</td><td><input type="text" name="nome" placeholder="nome"></td>
 			</tr>
 			
-			
+		
 		</table>
 		<br>
 		<button class="btn btn-primary btn-lg btn-block" type="submit">Insert</button>
 	</form>
 	<br>
-	<a class="btn btn-primary btn-lg btn-block" href="/Ingredient/IngredientManagement">Back</a>
+	<a class="btn btn-primary btn-lg btn-block" href="/Device/deviceManagement">Back</a>
             </div>
         </div>
 

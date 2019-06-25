@@ -35,9 +35,15 @@
               <li><a class="" href="/User/userManagement">User Management</a></li>
 
               <li><a class="" href="/Device/deviceManagement">Device Management</a></li>
-
+              
+              <li><a class="" href="/Ingredient/ingredientManagement">Ingredient Management</a></li>
+              
+			  <li><a class="" href="/Sport/sportManagement">Sport Management</a></li>
+			  
+			  <li><a class="" href="/Meal/mealManagement">Meal Management</a></li>
+			  
+			  
             </ul>
-
           </li>
 
 

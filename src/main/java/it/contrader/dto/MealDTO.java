@@ -21,9 +21,7 @@ public class MealDTO {
 	
 	private String tipo;
 	
-
-	private UserDTO userDTO;
-	private List<IngredientDTO> ingredientDTO;
+private UserDTO userDTO;
 
 
 

@@ -28,10 +28,9 @@ import it.contrader.model.User;
 
 public class UserService {
 
+ 
 
-
-	private final UserRepository userRepository;
-
+	private final UserRepository userRepository; 
 
 
 	@Autowired
@@ -79,6 +78,13 @@ public class UserService {
 		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
 
 	}
+
+	public boolean registerUser(UserDTO userDTO) {
+
+		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
+
+	}
+
 
 
 

@@ -43,16 +43,16 @@ public class MealController {
 	@RequestMapping(value = "/mealManagement", method = RequestMethod.GET)
 	public String mealManagement(HttpServletRequest request) {
 		visualMeal(request);
-		return "meal/manageMeal";
+		return "meal/mealManagement";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.mealService.getMealDTOById(id);
+	public String deleteMeal(HttpServletRequest request) {
+		int idPiatto = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", idPiatto);
+		this.mealService.deleteMealById(idPiatto);
 		visualMeal(request);
-		return "meal/manageMeal";
+		return "meal/mealManagement";
 
 	}
 
@@ -65,54 +65,56 @@ public class MealController {
 	public String insert(HttpServletRequest request,HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		
-		String mealPiatto = request.getParameter("meal_piatto").toString();
-		Integer mealKcal = Integer.parseInt(request.getParameter("meal_kcal"));
-		String mealTipo= request.getParameter("meal_tipo").toString();
+		String mealName = request.getParameter("nome").toString();
+		Integer mealKcal = Integer.parseInt(request.getParameter("kcal"));
+		String mealTipo= request.getParameter("tipo").toString();
 	
 		
 
 		MealDTO mealObj = new MealDTO();
-		mealObj.setNome(mealPiatto);
+		mealObj.setNome(mealName);
+		mealObj.setUserDTO(userLogged);
 		mealObj.setKcal(mealKcal);
 		mealObj.setTipo(mealTipo);
-
-
+		mealService.insertMeal(mealObj);
 		visualMeal(request);
 		 
 
-		return "/manage";
+		return "meal/mealManagement";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		MealDTO mealUpdate = new MealDTO();
 
 		mealUpdate = this.mealService.getMealDTOById(id);
-		request.setAttribute("Update", mealUpdate);
-		return "/update";
+		request.setAttribute("mealUpdate", mealUpdate);
+		return "meal/updateMeal";
 	}		
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request, HttpSession session) {
 		
-		Integer idUpdate = Integer.parseInt(request.getParameter("id"));
+		Integer idUpdate = Integer.parseInt(request.getParameter("idPiatto"));
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-		String piatto = request.getParameter("piatto");
-		Integer kcal= Integer.parseInt(request.getParameter("kcal"));
-		Integer tipo= Integer.parseInt(request.getParameter("tipo"));
+		String mealpiatto = request.getParameter("idPiatto");
+		Integer mealkcal= Integer.parseInt(request.getParameter("kcal"));
+		String mealtipo = request.getParameter("tipo");
 
 
 		
 		MealDTO mealUpdateDTO = new MealDTO();
-		mealUpdateDTO.setNome(piatto);
-		mealUpdateDTO.setKcal(kcal);
-		mealUpdateDTO.setKcal(kcal);
+		mealUpdateDTO.setUserDTO(userLogged);
+		mealUpdateDTO.setIdPiatto(idUpdate);
+		mealUpdateDTO.setNome(mealpiatto);
+		mealUpdateDTO.setKcal(mealkcal);
+		mealUpdateDTO.setTipo(mealtipo);
 
 		
 		mealService.updateMeal(mealUpdateDTO);
 		visualMeal(request);
 		
-		return "/manage";
+		return "meal/mealManagement";
 	}
 	
 }

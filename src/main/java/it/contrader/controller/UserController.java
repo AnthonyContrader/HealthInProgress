@@ -96,17 +96,17 @@ public class UserController {
 
 	@RequestMapping(value ="/deleteUser", method = RequestMethod.GET)
 
-	public String deleteUser(HttpServletRequest request) {
-
-		int idUser = Integer.parseInt(request.getParameter("id"));
-
-		userService.deleteUserById(idUser);
-
-		request.setAttribute("user", getUsers());
-
-		return "user/userManagement";
-
-	}
+		public String deleteUser(HttpServletRequest request) {
+	
+			int idUser = Integer.parseInt(request.getParameter("id"));
+	
+			userService.deleteUserById(idUser);
+	
+			request.setAttribute("user", getUsers());
+	
+			return "user/userManagement";
+	
+		}
 
 	
 
@@ -191,6 +191,34 @@ public class UserController {
 		
 
 		return "user/userManagement";		
+
+	}
+
+	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+
+	public String registerUser(HttpServletRequest request) {
+
+		
+
+		String username= request.getParameter("username");
+
+		String password = request.getParameter("password");
+
+		String usertype = request.getParameter("user");
+
+		UserDTO userDTO = new UserDTO(username,password,usertype);
+
+		
+
+		userService.insertUser(userDTO);
+
+		
+
+		request.setAttribute("user", getUsers());
+
+		
+
+		return "index.jsp";		
 
 	}
 

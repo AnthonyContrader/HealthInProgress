@@ -17,8 +17,8 @@ public class Parameter implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idParameter")
-	private Integer idParameter;
+	@Column(name="id")
+	private Integer id;
 
 	@Column(name="sesso")
 	private String sesso;
@@ -33,7 +33,7 @@ public class Parameter implements Serializable {
 	private Integer eta ;
 	
 	@Column(name="totKcal")
-	private Integer totKacl ;
+	private String totKcal ;
 	
 	
 	//bi-directional many-to-one association to User
@@ -47,15 +47,6 @@ public class Parameter implements Serializable {
 
 
 
-	public Integer getIdParameter() {
-		return idParameter;
-	}
-
-
-
-	public void setIdParameter(Integer idParameter) {
-		this.idParameter = idParameter;
-	}
 
 
 
@@ -107,14 +98,14 @@ public class Parameter implements Serializable {
 
 
 
-	public Integer getTotKacl() {
-		return totKacl;
+	public String getTotKcal() {
+		return totKcal;
 	}
 
 
 
-	public void setTotKacl(Integer totKacl) {
-		this.totKacl = totKacl;
+	public void setTotKcal(String totKcal) {
+		this.totKcal = totKcal;
 	}
 
 	public User getUser() {
@@ -124,5 +115,26 @@ public class Parameter implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
+
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+
 
 }	

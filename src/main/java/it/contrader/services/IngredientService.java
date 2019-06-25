@@ -1,4 +1,4 @@
-package it.contrader.services;
+ package it.contrader.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterIngredient;
+import it.contrader.converter.ConverterMeal;
 import it.contrader.converter.ConverterParameter;
 import it.contrader.converter.ConverterUser;
 import it.contrader.dao.IngredientRepository;
 import it.contrader.dto.IngredientDTO;
+import it.contrader.dto.MealDTO;
 import it.contrader.dto.ParameterDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.Ingredient;
@@ -51,11 +53,11 @@ public class IngredientService {
 		ingredientRepository.deleteById(id);
 	}
 	
-public List<IngredientDTO> findIngredientDTOByUser( UserDTO userDTO) {
+public List<IngredientDTO> findIngredientDTOByMeal( MealDTO mealDTO) {
 		
-		//final List<Ingredient> listIngredient = ingredientRepository.findAllByUser(ConverterUser.toEntity(userDTO));
+		final List<Ingredient> listIngredient = ingredientRepository.findAllByMeal(ConverterMeal.toEntity(mealDTO));
 		final List<IngredientDTO> listIngredientDTO = new ArrayList<>();
-		//listIngredient.forEach(i -> listIngredientDTO.add(ConverterIngredient.toDTO(i)));
+		listIngredient.forEach(i -> listIngredientDTO.add(ConverterIngredient.toDTO(i)));
 		return listIngredientDTO;
 	}
 }
