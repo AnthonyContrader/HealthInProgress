@@ -5,22 +5,22 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.contrader.model.Sport;
-
+import it.contrader.model.Meal;
+import it.contrader.model.Parameter;
 
 /**
  * Estende CrudRepository ed eredita tutti i metodi di CRUD. 
  * Definisce il metodo di login.
  * 
- * @author Vittorio Valent & Girolamo Murdaca
- *
+ * 
  * @see CrudRepository
  *
  */
 @Repository
 @Transactional
-public interface SportRepository extends CrudRepository<Sport, Long>{
+public interface MealRepository extends CrudRepository<Meal, Long>{
 
-	Sport findById(long id);
+
+	Meal findById(long id);
 	
 }

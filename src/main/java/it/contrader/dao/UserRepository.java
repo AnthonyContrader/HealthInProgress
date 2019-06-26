@@ -1,24 +1,14 @@
- package it.contrader.dao;
+package it.contrader.dao;
 
 
 
-
-
-
-
-import org.springframework.data.jpa.repository.Query;
+import javax.transaction.Transactional;
 
 
 
 import org.springframework.data.repository.CrudRepository;
 
-
-
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-
-
+import org.springframework.stereotype.Repository;
 
 
 
@@ -27,42 +17,33 @@ import it.contrader.model.User;
 
 
 
+/**
+
+ * Estende CrudRepository ed eredita tutti i metodi di CRUD. 
+
+ * Definisce il metodo di login.
+
+ * 
+
+ * @author Vittorio Valent & Girolamo Murdaca
+
+ *
+
+ * @see CrudRepository
+
+ *
+
+ */
+
+@Repository
+
+@Transactional
+
+public interface UserRepository extends CrudRepository<User, Long>{
 
 
 
-import java.util.List;
-
-
-
-
-
-
-
-import javax.transaction.Transactional;
-
-
-
-
-
-
-
-public interface UserRepository extends CrudRepository<User, Integer> {
-
-
-
-
-
-
-
-	public User findUserByUsernameAndPassword(String username,String password);
-
-
-
-	public List<User> findAllByUsername(String username);
-
-	
-
-	
+	User findByUsernameAndPassword(String username, String password);
 
 	
 
