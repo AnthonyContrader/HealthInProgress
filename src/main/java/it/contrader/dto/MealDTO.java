@@ -1,15 +1,19 @@
 package it.contrader.dto;
 
-import it.contrader.*;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
+import it.contrader.model.User.Usertype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+/**
+ * DTO della classe User. Ha gli stessi attributi di User
+ * 
+ * @author Vittorio Valent & Girolamo Murdaca
+ * 
+ *@see User
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,14 +22,11 @@ public class MealDTO {
 
 	private long id;
 	
-	private Integer kcal;
-	
 	private String nome;
-
+	
 	private String tipo;
 
-	
+	private int kcal;
 	
 
 }
-

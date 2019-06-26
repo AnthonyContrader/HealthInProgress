@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.contrader.dto.LoginDTO;
 import it.contrader.dto.DeviceDTO;
-import it.contrader.service.DeviceService;
+import it.contrader.service.MealService;
 
 
 /**
@@ -29,9 +29,6 @@ import it.contrader.service.DeviceService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class DeviceController extends AbstractController<DeviceDTO>{
 	
-	@Autowired
-	private DeviceService deviceService;
+	
 
-
-
-	}
+}

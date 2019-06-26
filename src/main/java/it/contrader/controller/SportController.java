@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.contrader.dto.LoginDTO;
 import it.contrader.dto.SportDTO;
-import it.contrader.service.SportService;
+import it.contrader.service.MealService;
 
 
 /**
@@ -25,12 +25,10 @@ import it.contrader.service.SportService;
  *
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/Sport")
 @CrossOrigin(origins = "http://localhost:4200")
 public class SportController extends AbstractController<SportDTO>{
 	
-	@Autowired
-	private SportService sportService;
-
+	
 
 }

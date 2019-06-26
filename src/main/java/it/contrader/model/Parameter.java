@@ -1,4 +1,4 @@
- package it.contrader.model;
+package it.contrader.model;
 
 import javax.persistence.Entity;
 
@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class  Parameter{
-
+public class Parameter {
+	
 	
 
 	@Id
@@ -34,11 +34,16 @@ public class  Parameter{
 	
 	@Column(unique = true)
 	private String sesso;
-	
-	private Integer  altezza ;
+	@Column(unique = true)
+	private int altezza;
+	@Column(unique = true)
+	private int peso;
+	@Column(unique = true)
+	private int eta;
+	@Column(unique = true)
+	private String totkcal;
 
-	private Integer peso ;
-	
-	private Integer totKcal;
+
+
 	
 }

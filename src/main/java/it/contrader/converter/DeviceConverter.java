@@ -2,7 +2,6 @@ package it.contrader.converter;
 
 import org.springframework.stereotype.Component;
 
-
 import it.contrader.dto.DeviceDTO;
 
 import it.contrader.model.Device;
@@ -22,7 +21,7 @@ public class DeviceConverter extends AbstractConverter<Device,DeviceDTO> {
 	public Device toEntity(DeviceDTO deviceDTO) {
 		Device device = null;
 		if (deviceDTO != null) {
-			device = new Device(deviceDTO.getId(),deviceDTO.getName());			
+			device = new Device(deviceDTO.getId(),deviceDTO.getNome());			
 		}
 		return device;
 	}
@@ -31,7 +30,7 @@ public class DeviceConverter extends AbstractConverter<Device,DeviceDTO> {
 	public DeviceDTO toDTO(Device device) {
 		DeviceDTO deviceDTO = null;
 		if (device != null) {
-			deviceDTO = new DeviceDTO(device.getId(),device.getName());
+			deviceDTO = new DeviceDTO(device.getId(),device.getNome());
 			
 		}
 		return deviceDTO;

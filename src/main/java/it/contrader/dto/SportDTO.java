@@ -2,6 +2,7 @@ package it.contrader.dto;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import it.contrader.model.User.Usertype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,11 @@ import lombok.NoArgsConstructor;
  * 
  *@see User
  */
-@Data
+ @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class SportDTO {
+public class  SportDTO {
 
 	private long id;
 	
@@ -27,6 +28,5 @@ public class SportDTO {
 
 	private int durata;
 	
-	private int calorie;
-
+	private int kcal;
 }

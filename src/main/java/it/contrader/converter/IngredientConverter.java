@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import it.contrader.dto.IngredientDTO;
 
 import it.contrader.model.Ingredient;
-
 /**
  * Questa classe implementa i metodi di conversione dell'entità User.
  *  
@@ -21,7 +20,7 @@ public class IngredientConverter extends AbstractConverter<Ingredient,Ingredient
 	public Ingredient toEntity(IngredientDTO ingredientDTO) {
 		Ingredient ingredient = null;
 		if (ingredientDTO != null) {
-			ingredient = new Ingredient(ingredientDTO.getId(),ingredientDTO.getName());			
+			ingredient = new Ingredient(ingredientDTO.getId(),ingredientDTO.getNome());			
 		}
 		return ingredient;
 	}
@@ -30,11 +29,9 @@ public class IngredientConverter extends AbstractConverter<Ingredient,Ingredient
 	public IngredientDTO toDTO(Ingredient ingredient) {
 		IngredientDTO ingredientDTO = null;
 		if (ingredient != null) {
-			ingredientDTO = new IngredientDTO(ingredient.getId(),ingredient.getName());
+			ingredientDTO = new IngredientDTO(ingredient.getId(),ingredient.getNome());
 			
 		}
 		return ingredientDTO;
 	}
-
-	
 }

@@ -18,6 +18,9 @@ import it.contrader.model.Ingredient;
 @Service
 public class IngredientService extends AbstractService<Ingredient,IngredientDTO> {
 	
+	//ALL crud methods in AbstractService
+	
+	//LOGIN method
 	
 
 }

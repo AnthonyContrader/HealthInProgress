@@ -1,7 +1,6 @@
 package it.contrader.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +12,23 @@ import it.contrader.dto.MealDTO;
 import it.contrader.service.MealService;
 
 
-
+/**
+ * 
+ * Questa classe estende AbstractController con tipo UserDTO.
+ * In aggiunta ai metodi di CRUD si implementa il metodo di login.
+ * 
+ * @author Vittorio Valent & Girolamo Murdaca
+ * 
+ * @param<UserDTO>
+ * 
+ * @see AbstractController
+ *
+ */
 @RestController
 @RequestMapping("/meal")
 @CrossOrigin(origins = "http://localhost:4200")
 public class MealController extends AbstractController<MealDTO>{
 	
 	
+
 }

@@ -1,9 +1,8 @@
 package it.contrader.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.repository.CrudRepository;
 
+import org.springframework.data.repository.CrudRepository;
 
 import it.contrader.converter.Converter;
 
@@ -20,7 +19,6 @@ import it.contrader.converter.Converter;
  * 
  * @see ServiceDTO
  */
-
 public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 	
 	@Autowired

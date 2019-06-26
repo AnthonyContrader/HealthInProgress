@@ -1,4 +1,4 @@
- package it.contrader.service;
+package it.contrader.service;
 
 import org.springframework.stereotype.Service;
 
@@ -20,5 +20,7 @@ public class DeviceService extends AbstractService<Device,DeviceDTO> {
 	
 	//ALL crud methods in AbstractService
 	
+	//LOGIN method
 	
+
 }

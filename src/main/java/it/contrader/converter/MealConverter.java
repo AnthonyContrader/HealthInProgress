@@ -5,9 +5,14 @@ import org.springframework.stereotype.Component;
 import it.contrader.dto.MealDTO;
 
 import it.contrader.model.Meal;
-import it.contrader.*;
-
-
+/**
+ * Questa classe implementa i metodi di conversione dell'entità User.
+ *  
+ * @author Vittorio Valent & Girolamo Murdaca
+ * 
+ *@see AbstractConverter
+ *@see Converter
+ */
 @Component
 public class MealConverter extends AbstractConverter<Meal,MealDTO> {
 
@@ -15,7 +20,7 @@ public class MealConverter extends AbstractConverter<Meal,MealDTO> {
 	public Meal toEntity(MealDTO mealDTO) {
 		Meal meal = null;
 		if (mealDTO != null) {
-			meal = new Meal(mealDTO.getId(),mealDTO.getTipo(),mealDTO.getNome(),mealDTO.getKcal());			
+			meal = new Meal(mealDTO.getId(),mealDTO.getNome(),mealDTO.getTipo(),mealDTO.getKcal());			
 		}
 		return meal;
 	}
@@ -24,7 +29,7 @@ public class MealConverter extends AbstractConverter<Meal,MealDTO> {
 	public MealDTO toDTO(Meal meal) {
 		MealDTO mealDTO = null;
 		if (meal != null) {
-			mealDTO = new MealDTO(meal.getId(),meal.getKcal(),meal.getNome(),meal.getTipo());
+			mealDTO = new MealDTO(meal.getId(),meal.getNome(),meal.getTipo(),meal.getKcal());
 			
 		}
 		return mealDTO;

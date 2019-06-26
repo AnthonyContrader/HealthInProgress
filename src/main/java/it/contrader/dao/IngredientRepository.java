@@ -20,5 +20,6 @@ import it.contrader.model.Ingredient;
 @Repository
 @Transactional
 public interface IngredientRepository extends CrudRepository<Ingredient, Long>{
-		Ingredient findById(long id);
+	Ingredient findById(long id);
+	
 }
