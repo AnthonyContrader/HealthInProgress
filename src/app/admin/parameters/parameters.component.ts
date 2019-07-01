@@ -43,10 +43,6 @@ export class ParametersComponent implements OnInit {
     this.parametertoinsert = new ParameterDTO();
   }
 
-  calc(sesso:string, altezza: number, peso: number, eta: number ){
-   if (sesso === 'Maschio') {this.parametertoinsert.totkcal = (66.5+(13.8*peso)+(5*altezza)-(6.5*eta));}
-   else {this.parametertoinsert.totkcal = (655.1+(9.6*peso)+(1.9*altezza-(4.7*eta)));}
-
-  }
+  
   
 }
