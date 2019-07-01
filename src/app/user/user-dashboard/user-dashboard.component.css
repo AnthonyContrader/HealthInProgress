@@ -1,0 +1,10 @@
+p {
+    font-size: 14px;
+}
+
+
+th, td {
+	text-align: center;
+    padding: 2px;
+    color: black;
+}

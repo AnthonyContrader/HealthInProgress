@@ -1,0 +1,72 @@
+<p>
+  parameters works!
+</p>
+<div class="container">
+  <table>
+      <tr>
+          <td>
+            <input placeholder="sesso" [(ngModel)]="parametertoinsert.sesso">
+          </td>
+          <td>
+            <input placeholder="altezza" [(ngModel)]="parametertoinsert.altezza">
+          </td>
+          <td>
+            <input placeholder="peso" [(ngModel)]="parametertoinsert.peso">
+          </td>
+          <td>
+            <input placeholder="eta" [(ngModel)]="parametertoinsert.eta">
+          </td>
+          <td>
+            <input placeholder="totkcal" [(ngModel)]="parametertoinsert.totkcal">
+          </td>
+          <td>
+              <button (click)="calc(parametertoinsert.sesso,parametertoinsert.altezza,parametertoinsert.peso,parametertoinsert.eta)">calc Kcal</button>
+          </td>
+          <td>
+            <button (click)="insert(parametertoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+   
+    
+      <tr *ngFor="let parameter of parameters">
+          <div class="form-group">
+             
+            Sesso
+            <input class="form-control" placeholder="Sesso" [(ngModel)]="parameter.sesso">
+          </div>
+        <br>
+        <br>
+        Altezza
+          <div class="form-group">
+            <input class="form-control" placeholder="Altezza"  [(ngModel)]="parameter.altezza">
+          </div>
+          <br>
+          <br>
+          Eta
+            <div class="form-group">
+              <input class="form-control" placeholder="Eta'"  [(ngModel)]="parameter.eta">
+            </div>
+            <br>
+            <br>
+            Peso
+              <div class="form-group">
+                <input class="form-control" placeholder="Peso"  [(ngModel)]="parameter.peso">
+              </div>
+              <br>
+              <br>
+              TotKcal
+                <div class="form-group">
+                  <input class="form-control" placeholder="TotKcal"  [(ngModel)]="parameter.totkcal">
+                </div>
+                <br>
+                
+            <button (click)=update(parameter)>Save</button>
+          
+            <button (click)="delete(parameter)">Delete</button>
+              
+            
+  
+           

@@ -1,0 +1,91 @@
+<p>
+  parameters works!
+</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Sesso
+          </th>
+          <th>
+            Altezza
+          </th>
+          <th>
+            Peso
+          </th>
+          <th>
+            Eta
+          </th>
+          <th>
+            Totkcal
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Parameter
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="sesso" [(ngModel)]="parametertoinsert.sesso">
+          </td>
+          <td>
+            <input placeholder="altezza" [(ngModel)]="parametertoinsert.altezza">
+          </td>
+          <td>
+            <input placeholder="peso" [(ngModel)]="parametertoinsert.peso">
+          </td>
+          <td>
+            <input placeholder="eta" [(ngModel)]="parametertoinsert.eta">
+          </td>
+          <td>
+            <input placeholder="totkcal" [(ngModel)]="parametertoinsert.totkcal">
+          </td>
+          
+          <td>
+            <button (click)="insert(parametertoinsert)">Insert</button>
+          </td>
+          <td>
+              <button (click)="calc(parametertoinsert.sesso,parametertoinsert.altezza,parametertoinsert.peso,parametertoinsert.eta)">calc Kcal</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let parameter of parameters">
+          <td>
+            <input [(ngModel)]="parameter.sesso">
+          </td>
+          <td>
+            <input [(ngModel)]="parameter.peso">
+          </td>
+          <td>
+            <input [(ngModel)]="parameter.eta">
+          </td>
+          <td>
+            <input [(ngModel)]="parameter.peso">
+          </td>
+          <td>
+            <input [(ngModel)]="parameter.totkcal">
+          </td>
+          
+          <td>
+            <button (click)=update(parameter)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(parameter)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

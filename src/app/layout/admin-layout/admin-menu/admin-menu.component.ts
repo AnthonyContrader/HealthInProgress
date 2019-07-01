@@ -11,6 +11,11 @@ export class AdminMenuComponent implements OnInit {
   isUserCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
+  isParameterCollapsed = false;
+  isDeviceCollapsed = false;
+  isMealCollapsed = false;
+  isIngredientCollapsed = false;
+  isSportCollapsed = false;
 
   constructor(private router: Router) {
   }
@@ -27,6 +32,31 @@ export class AdminMenuComponent implements OnInit {
     if (this.isUserCollapsed === false) {
       this.isUserCollapsed = true;
     } else { this.isUserCollapsed = false; }
+  }
+  ingredientscollapse() {
+    if (this.isIngredientCollapsed === false) {
+      this.isIngredientCollapsed = true;
+    } else { this.isIngredientCollapsed = false; }
+  }
+  devicescollapse() {
+    if (this.isDeviceCollapsed === false) {
+      this.isDeviceCollapsed = true;
+    } else { this.isDeviceCollapsed = false; }
+  }
+  parameterscollapse() {
+    if (this.isParameterCollapsed === false) {
+      this.isParameterCollapsed = true;
+    } else { this.isParameterCollapsed = false; }
+  }
+  sportscollapse() {
+    if (this.isSportCollapsed === false) {
+      this.isSportCollapsed = true;
+    } else { this.isSportCollapsed = false; }
+  }
+  mealscollapse() {
+    if (this.isMealCollapsed === false) {
+      this.isMealCollapsed = true;
+    } else { this.isMealCollapsed = false; }
   }
 
   accountcollapse() {

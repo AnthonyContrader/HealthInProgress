@@ -1,0 +1,73 @@
+<p>
+    meal works!
+  </p>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Kcal
+            </th>
+            <th>
+              Nome
+            </th>
+            <th>
+              Tipo
+            </th>
+                
+            <th>
+              Edit
+            </th>
+            <th>
+              Meal
+            </th>
+            <tr>
+          
+            <td>
+              <input placeholder="kcal" [(ngModel)]="mealtoinsert.kcal">
+            </td>
+            <td>
+              <input placeholder="nome" [(ngModel)]="mealtoinsert.nome">
+            </td>
+            <td>
+              <input placeholder="tipo" [(ngModel)]="mealtoinsert.tipo">
+            </td>
+            
+            
+            <td>
+              <button (click)="insert(mealtoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          
+          <tr *ngFor="let meal of meals">
+            <td>
+              <input [(ngModel)]="meal.kcal">
+            </td>
+            <td>
+              <input [(ngModel)]="meal.nome">
+            </td>
+            <td>
+              <input [(ngModel)]="meal.tipo">
+            </td>
+                      
+            
+            <td>
+              <button (click)=update(meal)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(meal)">Delete</button>
+            </td>
+          
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

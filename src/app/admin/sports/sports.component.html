@@ -1,0 +1,85 @@
+<p>
+  meal works!
+</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+            <th>
+                Nome
+              </th>
+               
+          <th>
+              Durata
+            </th>
+          <th>
+            Kcal
+          </th>
+          
+          <th>
+            Tipo
+          </th>
+              
+          <th>
+            Edit
+          </th>
+          <th>
+            Meal
+          </th>
+          <tr>
+        
+          <td>
+            <input placeholder="nome" [(ngModel)]="sporttoinsert.nome">
+          </td>
+          <td>
+            <input placeholder="durata" [(ngModel)]="sporttoinsert.durata">
+          </td>
+          <td>
+            <input placeholder="kcal" [(ngModel)]="sporttoinsert.kcal">
+          </td>
+          <td>
+              <input placeholder="tipo" [(ngModel)]="sporttoinsert.tipo">
+            </td>
+            
+          
+          
+          <td>
+            <button (click)="insert(sporttoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        
+        <tr *ngFor="let sport of sports">
+          <td>
+            <input [(ngModel)]="sport.nome">
+          </td>
+          <td>
+            <input [(ngModel)]="sport.durata">
+          </td>
+          <td>
+            <input [(ngModel)]="sport.kcal">
+          </td>
+          <td>
+              <input [(ngModel)]="sport.tipo">
+            </td>
+                    
+          
+          <td>
+            <button (click)=update(sport)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(sport)">Delete</button>
+          </td>
+        
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

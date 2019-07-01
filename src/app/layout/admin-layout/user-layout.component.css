@@ -11,3 +11,8 @@
     height: 100vh;
     color: #ffffff;
 }
+th, td {
+	text-align: center;
+    padding: 2px;
+    color: red;
+}

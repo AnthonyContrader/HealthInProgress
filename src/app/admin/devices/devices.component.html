@@ -1,0 +1,53 @@
+<p>
+  devices works!
+</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Nome
+          </th>
+          
+          <th>
+            Edit
+          </th>
+          <th>
+            Device
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="nome" [(ngModel)]="devicetoinsert.nome">
+          </td>
+          
+          <td>
+            <button (click)="insert(devicetoinsert)">Insert</button>
+            
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let device of devices">
+          <td>
+            <input [(ngModel)]="device.nome">
+          </td>
+          <td>
+            <button (click)=update(device)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(device)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
